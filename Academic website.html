@@ -25,13 +25,13 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        /* 個人頭像樣式 */
+        /* ✅ 正確的頭像樣式 */
         .banner-img {
-    width: 120px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
+            width: 120px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
 
         /* 主要內容區域 */
         .container {
@@ -47,14 +47,21 @@
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
         }
+
+        .info-item {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
+
 <meta name="google-site-verification" content="google-site-verification: google7a32a42ea5a845d6.html" />
 
 <body>
-    <!-- 橫幅區域，包含個人頭像和標題 -->
+
+    <!-- 橫幅區域 -->
     <div class="banner">
-        <img src="b054011024-2.jpg" alt="Gary Yeh's Profile Picture" class="profile-picture">
+        <!-- ✅ 這裡改成 banner-img（關鍵修正） -->
+        <img src="b054011024-2.jpg" alt="Gary Yeh's Profile Picture" class="banner-img">
         <span>Welcome to Gary Yeh's Website</span>
     </div>
 
@@ -64,31 +71,20 @@
         <!-- Personal Information -->
         <section class="personal-info">
             <div class="info-item">Email: <a href="mailto:gary1253018642@gmail.com">gary1253018642@gmail.com</a></div>
-            <div class="info-item">IG: <a href="https://www.instagram.com/gr_0316?igsh=MTlka2wwczVmcnlhaw%3D%3D&utm_source=qr" target="_blank">gr_0316</a></div>
+            <div class="info-item">IG: <a href="https://www.instagram.com/gr_0316" target="_blank">gr_0316</a></div>
             <div class="info-item">Line: gary03160316</div>
         </section>
-
-        <!-- 清除浮動的區域 -->
-        <div style="clear: both;"></div>
 
         <!-- Education Background -->
         <section class="section">
             <h2>Education Background</h2>
             <ul>
                 <li>Virginia Tech — Visiting Scholar, Business Information Technology, 2026–2027</li>
-                <li>National Sun Yat-sen University — PhD Candidate of Information Management, 2023-</li>
+                <li>National Sun Yat-sen University — PhD Candidate in Information Management, 2023-</li>
                 <li>National Taiwan University — Master of National Development, 2020-2023</li>
                 <li>National Sun Yat-sen University — Bachelor of Business Administration, 2016-2020</li>
             </ul>
         </section>
-        <!-- CSS 調整 -->
-        <style>
-
-        /* 調整 Education Background 區域的樣式 */
-        .section {
-        clear: both; /* 確保內容不與頭像重疊 */
-    }
-        </style>
 
         <!-- Research Interests -->
         <section class="section">
@@ -102,10 +98,9 @@
                 <li>Sustainable Business</li>
                 <li>Urban Planning</li>
                 <li>fsQCA</li>
-                <li>ExperimentA</li>
+                <li>Experimental Research</li>
             </ul>
         </section>
-
         <!-- Research Publications -->
          <section class="section">
             <h2>Research Publications</h2>
