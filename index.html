@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Gary Yeh's Website</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,32 +13,33 @@
             background-color: #f4f4f4;
         }
 
-        /* 橫幅區域樣式 */
+        /* 🔥 Banner（已修正：圖片會在最上面） */
         .banner {
             background-color: #333;
-            height: 300px;
+            height: 260px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;   /* ✅ 關鍵 */
+            padding-top: 30px;             /* ✅ 控制上方距離 */
             color: #fff;
-            font-size: 2em;
+            font-size: 28px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
-        /* 個人頭像樣式 */
-        .profile-picture {
-            width: 160px;
-            height: 200px;
-            border-radius: 0%;
-            margin-bottom: 100px;
-            float: right; /* 讓圖片浮動靠右 */
-}
+        /* 🔥 頭像（已優化） */
+        .banner-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;   /* 圓形（學術網站標配） */
+            margin-bottom: 10px;
+        }
 
-        /* 主要內容區域 */
+        /* 主內容 */
         .container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 30px;
             background-color: #fff;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -48,66 +50,66 @@
             border-bottom: 2px solid #eee;
             padding-bottom: 10px;
         }
+
+        .info-item {
+            margin-bottom: 8px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
     </style>
 </head>
+
 <meta name="google-site-verification" content="google-site-verification: google7a32a42ea5a845d6.html" />
 
 <body>
-    <!-- 橫幅區域，包含個人頭像和標題 -->
+
+    <!-- 🔥 Banner（圖片已在最上面） -->
     <div class="banner">
-        <img src="" alt="" >
-        <span>Welcome to Gary Yeh's Website</span>
+        <img src="b054011024-2.jpg" alt="Gary Yeh" class="banner-img">
+        <div>Welcome to Gary Yeh's Website</div>
     </div>
 
     <!-- Main Content -->
     <div class="container">
 
         <!-- Personal Information -->
-        <section class="personal-info">
-            <img src="b054011024-2.jpg" alt="Gary Yeh's Profile Picture" class="profile-picture">
+        <section>
             <div class="info-item">Email: <a href="mailto:gary1253018642@gmail.com">gary1253018642@gmail.com</a></div>
-            <div class="info-item">IG: <a href="https://www.instagram.com/gr_0316?igsh=MTlka2wwczVmcnlhaw%3D%3D&utm_source=qr" target="_blank">gr_0316</a></div>
             <div class="info-item">Line: gary03160316</div>
         </section>
 
-        <!-- 清除浮動的區域 -->
-        <div style="clear: both;"></div>
-
         <!-- Education Background -->
-        <section class="section">
+        <section>
             <h2>Education Background</h2>
             <ul>
                 <li>Virginia Tech — Visiting Scholar, Business Information Technology, 2026–2027</li>
-                <li>National Sun Yat-sen University — PhD Candidate of Information Management, 2023-</li>
-                <li>National Taiwan University — Master of National Development, 2020-2023</li>
-                <li>National Sun Yat-sen University — Bachelor of Business Administration, 2016-2020</li>
+                <li>National Sun Yat-sen University — PhD Candidate in Information Management, 2023–</li>
+                <li>National Taiwan University — Master of National Development, 2020–2023</li>
+                <li>National Sun Yat-sen University — Bachelor of Business Administration, 2016–2020</li>
             </ul>
         </section>
-        <!-- CSS 調整 -->
-        <style>
-
-        /* 調整 Education Background 區域的樣式 */
-        .section {
-        clear: both; /* 確保內容不與頭像重疊 */
-    }
-        </style>
 
         <!-- Research Interests -->
-        <section class="section">
+        <section>
             <h2>Research Interests</h2>
             <ul>
-                <li>Human-AI Interaction</li>
+                <li>Human–AI Interaction</li>
                 <li>AI in Healthcare and Nursing</li>
-                <li>GenAI Service</li>
+                <li>GenAI Services</li>
                 <li>Digital Transformation</li>
                 <li>Sustainable Consumption</li>
                 <li>Sustainable Business</li>
                 <li>Urban Planning</li>
                 <li>fsQCA</li>
-                <li>ExperimentA</li>
+                <li>Experimental Research</li>
             </ul>
         </section>
-
         <!-- Research Publications -->
          <section class="section">
             <h2>Research Publications</h2>
