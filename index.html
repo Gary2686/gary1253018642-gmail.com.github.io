@@ -1,185 +1,589 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Gary Yeh's Website</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        /* 🔥 Banner（已修正：圖片會在最上面） */
-        .banner {
-            background-color: #333;
-            height: 260px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;   /* ✅ 關鍵 */
-            padding-top: 30px;             /* ✅ 控制上方距離 */
-            color: #fff;
-            font-size: 28px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        /* 🔥 頭像（已優化） */
-        .banner-img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;   /* 圓形（學術網站標配） */
-            margin-bottom: 10px;
-        }
-
-        /* 主內容 */
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 30px;
-            background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #333;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        .info-item {
-            margin-bottom: 8px;
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 6px;
-        }
-    </style>
-</head>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gary Yu-Ho Yeh — Academic Profile</title>
+<meta name="description" content="Academic profile of Gary Yu-Ho Yeh — PhD Candidate in Information Management, researcher in Human–AI Interaction, GenAI, and Sustainable Business." />
 <meta name="google-site-verification" content="google-site-verification: google7a32a42ea5a845d6.html" />
 
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    /* Warm, minimalist, subtly colorful palette */
+    --bg: #fbf8f3;
+    --bg-tint: #f6efe6;
+    --surface: #ffffff;
+    --ink: #2c2722;
+    --ink-soft: #5a5249;
+    --muted: #93897c;
+    --line: #ece3d6;
+    --line-strong: #e0d4c2;
+
+    /* Accent family — low-saturation, refined */
+    --clay: #c1714e;       /* primary */
+    --clay-soft: #f3e3da;
+    --sage: #7d9572;
+    --sage-soft: #e7eee2;
+    --gold: #c2962f;
+    --gold-soft: #f4ead0;
+    --blue: #6b88a6;
+    --blue-soft: #e3eaf1;
+
+    --shadow-sm: 0 1px 2px rgba(60, 45, 30, 0.04), 0 1px 3px rgba(60, 45, 30, 0.05);
+    --shadow-md: 0 4px 14px rgba(60, 45, 30, 0.06), 0 2px 6px rgba(60, 45, 30, 0.04);
+    --radius: 16px;
+    --radius-sm: 11px;
+    --maxw: 980px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: var(--clay); text-decoration: none; transition: color .15s ease; }
+  a:hover { color: #a4582f; text-decoration: underline; text-underline-offset: 2px; }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(900px 320px at 12% -10%, var(--clay-soft) 0%, transparent 60%),
+      radial-gradient(760px 300px at 92% -20%, var(--blue-soft) 0%, transparent 55%),
+      linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 48px 24px 40px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+  }
+  .avatar {
+    width: 116px; height: 116px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--surface);
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0;
+  }
+  .hero h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(28px, 5vw, 40px);
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+    line-height: 1.12;
+  }
+  .roles {
+    display: flex; flex-direction: column; gap: 10px;
+    margin: 4px 0 18px;
+  }
+  .role-item {
+    display: flex; align-items: baseline; gap: 10px;
+    padding-left: 14px; position: relative;
+  }
+  .role-item::before {
+    content: ""; position: absolute; left: 0; top: 7px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--clay);
+  }
+  .role-item:nth-child(2)::before { background: var(--blue); }
+  .role-title { font-weight: 600; font-size: 15.5px; color: var(--ink); }
+  .role-org { font-size: 14px; color: var(--muted); }
+  .role-org .yrs { color: var(--ink-soft); font-weight: 500; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 6px 13px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    box-shadow: var(--shadow-sm);
+  }
+  .chip svg { width: 14px; height: 14px; opacity: .7; }
+
+  /* ---------- Tab nav ---------- */
+  .tabbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 248, 243, 0.82);
+    backdrop-filter: saturate(160%) blur(12px);
+    -webkit-backdrop-filter: saturate(160%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .tabs {
+    display: flex; gap: 4px;
+    max-width: var(--maxw); margin: 0 auto;
+    padding: 0 18px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    appearance: none; border: 0; background: none;
+    font-family: inherit; font-size: 14.5px; font-weight: 500;
+    color: var(--muted);
+    padding: 16px 14px 14px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab[aria-selected="true"] {
+    color: var(--ink);
+    border-bottom-color: var(--clay);
+  }
+
+  /* ---------- Panels ---------- */
+  main { padding: 40px 0 80px; }
+  .panel { display: none; animation: fade .35s ease; }
+  .panel.active { display: block; }
+  @keyframes fade {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-title {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title::before {
+    content: ""; width: 18px; height: 3px; border-radius: 2px;
+    background: var(--clay); display: inline-block;
+  }
+  .section + .section { margin-top: 44px; }
+
+  /* ---------- Dashboard ---------- */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .stat .ico {
+    width: 38px; height: 38px; border-radius: 11px;
+    display: grid; place-items: center; margin-bottom: 14px;
+  }
+  .stat .ico svg { width: 20px; height: 20px; }
+  .stat .num {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 30px; font-weight: 600; line-height: 1;
+    color: var(--ink);
+  }
+  .stat .lbl { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  .i-clay { background: var(--clay-soft); color: var(--clay); }
+  .i-sage { background: var(--sage-soft); color: var(--sage); }
+  .i-gold { background: var(--gold-soft); color: var(--gold); }
+  .i-blue { background: var(--blue-soft); color: var(--blue); }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 26px 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  .card + .card { margin-top: 18px; }
+
+  /* tag cloud */
+  .tags { display: flex; flex-wrap: wrap; gap: 9px; }
+  .tag {
+    font-size: 13.5px; font-weight: 450;
+    padding: 7px 14px; border-radius: 999px;
+    background: var(--bg-tint);
+    border: 1px solid var(--line-strong);
+    color: var(--ink-soft);
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .tag:hover { background: var(--clay-soft); border-color: var(--clay); color: #a4582f; }
+
+  /* ---------- Timeline (education) ---------- */
+  .timeline { position: relative; padding-left: 26px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px;
+    width: 2px; background: var(--line-strong);
+  }
+  .tl-item { position: relative; padding: 0 0 24px 8px; }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -26px; top: 5px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--clay); border: 2.5px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--line-strong);
+  }
+  .tl-item .school { font-weight: 600; font-size: 15.5px; }
+  .tl-item .detail { color: var(--ink-soft); font-size: 14.5px; }
+  .tl-item .yr {
+    display: inline-block; font-size: 12.5px; font-weight: 500;
+    color: var(--muted); margin-top: 2px;
+  }
+
+  /* ---------- Publications ---------- */
+  .subtabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+  .subtab {
+    appearance: none; border: 1px solid var(--line-strong); background: var(--surface);
+    font-family: inherit; font-size: 13.5px; font-weight: 500; color: var(--ink-soft);
+    padding: 8px 16px; border-radius: 999px; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all .15s ease;
+  }
+  .subtab .count {
+    font-size: 12px; background: var(--bg-tint); color: var(--muted);
+    border-radius: 999px; padding: 1px 8px; font-weight: 600;
+  }
+  .subtab[aria-selected="true"] {
+    background: var(--ink); color: #fff; border-color: var(--ink);
+  }
+  .subtab[aria-selected="true"] .count { background: rgba(255,255,255,.18); color: #fff; }
+
+  .pub-group { display: none; }
+  .pub-group.active { display: block; }
+
+  ol.pub-list, ul.pub-list { list-style: none; margin: 0; padding: 0; counter-reset: pub; }
+  .pub-list li {
+    position: relative;
+    padding: 16px 4px 16px 44px;
+    border-bottom: 1px solid var(--line);
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .pub-list li:last-child { border-bottom: 0; }
+  .pub-list li::before {
+    counter-increment: pub;
+    content: counter(pub);
+    position: absolute; left: 0; top: 16px;
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--bg-tint); color: var(--muted);
+    font-size: 12.5px; font-weight: 600;
+    display: grid; place-items: center;
+  }
+  .pub-list li b.me { color: var(--ink); font-weight: 700; }
+  .pub-list li em { color: var(--ink); font-style: italic; }
+  .pub-list .venue {
+    display: inline-block; margin-top: 6px; font-size: 12.5px; font-weight: 600;
+    color: var(--clay); background: var(--clay-soft);
+    padding: 2px 9px; border-radius: 6px;
+  }
+  .status-tag {
+    display: inline-block; font-size: 11.5px; font-weight: 600;
+    padding: 1px 8px; border-radius: 6px; margin-left: 4px; vertical-align: middle;
+  }
+  .st-review { background: var(--gold-soft); color: #98731a; }
+  .st-accept { background: var(--sage-soft); color: #4f6a48; }
+
+  /* ---------- Service ---------- */
+  .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .svc {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius-sm); padding: 16px 18px;
+    box-shadow: var(--shadow-sm); font-size: 14.5px; font-weight: 500;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .svc .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--sage); flex-shrink: 0; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    text-align: center; color: var(--muted); font-size: 13px;
+    padding: 32px 24px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 760px) {
+    .hero-inner { flex-direction: column; text-align: center; gap: 18px; padding-top: 40px; }
+    .chips { justify-content: center; }
+    .hero .role { margin-left: auto; margin-right: auto; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .svc-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
 <body>
 
-    <!-- 🔥 Banner（圖片已在最上面） -->
-    <div class="banner">
-        <img src="b054011024-2.jpg" alt="Gary Yeh" class="banner-img">
-        <div>Welcome to Gary Yeh's Website</div>
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <img src="b054011024-2.jpg" alt="Gary Yu-Ho Yeh" class="avatar" />
+      <div>
+        <h1>Gary Yu-Ho Yeh</h1>
+        <div class="roles">
+          <div class="role-item">
+            <span class="role-title">PhD Candidate, Information Management</span>
+            <span class="role-org">National Sun Yat-sen University · <span class="yrs">2023–present</span></span>
+          </div>
+          <div class="role-item">
+            <span class="role-title">Visiting Scholar, Business Information Technology</span>
+            <span class="role-org">Virginia Tech · <span class="yrs">2026–2027</span></span>
+          </div>
+        </div>
+        <div class="chips">
+          <a class="chip" href="mailto:gary1253018642@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            gary1253018642@gmail.com
+          </a>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 8h10M7 12h6"/><rect x="3" y="4" width="18" height="16" rx="3"/></svg>
+            Line: gary03160316
+          </span>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <!-- Main Content -->
-    <div class="container">
-
-        <!-- Personal Information -->
-        <section>
-            <div class="info-item">Email: <a href="mailto:gary1253018642@gmail.com">gary1253018642@gmail.com</a></div>
-            <div class="info-item">Line: gary03160316</div>
-        </section>
-
-        <!-- Education Background -->
-        <section>
-            <h2>Education Background</h2>
-            <ul>
-                <li>Virginia Tech — Visiting Scholar, Business Information Technology, 2026–2027</li>
-                <li>National Sun Yat-sen University — PhD Candidate in Information Management, 2023–</li>
-                <li>National Taiwan University — Master of National Development, 2020–2023</li>
-                <li>National Sun Yat-sen University — Bachelor of Business Administration, 2016–2020</li>
-            </ul>
-        </section>
-
-        <!-- Research Interests -->
-        <section>
-            <h2>Research Interests</h2>
-            <ul>
-                <li>Human–AI Interaction</li>
-                <li>AI in Healthcare and Nursing</li>
-                <li>GenAI Services</li>
-                <li>Digital Transformation</li>
-                <li>Sustainable Consumption</li>
-                <li>Sustainable Business</li>
-                <li>Urban Planning</li>
-                <li>fsQCA</li>
-                <li>Experimental Research</li>
-            </ul>
-        </section>
-        <!-- Research Publications -->
-         <section class="section">
-            <h2>Research Publications</h2>
-
-            <h3>Journal Papers</h3>
-            <ul>
-                <li>Hsu-Sheng Hsieh, Cheng-Ru Wei, Gary Yu-Ho Yeh* (2026). How Conversational GenAI Reconfigures Social Norms and Identity to Reduce Everyday Non-Green Behavior: A Configurational Approach. Computers in Human Behavior. (Under Review).</li>
-                <li>Gary Yu-Ho Yeh, Hsu-Sheng Hsieh* (2026). Relationships between Built Environments, Public Transit and Active Mobility, and Active Ageing: Configurational Evidence from Vehicle-Dominated Cities. Journal of Transport Geography. (Under Review).</li>
-                <li>Gary Yu-Ho Yeh, Hsu-Sheng Hsieh* (2026). Building Age-Friendly Cities in Asia’s Motorized Urban Contexts: How Older Residents’ Perceptions of the Built Environment Shape Active Ageing. Journal of Asian Architecture and Building Engineering. (Under Review).</li>
-                <li>Gary Yu-Ho Yeh, Young-Jin Kao, Yu-Ting Chang-Chien, Jack Shih-Chieh Hsu* (2026). Investigating the Impact of CEO Paradoxical Leadership Behavior on Innovativeness in Digital Transformation. Journal of the Association for Information Systems. (Under Review).</li>
-                <li>Jack Shih-Chieh Hsu, Gary Yu-Ho Yeh*, Yuzhu Li, Yu-Ping Hsu (2026). How to Build Your Future Workforce – Explaining the Role of Employees’ Digital Dexterity. International Journal of Information Management. (Under Review).</li>
-                <li>Gary Yu-Ho Yeh., Chao-Min, Chiu, Jack Shih-Chieh Hsu* (2026). Recovering trust through Showing Competence & Building Rapport: You Need to Provide Corrective Answer in Formal Tone. Information & Management. (Under Review).</li>
-                <li>Brading, R, Gary Yu-Ho Yeh., Jack Shih-Chieh Hsu*,(2026). Hsu.Driving Carbon Handprints: How Green Intellectual Capital Enable Sustainable Chain Value. Knowledge and Process Management (Under Review).</li>
-                <li>Chang-Chien, Y. T., Jack Shih-Chieh Hsu*, Cheng, J. C., & Gary Yu-Ho Yeh. (2026). Factors Affecting Consumer Intention to Adopt Boutique Bags Subscription Service. Journal of Electronic Commerce Research, 27(1).</li>
-                <li>Gary Yu-Ho Yeh., Cheng, K. T., Chao-Min, Chiu., Jack Shih-Chieh Hsu*, & Chien, S. Y. (2025). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). International Journal of Human–Computer Interaction, 1-22.</li>
-                <li>葉欲禾、黃舒韓、雷英睿*、徐士傑。AI雙軸轉型下，資源與雙元能力對組織績效之影響：SEM與fsQCA整合研究 (2026) 。臺大管理論叢 (二審中)。</li>
-                <li>葉欲禾、韋承儒、謝旭昇*。跨越永續鴻溝：永續行動資源如何促成永續行動？(2026) 。中山管理評論 (二審中)。</li>
-                <li>蔡敏芳、葉欲禾*、黃秋梅、吳基逞。護理人員修訂AI護理報告行為的驅動因素：基於動機–機會–能力模型的實證研究 (2026)。電子商務學報 (通過審核)。</li>
-            </ul>
-            
-            <h4>Conference Papers</h4>
-            <ul class="no-autolink">
-                <li>Gary Yu-Ho Yeh., Yuting Cheng., Hsiang-Lan, Cheng., J. S. C., Hsu. & C.-M. Chiu. (2026). AI as Teammate in Human–AI Collaboration: A Literature Review of Interaction Structures and Affordances <em>Proceedings of the 31th Americas Conference on Information Systems  (AMCIS 2026)</em>, Nevada, America.</li>
-                <li>Gary Yu-Ho Yeh., J. S. C., Hsu., Hsiang-Lan, Cheng. & C.-M. Chiu. (2026). Unpacking Paradoxical Leadership in Digital Transformation: How Different Leadership Logics Shape Transformation Effectiveness <em>Proceedings of the 31th Americas Conference on Information Systems  (AMCIS 2026)</em>, Nevada, America.</li>
-                <li>Chao-Min Chiu., Hsiang-Lan Cheng., J. S. C., Hsu. & Gary Yu-Ho Yeh. (2026). From Cues to Engagement: How AI Presenter Design Drives Older Adults’ Health Learning via Affective and Cognitive Credibility <em>Proceedings of the 31th Americas Conference on Information Systems  (AMCIS 2026)</em>, Nevada, America.</li>
-                <li>Chao-Min Chiu.,  J. S. C., Hsu., Gary Yu-Ho Ye., Hsu. & Hsiang-Lan Cheng. (2026). From Cognitive Offloading to Ethical Withdrawal: Task Demands, Perceived GenAI Reliability, and GenAI-Induced Loafing <em>Proceedings of the 31th Americas Conference on Information Systems  (AMCIS 2026)</em>, Nevada, America.</li>
-                <li>Gary Yu-Ho Yeh., Harry Su-Han Huang., Brading, R, Jack Shih-Chieh Hsu. WHY DRIVERS RESIST TECHNOLOGICAL ENFORCEMENT? AN INSTITUTIONAL LEGITIMACY PERSPECTIVE TO EXPLAIN TRAFFIC VIOLATION. <em>Proceedings of the 34th European Conferenc on Information Systems  (ECIS 2026)</em>, Milan, Italy.</li>
-                <li>Gary Yu-Ho Yeh, Hsu-Sheng Hsieh. Active Mobility, Public Transit and Built Environments: Configurational Pathways to Active Aging in Urban Areas. <em>Proceedings of the 15th Asia-Pacific Conference on Transportation and the Environment(APTE 2026)</em>, Jeju Island, South Korea.</li>
-                <li>C.-M. Chiu., J. S. C., Hsu. & G. Y. H., Yeh (2025).Exploring employees’ quiet quitting from the perspectives of ego depletion and information technology obsolescence. <em>Proceedings of the 30th Americas Conference on Information Systems (AMCIS 2025)</em>, Montreal, Canada.</li>
-                <li>G. Y. H., Yeh., C.-M. Chiu. & J. S. C., Hsu (2025). When AI Apologizes: The Impact of Recovery Strategy and Tone on User Response. <em>Proceedings of the 29th Pacific Asia Conference on Information Systems (PACIS 2025)</em>, Kuala Lumpur, Malaysia.</li>
-                <li>G. Y. H., Yeh, Huang, C.-M., J. S. C., Hsu., Shen, H.-C., & Yang, J.-J (2025). Reversing the lens: Leveraging institutional pressures to drive IT adoption from a provider perspective. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Kuala Lumpur, Hawaii, USA.</li>
-                <li>G. Y. H., Yeh, J. S. C., Hsu., Shen, H.-C (2025). Strategic drivers of twin transformation: Insights from the people-process-technology framework on dual-axis growth. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Kuala Lumpur, Hawaii, USA.</li>
-                <li>G. Y. H., Yeh & J. S. C., Hsu (2025). Expanding the interpretation of fsQCA analysis based on the perspective of the Kano model. <em>Proceedings of the Hawaii International Conference on System Sciences (HICSS 2025)</em>, Hawaii, America.</li>
-                <li>G. Y. H., Yeh, J. S.C., Hsu, Brading, R., Y.-T., Chang-Chien & P. J., Chen (2024). Exploring the impact of green intellectual capital on green technology absorptive capacity and corporations' willingness to implement carbon handprints. <em>Workshop on E-Business 2024</em>, Bangkok, Thailand.</li>
-                <li>C. M., Huang, G. Y. H., Yeh, J. S. C., Hsu & W. C., Cheng (2024, October). Exploring the promotion strategies for intelligent plating equipment using institutional theory. <em>International Conference on Management, Economics, IT, and Education (MEIE 2024)</em>, Osaka, Japan.</li>
-                <li>葉欲禾, 謝旭昇. (2024). 為什麼永續意圖無法化為永續行動?──永續消費資源之調節角色. <em>發展研究年會 (ACDS, 2024)</em>, 高雄, 台灣.</li>
-                <li>葉欲禾, 顏子涵, 徐士傑. (2023). 分析使用者升級至光纖到府之原因 — 以推力、拉力與黏著力之理論觀點出發. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
-                <li>葉欲禾, 許育璿, 許惠娟. (2023). 論恆毅力在網路課程之學習動機及完成度之干擾效果. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
-                <li>葉欲禾, 李致皓, 洪郁雯. (2023). 資訊安全疲勞之成因及其降低方法之探究. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
-            </ul>
-         </section>
-         <!-- Other Publications -->
-        <section class="section">
-          <h5>哈佛個案</h5>
-          <ul>
-            <li>
-              徐士傑、葉欲禾（2025）。<a href="https://www.hbrtaiwan.com/case-study/24149/information-system-decisions-before-ipo" target="_blank">上市前的資訊系統抉擇</a>《哈佛商業評論》。 https://www.hbrtaiwan.com/case-study/24149/information-system-decisions-before-ipo
-            </li>
-            <li>
-              徐士傑、葉欲禾（2025）。<a href="https://www.hbrtaiwan.com/case-study/23950/is-singapore-next" target="_blank">新加坡是下一個開拓據點嗎？</a>《哈佛商業評論》。 https://www.hbrtaiwan.com/case-study/23950/is-singapore-next
-            </li>
-            <li>
-              徐士傑、葉欲禾（2024）。<a href="https://www.hbrtaiwan.com/case-study/23554/whats-the-next-mile" target="_blank">下一哩該如何計程？</a>《哈佛商業評論》。https://www.hbrtaiwan.com/case-study/23554/whats-the-next-mile
-            </li>
-          </ul>
-        </section>
-        </section>
-        <!-- Academic Service -->
-        <section class="section">
-            <h2>Academic Service</h2>
-            <ul>
-                <li>Pacific Asia Conference on Information Systems 2028 </li>
-                <li>UHIMA2026 & TLCMA2026 </li>
-                <li>UHIMA2025 & TLCMA2025 </li>
-                <li>2024 Taiwan Summer Workshop on Information Management (TSWIM)</li>
-            </ul>
+  <!-- ===================== TAB BAR ===================== -->
+  <nav class="tabbar">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true"  data-tab="overview">Overview</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="education">Education</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="research">Research</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="publications">Publications</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="service">Service</button>
     </div>
-    <!-- Footer -->
-    <footer>
-        &copy; 2024 Gary Yeh - Professional Profile
-    </footer>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- ===================== OVERVIEW / DASHBOARD ===================== -->
+    <section class="panel active" id="overview" role="tabpanel">
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="ico i-clay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V6a2 2 0 0 1 2-2h12a1 1 0 0 1 1 1v14"/><path d="M6 17h13"/></svg></div>
+          <div class="num" data-count="#journal-list">12</div>
+          <div class="lbl">Journal Papers</div>
+        </div>
+        <div class="stat">
+          <div class="ico i-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+          <div class="num" data-count="#conf-list">17</div>
+          <div class="lbl">Conference Papers</div>
+        </div>
+        <div class="stat">
+          <div class="ico i-sage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg></div>
+          <div class="num" data-count="#interest-tags">9</div>
+          <div class="lbl">Research Areas</div>
+        </div>
+        <div class="stat">
+          <div class="ico i-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 8.5 12 14l10-5.5L12 3Z"/><path d="M2 8.5V15M6 10.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.3"/></svg></div>
+          <div class="num" data-count="#case-list">3</div>
+          <div class="lbl">《哈佛商業評論》個案</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">Research Interests</h2>
+        <div class="tags" id="interest-tags">
+          <span class="tag">Human–AI Interaction</span>
+          <span class="tag">AI in Healthcare and Nursing</span>
+          <span class="tag">GenAI Services</span>
+          <span class="tag">Digital Transformation</span>
+          <span class="tag">Sustainable Consumption</span>
+          <span class="tag">Sustainable Business</span>
+          <span class="tag">Urban Planning</span>
+          <span class="tag">fsQCA</span>
+          <span class="tag">Experimental Research</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EDUCATION ===================== -->
+    <section class="panel" id="education" role="tabpanel">
+      <h2 class="section-title">Education Background</h2>
+      <div class="card">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="school">Virginia Tech</div>
+            <div class="detail">Visiting Scholar, Business Information Technology</div>
+            <span class="yr">2026 – 2027</span>
+          </div>
+          <div class="tl-item">
+            <div class="school">National Sun Yat-sen University</div>
+            <div class="detail">PhD Candidate in Information Management</div>
+            <span class="yr">2023 – present</span>
+          </div>
+          <div class="tl-item">
+            <div class="school">National Taiwan University</div>
+            <div class="detail">Master of National Development</div>
+            <span class="yr">2020 – 2023</span>
+          </div>
+          <div class="tl-item">
+            <div class="school">National Sun Yat-sen University</div>
+            <div class="detail">Bachelor of Business Administration</div>
+            <span class="yr">2016 – 2020</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESEARCH ===================== -->
+    <section class="panel" id="research" role="tabpanel">
+      <h2 class="section-title">Research Interests</h2>
+      <div class="card">
+        <p style="margin:0 0 18px;color:var(--ink-soft);font-size:14.5px;">
+          My research sits at the intersection of information systems, human–AI interaction, and sustainability — combining experimental methods and configurational analysis (fsQCA) to understand how people and organizations adopt and adapt to emerging technologies.
+        </p>
+        <div class="tags">
+          <span class="tag">Human–AI Interaction</span>
+          <span class="tag">AI in Healthcare and Nursing</span>
+          <span class="tag">GenAI Services</span>
+          <span class="tag">Digital Transformation</span>
+          <span class="tag">Sustainable Consumption</span>
+          <span class="tag">Sustainable Business</span>
+          <span class="tag">Urban Planning</span>
+          <span class="tag">fsQCA</span>
+          <span class="tag">Experimental Research</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <section class="panel" id="publications" role="tabpanel">
+      <h2 class="section-title">Research Publications</h2>
+
+      <div class="subtabs" role="tablist">
+        <button class="subtab" role="tab" aria-selected="true"  data-sub="journal">Journal Papers <span class="count" data-count="#journal-list"></span></button>
+        <button class="subtab" role="tab" aria-selected="false" data-sub="conf">Conference Papers <span class="count" data-count="#conf-list"></span></button>
+        <button class="subtab" role="tab" aria-selected="false" data-sub="case">《哈佛商業評論》個案 <span class="count" data-count="#case-list"></span></button>
+      </div>
+
+      <!-- Journal -->
+      <div class="pub-group active" id="grp-journal">
+        <ol class="pub-list" id="journal-list">
+          <li>Hsu-Sheng Hsieh, Cheng-Ru Wei, Gary Yu-Ho Yeh* (2026). How Conversational GenAI Reconfigures Social Norms and Identity to Reduce Everyday Non-Green Behavior: A Configurational Approach. Computers in Human Behavior. <span class="status-tag st-review">Under Review</span></li>
+          <li>Gary Yu-Ho Yeh, Hsu-Sheng Hsieh* (2026). Relationships between Built Environments, Public Transit and Active Mobility, and Active Ageing: Configurational Evidence from Vehicle-Dominated Cities. Journal of Transport Geography. <span class="status-tag st-review">Under Review</span></li>
+          <li>Gary Yu-Ho Yeh, Hsu-Sheng Hsieh* (2026). Building Age-Friendly Cities in Asia’s Motorized Urban Contexts: How Older Residents’ Perceptions of the Built Environment Shape Active Ageing. Journal of Asian Architecture and Building Engineering. <span class="status-tag st-review">Under Review</span></li>
+          <li>Gary Yu-Ho Yeh, Young-Jin Kao, Yu-Ting Chang-Chien, Jack Shih-Chieh Hsu* (2026). Investigating the Impact of CEO Paradoxical Leadership Behavior on Innovativeness in Digital Transformation. Journal of the Association for Information Systems. <span class="status-tag st-review">Under Review</span></li>
+          <li>Jack Shih-Chieh Hsu, Gary Yu-Ho Yeh*, Yuzhu Li, Yu-Ping Hsu (2026). How to Build Your Future Workforce – Explaining the Role of Employees’ Digital Dexterity. International Journal of Information Management. <span class="status-tag st-review">Under Review</span></li>
+          <li>Gary Yu-Ho Yeh, Chao-Min Chiu, Jack Shih-Chieh Hsu* (2026). Recovering trust through Showing Competence &amp; Building Rapport: You Need to Provide Corrective Answer in Formal Tone. Information &amp; Management. <span class="status-tag st-review">Under Review</span></li>
+          <li>Brading, R, Gary Yu-Ho Yeh, Jack Shih-Chieh Hsu* (2026). Driving Carbon Handprints: How Green Intellectual Capital Enable Sustainable Chain Value. Knowledge and Process Management. <span class="status-tag st-review">Under Review</span></li>
+          <li>Chang-Chien, Y. T., Jack Shih-Chieh Hsu*, Cheng, J. C., &amp; Gary Yu-Ho Yeh (2026). Factors Affecting Consumer Intention to Adopt Boutique Bags Subscription Service. Journal of Electronic Commerce Research, 27(1).</li>
+          <li>Gary Yu-Ho Yeh, Cheng, K. T., Chao-Min Chiu, Jack Shih-Chieh Hsu*, &amp; Chien, S. Y. (2025). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). International Journal of Human–Computer Interaction, 1-22.</li>
+          <li>葉欲禾、黃舒韓、雷英瑞*、徐士傑 (2026)。AI雙軸轉型下，資源與雙元能力對組織績效之影響：SEM與fsQCA整合研究。臺大管理論叢 <span class="status-tag st-review">二審中</span></li>
+          <li>葉欲禾、韋承儒、謝旭昇* (2026)。跨越永續鴻溝：永續行動資源如何促成永續行動？中山管理評論 <span class="status-tag st-review">二審中</span></li>
+          <li>蔡敏芳、葉欲禾*、黃秋梅、吳基逞 (2026)。護理人員修訂AI護理報告行為的驅動因素：基於動機–機會–能力模型的實證研究。電子商務學報 <span class="status-tag st-accept">通過審核</span></li>
+        </ol>
+      </div>
+
+      <!-- Conference -->
+      <div class="pub-group" id="grp-conf">
+        <ol class="pub-list" id="conf-list">
+          <li>Gary Yu-Ho Yeh, Yuting Cheng, Hsiang-Lan Cheng, J. S. C. Hsu &amp; C.-M. Chiu (2026). AI as Teammate in Human–AI Collaboration: A Literature Review of Interaction Structures and Affordances. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
+          <li>Gary Yu-Ho Yeh, J. S. C. Hsu, Hsiang-Lan Cheng &amp; C.-M. Chiu (2026). Unpacking Paradoxical Leadership in Digital Transformation: How Different Leadership Logics Shape Transformation Effectiveness. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
+          <li>Chao-Min Chiu, Hsiang-Lan Cheng, J. S. C. Hsu &amp; Gary Yu-Ho Yeh (2026). From Cues to Engagement: How AI Presenter Design Drives Older Adults’ Health Learning via Affective and Cognitive Credibility. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
+          <li>Chao-Min Chiu, J. S. C. Hsu, Gary Yu-Ho Yeh &amp; Hsiang-Lan Cheng (2026). From Cognitive Offloading to Ethical Withdrawal: Task Demands, Perceived GenAI Reliability, and GenAI-Induced Loafing. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
+          <li>Gary Yu-Ho Yeh, Harry Su-Han Huang, Brading, R, Jack Shih-Chieh Hsu (2026). Why Drivers Resist Technological Enforcement? An Institutional Legitimacy Perspective to Explain Traffic Violation. <em>Proceedings of the 34th European Conference on Information Systems (ECIS 2026)</em>, Milan, Italy.</li>
+          <li>Gary Yu-Ho Yeh, Hsu-Sheng Hsieh (2026). Active Mobility, Public Transit and Built Environments: Configurational Pathways to Active Aging in Urban Areas. <em>Proceedings of the 15th Asia-Pacific Conference on Transportation and the Environment (APTE 2026)</em>, Jeju Island, South Korea.</li>
+          <li>C.-M. Chiu, J. S. C. Hsu &amp; G. Y. H. Yeh (2025). Exploring employees’ quiet quitting from the perspectives of ego depletion and information technology obsolescence. <em>Proceedings of the 30th Americas Conference on Information Systems (AMCIS 2025)</em>, Montreal, Canada.</li>
+          <li>G. Y. H. Yeh, C.-M. Chiu &amp; J. S. C. Hsu (2025). When AI Apologizes: The Impact of Recovery Strategy and Tone on User Response. <em>Proceedings of the 29th Pacific Asia Conference on Information Systems (PACIS 2025)</em>, Kuala Lumpur, Malaysia.</li>
+          <li>G. Y. H. Yeh, Huang, C.-M., J. S. C. Hsu, Shen, H.-C., &amp; Yang, J.-J (2025). Reversing the lens: Leveraging institutional pressures to drive IT adoption from a provider perspective. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Hawaii, USA.</li>
+          <li>G. Y. H. Yeh, J. S. C. Hsu, Shen, H.-C (2025). Strategic drivers of twin transformation: Insights from the people-process-technology framework on dual-axis growth. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Hawaii, USA.</li>
+          <li>G. Y. H. Yeh &amp; J. S. C. Hsu (2025). Expanding the interpretation of fsQCA analysis based on the perspective of the Kano model. <em>Proceedings of the Hawaii International Conference on System Sciences (HICSS 2025)</em>, Hawaii, America.</li>
+          <li>G. Y. H. Yeh, J. S. C. Hsu, Brading, R., Y.-T. Chang-Chien &amp; P. J. Chen (2024). Exploring the impact of green intellectual capital on green technology absorptive capacity and corporations' willingness to implement carbon handprints. <em>Workshop on E-Business 2024</em>, Bangkok, Thailand.</li>
+          <li>C. M. Huang, G. Y. H. Yeh, J. S. C. Hsu &amp; W. C. Cheng (2024). Exploring the promotion strategies for intelligent plating equipment using institutional theory. <em>International Conference on Management, Economics, IT, and Education (MEIE 2024)</em>, Osaka, Japan.</li>
+          <li>葉欲禾, 謝旭昇 (2024). 為什麼永續意圖無法化為永續行動?──永續消費資源之調節角色. <em>發展研究年會 (ACDS 2024)</em>, 高雄, 台灣.</li>
+          <li>葉欲禾, 顏子涵, 徐士傑 (2023). 分析使用者升級至光纖到府之原因 — 以推力、拉力與黏著力之理論觀點出發. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
+          <li>葉欲禾, 許育璿, 許惠娟 (2023). 論恆毅力在網路課程之學習動機及完成度之干擾效果. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
+          <li>葉欲禾, 李致皓, 洪郁雯 (2023). 資訊安全疲勞之成因及其降低方法之探究. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
+        </ol>
+      </div>
+
+      <!-- Harvard cases -->
+      <div class="pub-group" id="grp-case">
+        <ol class="pub-list" id="case-list">
+          <li>徐士傑、葉欲禾 (2025)。<a href="https://www.hbrtaiwan.com/case-study/24149/information-system-decisions-before-ipo" target="_blank" rel="noopener">上市前的資訊系統抉擇</a>《哈佛商業評論》。</li>
+          <li>徐士傑、葉欲禾 (2025)。<a href="https://www.hbrtaiwan.com/case-study/23950/is-singapore-next" target="_blank" rel="noopener">新加坡是下一個開拓據點嗎？</a>《哈佛商業評論》。</li>
+          <li>徐士傑、葉欲禾 (2024)。<a href="https://www.hbrtaiwan.com/case-study/23554/whats-the-next-mile" target="_blank" rel="noopener">下一哩該如何計程？</a>《哈佛商業評論》。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICE ===================== -->
+    <section class="panel" id="service" role="tabpanel">
+      <h2 class="section-title">Academic Service</h2>
+      <div class="svc-grid">
+        <div class="svc"><span class="dot"></span>Pacific Asia Conference on Information Systems 2028</div>
+        <div class="svc"><span class="dot"></span>UHIMA 2026 &amp; TLCMA 2026</div>
+        <div class="svc"><span class="dot"></span>UHIMA 2025 &amp; TLCMA 2025</div>
+        <div class="svc"><span class="dot"></span>2024 Taiwan Summer Workshop on Information Management (TSWIM)</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Gary Yu-Ho Yeh · Academic Profile</footer>
+
+<script>
+  // ---- main tab switching ----
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.setAttribute('aria-selected', 'false'));
+    t.setAttribute('aria-selected', 'true');
+    const id = t.dataset.tab;
+    panels.forEach(p => p.classList.toggle('active', p.id === id));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }));
+
+  // ---- publication sub-tabs ----
+  const subtabs = document.querySelectorAll('.subtab');
+  subtabs.forEach(s => s.addEventListener('click', () => {
+    subtabs.forEach(x => x.setAttribute('aria-selected', 'false'));
+    s.setAttribute('aria-selected', 'true');
+    const id = 'grp-' + s.dataset.sub;
+    document.querySelectorAll('.pub-group').forEach(g => g.classList.toggle('active', g.id === id));
+  }));
+
+  // ---- live counts from actual list lengths ----
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const list = document.querySelector(el.dataset.count);
+    if (list) el.textContent = list.children.length;
+  });
+
+  // ---- highlight the author's name across publications ----
+  const namePatterns = [
+    /Gary Yu-Ho Yeh/g,
+    /G\. Y\. H\.[, ]+Yeh/g,
+    /葉欲禾/g
+  ];
+  document.querySelectorAll('.pub-list li').forEach(li => {
+    let html = li.innerHTML;
+    namePatterns.forEach(re => {
+      html = html.replace(re, m => '<b class="me">' + m + '</b>');
+    });
+    li.innerHTML = html;
+  });
+</script>
 </body>
 </html>
