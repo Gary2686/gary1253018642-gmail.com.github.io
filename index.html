@@ -306,6 +306,16 @@
   .st-accept { background: var(--sage-soft); color: #4f6a48; }
   .st-award  { background: var(--gold); color: #fff; letter-spacing: .2px; }
 
+  /* ---------- Honors ---------- */
+  .honor-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .honor-yr {
+    flex: none; font-size: 12px; font-weight: 700; color: #fff;
+    background: var(--gold); padding: 2px 9px; border-radius: 999px;
+  }
+  .honor-title { font-weight: 600; font-size: 15.5px; color: var(--ink); }
+  .honor-org  { color: var(--ink-soft); font-size: 14.5px; margin-top: 5px; }
+  .honor-note { color: var(--muted); font-size: 13px; margin-top: 6px; line-height: 1.7; }
+
   /* ---------- Service ---------- */
   .svc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .svc {
@@ -373,6 +383,7 @@
       <button class="tab" role="tab" aria-selected="false" data-tab="research">Research</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="teaching">Teaching</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="publications">Publications</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="honors">Honors</button>
       <button class="tab" role="tab" aria-selected="false" data-tab="service">Service</button>
     </div>
   </nav>
@@ -570,6 +581,37 @@
           <li>徐士傑、葉欲禾 (2025)。<a href="https://www.hbrtaiwan.com/case-study/23950/is-singapore-next" target="_blank" rel="noopener">新加坡是下一個開拓據點嗎？</a>《哈佛商業評論》。</li>
           <li>徐士傑、葉欲禾 (2024)。<a href="https://www.hbrtaiwan.com/case-study/23554/whats-the-next-mile" target="_blank" rel="noopener">下一哩該如何計程？</a>《哈佛商業評論》。</li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ===================== HONORS ===================== -->
+    <section class="panel" id="honors" role="tabpanel">
+      <h2 class="section-title">Honors &amp; Awards</h2>
+
+      <div class="card">
+        <div class="honor-head">
+          <span class="honor-yr">2026</span>
+          <span class="honor-title">Best Paper Nominee · AMCIS 2026</span>
+        </div>
+        <div class="honor-org">Americas Conference on Information Systems (AMCIS 2026) — SIG CNOW Track</div>
+        <div class="honor-note">
+          入圍論文：<a href="https://aisel.aisnet.org/amcis2026/sigcnow/sigcnow/10/" target="_blank" rel="noopener">AI as Teammate in Human–AI Collaboration: A Literature Review of Interaction Structures and Affordances</a><br>
+          合著：Gary Yu-Ho Yeh, Yuting Cheng, J. S. C. Hsu, Hsiang-Lan Cheng &amp; C.-M. Chiu
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="honor-head">
+          <span class="honor-yr">2024</span>
+          <span class="honor-title">第二名 · 第四屆「永續生活實驗室獎」（Sustainable Living Lab Award）</span>
+        </div>
+        <div class="honor-org">中鼎教育基金會 × 台灣永續能源研究基金會（TAISE）</div>
+        <div class="honor-note">
+          參賽作品：校園「C house 無包裝合作社」——以課堂實驗為起點，在中山大學校內打造無包裝小額消費場域，培養學生永續消費意識；五個月間累積近 600 人次參與，估計減少 2,250 個塑膠袋與百餘個清潔劑瓶。<br>
+          團隊成員：吳宜亭、陳可茵、黃鈿雲、葉欲禾 · 指導教師：游銘仁（國立中山大學 社會創新研究所）<br>
+          決賽：2024 年 6 月 15 日 · 全競賽共 4 國、49 校、404 位學生組成 101 支隊伍角逐 ·
+          <a href="https://www.ctee.com.tw/news/20240629700319-431208" target="_blank" rel="noopener">工商時報報導</a>
+        </div>
       </div>
     </section>
 
