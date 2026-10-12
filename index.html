@@ -2827,6 +2827,7 @@
     });
 
     var tip = document.getElementById('net-tip');
+    var hoverHold = false;   // the graph holds still while a node is read
     var nodeEls = N.map(function (n, i) {
       var g = document.createElementNS(NS, 'g');
       g.setAttribute('class', 'net-node' + (n.self ? ' is-self' : '') + (n.theme ? ' th-' + n.theme : ''));
@@ -2847,6 +2848,7 @@
       }
 
       function focusNode() {
+        hoverHold = true;
         netSvg.classList.add('has-focus');
         g.classList.add('lit');
         neighbours[i].forEach(function (nb) {
@@ -2894,6 +2896,7 @@
         }
       }
       function blurNode() {
+        hoverHold = false;
         netSvg.classList.remove('has-focus');
         nodeEls.forEach(function (e) { e.classList.remove('lit'); });
         linkEls.forEach(function (e) { e.classList.remove('lit'); });
@@ -2935,6 +2938,66 @@
             ')"></i>' + TOPIC_LABELS[k] + '</span>';
         }).join('') +
         '<span><i style="background:var(--muted)"></i>Other</span>';
+    }
+
+    /* ---------- drift: the graph eases in, then floats ---------- */
+    var netReduced = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!netReduced) {
+      var selfNode = N.filter(function (n) { return n.self; })[0] || N[0];
+      var cx = selfNode.x, cy = selfNode.y;
+      N.forEach(function (n) {
+        n.bx = n.x; n.by = n.y;
+        n.ph1 = rnd() * Math.PI * 2;
+        n.ph2 = rnd() * Math.PI * 2;
+        n.sp1 = 0.00020 + rnd() * 0.00020;   // radians per ms
+        n.sp2 = 0.00015 + rnd() * 0.00018;
+        n.amp = n.self ? 2.5 : 3.5 + rnd() * 5.5;
+      });
+
+      var INTRO = 1100;
+      var clock = 0, last = null, settled = false;
+
+      function paint() {
+        var intro = Math.min(1, clock / INTRO);
+        var e = 1 - Math.pow(1 - intro, 3);
+        for (var i = 0; i < N.length; i++) {
+          var n = N[i];
+          var dx = Math.sin(clock * n.sp1 + n.ph1) * n.amp * intro;
+          var dy = Math.cos(clock * n.sp2 + n.ph2) * n.amp * 0.75 * intro;
+          n.x = n.bx + dx + (cx - n.bx) * (1 - e);
+          n.y = n.by + dy + (cy - n.by) * (1 - e);
+          nodeEls[i].setAttribute('transform',
+            'translate(' + (n.x - n.bx).toFixed(2) + ',' + (n.y - n.by).toFixed(2) + ')');
+        }
+        for (var j = 0; j < L.length; j++) {
+          var a = N[L[j].s], b = N[L[j].t], le = linkEls[j];
+          le.setAttribute('x1', a.x.toFixed(1)); le.setAttribute('y1', a.y.toFixed(1));
+          le.setAttribute('x2', b.x.toFixed(1)); le.setAttribute('y2', b.y.toFixed(1));
+        }
+        settled = intro >= 1;
+      }
+
+      function frame(ts) {
+        requestAnimationFrame(frame);
+        var dt = (last === null) ? 0 : Math.min(50, ts - last);
+        last = ts;
+
+        // rAF already pauses in a background tab, so no visibility check here:
+        // some embedders report document.hidden even while the page is on screen
+        var r = netSvg.getBoundingClientRect();
+        if (r.bottom < -40 || r.top > window.innerHeight + 40) return;
+        if (hoverHold && settled) return;
+
+        clock += hoverHold ? 0 : dt;
+        paint();
+      }
+
+      // start folded into the centre, so the first paint is the intro
+      clock = 0;
+      paint();
+      requestAnimationFrame(frame);
     }
   }
 
