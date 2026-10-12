@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add('js');</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -39,6 +40,18 @@
       "@type": "ProfilePage",
       "@id": "https://gary2686.github.io/gary1253018642-gmail.com.github.io/#webpage",
       "url": "https://gary2686.github.io/gary1253018642-gmail.com.github.io/",
+      "sameAs": [
+        "https://orcid.org/0009-0008-4725-2623",
+        "https://scholar.google.com/citations?user=LfVI76sAAAAJ"
+      ],
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "ORCID",
+          "value": "https://orcid.org/0009-0008-4725-2623",
+          "url": "https://orcid.org/0009-0008-4725-2623"
+        }
+      ],
       "name": "Gary Yu-Ho Yeh (葉欲禾) — Academic Profile",
       "inLanguage": [
         "en",
@@ -1228,6 +1241,220 @@
     .pub-list li[hidden] { display: list-item !important; }
     a { color: var(--ink); }
   }
+
+  /* ===================================================================
+     VISUAL LAYER — motion, data viz, interactive filtering
+     =================================================================== */
+
+  /* ---------- animated hero orbs ---------- */
+  .hero { isolation: isolate; }
+  .orb {
+    position: absolute; border-radius: 50%; filter: blur(46px);
+    opacity: .55; z-index: -1; pointer-events: none;
+    animation: drift 22s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 380px; height: 380px; left: -90px;  top: -150px; background: var(--clay); opacity: .22; }
+  .orb-2 { width: 320px; height: 320px; right: 4%;    top: -130px; background: var(--blue); opacity: .26; animation-delay: -7s; }
+  .orb-3 { width: 240px; height: 240px; right: 26%;   bottom: -140px; background: var(--gold); opacity: .18; animation-delay: -13s; }
+  @keyframes drift {
+    from { transform: translate3d(0,0,0) scale(1); }
+    to   { transform: translate3d(32px,26px,0) scale(1.14); }
+  }
+
+  .hero h1 .accent {
+    background: linear-gradient(100deg, var(--clay) 0%, #d08a50 45%, var(--gold) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .scroll-cue {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 22px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase;
+    color: var(--muted); text-decoration: none;
+  }
+  .scroll-cue:hover { color: var(--clay); text-decoration: none; }
+  .scroll-cue svg { width: 15px; height: 15px; animation: nudge 1.9s ease-in-out infinite; }
+  @keyframes nudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+
+  /* ---------- reading progress ---------- */
+  .progress {
+    position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%;
+    background: linear-gradient(90deg, var(--clay), var(--gold));
+    transform-origin: 0 50%; transform: scaleX(0);
+  }
+
+  /* ---------- scroll reveal ---------- */
+  .js [data-reveal] {
+    opacity: 0; transform: translateY(16px);
+    transition: opacity .55s cubic-bezier(.2,.7,.3,1), transform .55s cubic-bezier(.2,.7,.3,1);
+    transition-delay: var(--d, 0ms);
+  }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+
+  /* ---------- stat tiles get some life ---------- */
+  .stat {
+    position: relative; overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .stat::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 3px;
+    background: linear-gradient(90deg, var(--clay), var(--gold));
+    transform: scaleX(0); transform-origin: 0 50%; transition: transform .3s ease;
+  }
+  .stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--line-strong); }
+  .stat:hover::after { transform: scaleX(1); }
+  .stat .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- theme cards become filters ---------- */
+  .theme { display: flex; flex-direction: column; cursor: pointer; }
+  .theme .tags { margin-bottom: 14px; }
+  .theme-cta {
+    margin-top: auto; align-self: flex-start;
+    font: inherit; font-size: 13.2px; font-weight: 600; color: var(--clay);
+    background: none; border: 0; padding: 0; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .theme-cta svg { width: 14px; height: 14px; transition: transform .18s ease; }
+  .theme:hover .theme-cta svg { transform: translateX(3px); }
+  .theme[aria-pressed="true"] {
+    border-color: var(--clay); box-shadow: 0 0 0 3px var(--clay-soft), var(--shadow-md);
+  }
+
+  /* ---------- data viz ---------- */
+  .viz {
+    display: grid; grid-template-columns: 1.15fr 1fr; gap: 18px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px 24px 18px;
+    box-shadow: var(--shadow-sm); margin-bottom: 20px;
+  }
+  .viz h3 {
+    margin: 0 0 16px; font-size: 13px; font-weight: 700; letter-spacing: .11em;
+    text-transform: uppercase; color: var(--muted); font-family: "Inter", sans-serif;
+  }
+
+  .bars { display: flex; align-items: flex-end; gap: 10px; height: 168px; }
+  .ybar {
+    flex: 1; display: flex; flex-direction: column; align-items: center; gap: 7px;
+    height: 100%; background: none; border: 0; padding: 0; cursor: pointer;
+    font: inherit; color: var(--muted);
+  }
+  .bar-track {
+    flex: 1; width: 100%; max-width: 54px; display: flex; align-items: flex-end;
+    border-radius: 8px; background: var(--bg-tint);
+  }
+  .bar-fill {
+    width: 100%; display: flex; flex-direction: column-reverse;
+    border-radius: 8px; overflow: hidden; height: var(--h, 0%);
+    transition: height .8s cubic-bezier(.2,.7,.3,1), filter .18s ease;
+    box-shadow: var(--shadow-sm);
+  }
+  .seg { display: block; min-height: 3px; }
+  .seg-journal    { background: var(--clay); }
+  .seg-conference { background: var(--blue); }
+  .seg-case       { background: var(--gold); }
+  .ynum { font-size: 13px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .ylab { font-size: 12.5px; font-weight: 600; }
+  .ybar:hover .bar-fill { filter: brightness(1.08) saturate(1.12); }
+  .ybar:hover .ylab, .ybar[aria-pressed="true"] .ylab { color: var(--clay); }
+  .ybar[aria-pressed="true"] .bar-track { box-shadow: 0 0 0 2px var(--clay); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--muted); }
+  .legend i { width: 10px; height: 10px; border-radius: 3px; display: block; }
+
+  .topic-bars { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+  .tbar {
+    width: 100%; display: grid; grid-template-columns: 1fr 86px 26px; align-items: center; gap: 10px;
+    background: none; border: 0; padding: 4px 0; cursor: pointer; font: inherit;
+    font-size: 13.2px; color: var(--ink-soft); text-align: left;
+  }
+  .tbar:hover { color: var(--clay); }
+  .tb-track { height: 7px; border-radius: 999px; background: var(--bg-tint); overflow: hidden; }
+  .tb-fill {
+    display: block; height: 100%; border-radius: 999px; width: var(--w, 0%);
+    background: linear-gradient(90deg, var(--clay), var(--gold));
+    transition: width .8s cubic-bezier(.2,.7,.3,1);
+  }
+  .tb-n { font-size: 12.5px; font-weight: 700; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+  .tbar[aria-pressed="true"] { color: var(--clay); font-weight: 600; }
+  .tbar[aria-pressed="true"] .tb-fill { background: var(--clay); }
+
+  /* ---------- active-filter summary ---------- */
+  .filter-summary {
+    display: none; align-items: center; gap: 10px; flex-wrap: wrap;
+    background: var(--clay-soft); border: 1px solid #e8cdbd;
+    border-radius: 999px; padding: 7px 8px 7px 16px; margin-bottom: 16px;
+    font-size: 13.2px; color: #8e4a2c;
+  }
+  .filter-summary.show { display: flex; }
+  .filter-summary button {
+    font: inherit; font-size: 12.8px; font-weight: 600; cursor: pointer;
+    background: #fff; color: var(--clay); border: 1px solid #e8cdbd;
+    border-radius: 999px; padding: 4px 12px;
+  }
+  .filter-summary button:hover { background: var(--clay); color: #fff; border-color: var(--clay); }
+
+  /* ---------- richer publication rows ---------- */
+  .pub-list li { transition: background .18s ease; border-radius: 10px; }
+  .pub-list li::after {
+    content: ""; position: absolute; left: 0; top: 10px; bottom: 10px; width: 3px;
+    border-radius: 3px; background: var(--clay);
+    opacity: 0; transition: opacity .18s ease;
+  }
+  .pub-list li:hover { background: #fffdfa; }
+  .pub-list li:hover::after { opacity: 1; }
+  .pub-list li:hover::before { background: var(--clay-soft); color: var(--clay); }
+
+  /* ---------- teaching cards ---------- */
+  .teach-grid .card {
+    position: relative; overflow: hidden; padding-top: 26px;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .teach-grid .card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+    background: linear-gradient(90deg, var(--clay), var(--gold));
+  }
+  .teach-grid .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--line-strong); }
+
+  /* ---------- honors ---------- */
+  #honor-list .card {
+    position: relative; padding-left: 28px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  #honor-list .card::before {
+    content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 4px;
+    border-radius: 0 4px 4px 0; background: linear-gradient(180deg, var(--gold), #e0bc62);
+  }
+  #honor-list .card:hover { transform: translateX(3px); box-shadow: var(--shadow-md); }
+
+  /* ---------- service rows ---------- */
+  .svc { transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+  .svc:hover { transform: translateY(-2px); border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
+
+  @media (max-width: 860px) {
+    .viz { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 700px) {
+    .orb-1 { width: 240px; height: 240px; }
+    .orb-2, .orb-3 { display: none; }
+    .bars { height: 136px; gap: 7px; }
+    .tbar { grid-template-columns: 1fr 64px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .orb { animation: none; }
+    .scroll-cue svg { animation: none; }
+    .js [data-reveal] { opacity: 1; transform: none; }
+  }
+  @media print {
+    .orb, .progress, .scroll-cue, .viz, .filter-summary { display: none !important; }
+    .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+  }
+
+  #pub-result-count {
+    display: inline-block; margin-left: 2px; padding: 1px 10px; border-radius: 999px;
+    background: var(--bg-tint); border: 1px solid var(--line);
+    font-size: 12.8px; font-weight: 600; color: var(--muted);
+    font-variant-numeric: tabular-nums; white-space: nowrap;
+  }
 </style>
 </head>
 <body>
@@ -1236,10 +1463,13 @@
 
 <!-- ===================== HERO ===================== -->
 <header class="hero">
+  <span class="orb orb-1" aria-hidden="true"></span>
+  <span class="orb orb-2" aria-hidden="true"></span>
+  <span class="orb orb-3" aria-hidden="true"></span>
   <div class="hero-inner">
     <img src="b054011024-2.jpg" alt="Portrait of Gary Yu-Ho Yeh" class="avatar" width="128" height="128" />
     <div>
-      <h1>Gary Yu-Ho Yeh</h1>
+      <h1>Gary <span class="accent">Yu-Ho Yeh</span></h1>
       <p class="zh-name" lang="zh-Hant">葉欲禾 · Information Systems Researcher</p>
       <div class="roles">
         <div class="role-item">
@@ -1272,9 +1502,12 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 8.5 12 14l10-5.5L12 3Z"/><path d="M2 8.5V15M6 10.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.3"/></svg>
           Google Scholar
         </a>
-        <!-- 之後要加 ResearchGate 等，照上面這塊複製一份改網址即可。
-             同一個網址也要加進 JSON-LD 的 Person.sameAs，AI 才會把你的名字跟著作綁在一起。 -->
+        <!-- 要加 ResearchGate 等，照上面複製一份改網址即可；同一網址也要加進 JSON-LD 的 Person.sameAs。 -->
       </div>
+      <a class="scroll-cue" href="#about">
+        Explore the work
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
     </div>
   </div>
 </header>
@@ -1291,6 +1524,7 @@
     <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </div>
+  <span class="progress" aria-hidden="true"></span>
 </nav>
 
 <main id="main">
@@ -1311,22 +1545,22 @@
       </p>
 
       <div class="stat-grid">
-        <div class="stat">
+        <div class="stat" data-reveal>
           <div class="ico i-clay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5V6a2 2 0 0 1 2-2h12a1 1 0 0 1 1 1v14"/><path d="M6 17h13"/></svg></div>
           <div class="num" data-count="#journal-list">12</div>
           <div class="lbl">Journal Papers</div>
         </div>
-        <div class="stat">
+        <div class="stat" data-reveal>
           <div class="ico i-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
           <div class="num" data-count="#conf-list">18</div>
           <div class="lbl">Conference Papers</div>
         </div>
-        <div class="stat">
+        <div class="stat" data-reveal>
           <div class="ico i-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 8.5 12 14l10-5.5L12 3Z"/><path d="M2 8.5V15M6 10.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.3"/></svg></div>
           <div class="num" data-count="#case-list">4</div>
           <div class="lbl" lang="zh-Hant">《哈佛商業評論》個案</div>
         </div>
-        <div class="stat">
+        <div class="stat" data-reveal>
           <div class="ico i-sage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="9" r="5"/><path d="M9 13.4 8 21l4-2 4 2-1-7.6"/></svg></div>
           <div class="num" data-count="#honor-list">2</div>
           <div class="lbl">Honors &amp; Awards</div>
@@ -1372,46 +1606,52 @@
       </p>
 
       <div class="theme-grid">
-        <article class="theme">
+        <article class="theme" data-topic="hai" data-reveal aria-pressed="false" tabindex="0" role="button">
           <div class="ico i-clay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V7a4 4 0 0 1 4-4Z"/><path d="M5 21v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1"/></svg></div>
           <h3>Human–AI Interaction</h3>
           <p>How people read, trust and work alongside AI agents — from teammate framing and service recovery to the tone an AI should take when it is wrong.</p>
           <div class="tags"><span class="tag">Human–AI Interaction</span><span class="tag">Trust Repair</span><span class="tag">AI Teammates</span></div>
+          <button type="button" class="theme-cta"><span class="theme-n"></span> related publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </article>
 
-        <article class="theme">
+        <article class="theme" data-topic="genai" data-reveal aria-pressed="false" tabindex="0" role="button">
           <div class="ico i-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
           <h3>Generative AI Services</h3>
           <p>Designing and evaluating GenAI-enabled services — conversational agents, AI customer service quality, and AI presenters in health communication.</p>
           <div class="tags"><span class="tag">GenAI Services</span><span class="tag">AI in Healthcare &amp; Nursing</span><span class="tag">Service Quality</span></div>
+          <button type="button" class="theme-cta"><span class="theme-n"></span> related publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </article>
 
-        <article class="theme">
+        <article class="theme" data-topic="dx" data-reveal aria-pressed="false" tabindex="0" role="button">
           <div class="ico i-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18"/><path d="M6 21V9l6-5 6 5v12"/><path d="M10 21v-5h4v5"/></svg></div>
           <h3>Digital Transformation</h3>
           <p>What makes transformation stick inside organizations: leadership logics, employees' digital dexterity, and the twin digital-and-green transformation agenda.</p>
           <div class="tags"><span class="tag">Digital Transformation</span><span class="tag">Digital Dexterity</span><span class="tag">Leadership</span></div>
+          <button type="button" class="theme-cta"><span class="theme-n"></span> related publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </article>
 
-        <article class="theme">
+        <article class="theme" data-topic="sustain" data-reveal aria-pressed="false" tabindex="0" role="button">
           <div class="ico i-sage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
           <h3>Sustainability</h3>
           <p>Why sustainable intentions so often fail to become sustainable action, and what resources, norms and identities close that gap for consumers and firms.</p>
           <div class="tags"><span class="tag">Sustainable Consumption</span><span class="tag">Sustainable Business</span><span class="tag">Green Transformation</span></div>
+          <button type="button" class="theme-cta"><span class="theme-n"></span> related publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </article>
 
-        <article class="theme">
+        <article class="theme" data-topic="urban" data-reveal aria-pressed="false" tabindex="0" role="button">
           <div class="ico i-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20 3 17V4l6 3m0 13 6-3m-6 3V7m6 10 6 3V7l-6-3m0 13V4"/></svg></div>
           <h3>Urban Environments &amp; Ageing</h3>
           <p>How built environments, public transit and active mobility shape active ageing and residential satisfaction in vehicle-dominated Asian cities.</p>
           <div class="tags"><span class="tag">Urban Planning</span><span class="tag">Active Ageing</span><span class="tag">Active Mobility</span></div>
+          <button type="button" class="theme-cta"><span class="theme-n"></span> related publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </article>
 
-        <article class="theme">
+        <article class="theme" data-topic="method" data-reveal aria-pressed="false" tabindex="0" role="button">
           <div class="ico i-clay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
           <h3>Methods</h3>
           <p>Experimental and quasi-experimental designs paired with fuzzy-set qualitative comparative analysis (fsQCA) for configurational, rather than net-effect, explanations.</p>
           <div class="tags"><span class="tag">fsQCA</span><span class="tag">Experimental Research</span><span class="tag">SEM</span></div>
+          <button type="button" class="theme-cta"><span class="theme-n"></span> related publications<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </article>
       </div>
     </div>
@@ -1423,9 +1663,30 @@
       <p class="eyebrow">03 — Publications</p>
       <h2>Research Publications</h2>
       <p class="lede">
-        Search by keyword, or filter by type and year. Hover any entry to copy its citation.
-        <span id="pub-result-count"></span>
+        Search by keyword, or filter by type, year or research theme — the charts below are clickable.
+        Each entry has a copy-citation button. <span id="pub-result-count"></span>
       </p>
+
+      <div class="viz" data-reveal>
+        <div>
+          <h3>Publications per year</h3>
+          <div class="bars" id="year-bars" role="group" aria-label="Publications per year — select a year to filter"></div>
+          <div class="legend">
+            <span><i class="seg-journal"></i> Journal</span>
+            <span><i class="seg-conference"></i> Conference</span>
+            <span><i class="seg-case"></i> <span lang="zh-Hant">哈佛個案</span></span>
+          </div>
+        </div>
+        <div>
+          <h3>By research theme</h3>
+          <ul class="topic-bars" id="topic-bars"></ul>
+        </div>
+      </div>
+
+      <div class="filter-summary" id="filter-summary" role="status" aria-live="polite">
+        <span id="filter-summary-text"></span>
+        <button type="button" id="filter-clear">Clear filters</button>
+      </div>
 
       <div class="pub-toolbar">
         <div class="search-box">
@@ -1445,40 +1706,40 @@
       <div class="pub-group">
         <h3>Journal Articles</h3>
         <ol class="pub-list" id="journal-list">
-          <li data-type="journal" data-year="2026">Hsu-Sheng Hsieh, Cheng-Ru Wei, Gary Yu-Ho Yeh* (2026). How Conversational GenAI Reconfigures Social Norms and Identity to Reduce Everyday Non-Green Behavior: A Configurational Approach. <em>Current Psychology</em>. <span class="status-tag st-review">Under Review</span></li>
-          <li data-type="journal" data-year="2026">Gary Yu-Ho Yeh, Hsu-Sheng Hsieh* (2026). Active Mobility, Public Transit and Built Environments: Configurational Pathways to Active Ageing in Urban Areas. <em>Transportation</em>. <span class="status-tag st-review">Under Review</span></li>
-          <li data-type="journal" data-year="2026">Gary Yu-Ho Yeh, Hsu-Sheng Hsieh* (2026). Eyes on the Street, Ageing in Place: Built Environment Configurations and Active Ageing. <em>Journal of Transport &amp; Health</em>. <span class="status-tag st-review">Under Review</span></li>
-          <li data-type="journal" data-year="2026">Gary Yu-Ho Yeh, Young-Jin Kao, Yu-Ting Chang-Chien, Jack Shih-Chieh Hsu* (2026). Investigating the Impact of CEO Paradoxical Leadership Behavior on Innovativeness in Digital Transformation. <em>Journal of Strategic Information Systems</em>. <span class="status-tag st-review">Under Review</span></li>
-          <li data-type="journal" data-year="2026">Jack Shih-Chieh Hsu, Gary Yu-Ho Yeh*, Yuzhu Li, Yu-Ping Hsu (2026). How to Build Your Future Workforce – Explaining the Role of Employees’ Digital Dexterity. <em>Information Technology and Management</em>. <span class="status-tag st-review">Second Round Review</span></li>
-          <li data-type="journal" data-year="2026">Gary Yu-Ho Yeh, Chao-Min Chiu, Jack Shih-Chieh Hsu* (2026). Recovering trust through Showing Competence &amp; Building Rapport: You Need to Provide Corrective Answer in Formal Tone. <em>Internet Research</em>. <span class="status-tag st-review">Under Review</span></li>
-          <li data-type="journal" data-year="2026">Hsu-Sheng Hsieh, Cheng-Ru Wei, Gary Yu-Ho Yeh* (2026). Bridging the Sustainability Gap: How Sustainable Action Resources Transform Sustainable Intentions into Action — Evidence from a Randomized Pretest–Posttest Control Group Design. <em>Journal of Applied Social Psychology</em>. <span class="status-tag st-review">Under Review</span></li>
-          <li data-type="journal" data-year="2026">Hsu-Sheng Hsieh, Wei-Feng Chen, Gary Yu-Ho Yeh, Ching-Yi Chen, Chin-Oh Chang (2026). Branching Households: A Multi-Scale Evidence on How Family Life Stages Reorder the Drivers of Residential Satisfaction. <em>Urban Studies</em>. <span class="status-tag st-review">Under Review</span></li>
+          <li data-type="journal" data-year="2026" data-topics="genai sustain method">Hsu-Sheng Hsieh, Cheng-Ru Wei, Gary Yu-Ho Yeh* (2026). How Conversational GenAI Reconfigures Social Norms and Identity to Reduce Everyday Non-Green Behavior: A Configurational Approach. <em>Current Psychology</em>. <span class="status-tag st-review">Under Review</span></li>
+          <li data-type="journal" data-year="2026" data-topics="urban method">Gary Yu-Ho Yeh, Hsu-Sheng Hsieh* (2026). Active Mobility, Public Transit and Built Environments: Configurational Pathways to Active Ageing in Urban Areas. <em>Transportation</em>. <span class="status-tag st-review">Under Review</span></li>
+          <li data-type="journal" data-year="2026" data-topics="urban">Gary Yu-Ho Yeh, Hsu-Sheng Hsieh* (2026). Eyes on the Street, Ageing in Place: Built Environment Configurations and Active Ageing. <em>Journal of Transport &amp; Health</em>. <span class="status-tag st-review">Under Review</span></li>
+          <li data-type="journal" data-year="2026" data-topics="dx">Gary Yu-Ho Yeh, Young-Jin Kao, Yu-Ting Chang-Chien, Jack Shih-Chieh Hsu* (2026). Investigating the Impact of CEO Paradoxical Leadership Behavior on Innovativeness in Digital Transformation. <em>Journal of Strategic Information Systems</em>. <span class="status-tag st-review">Under Review</span></li>
+          <li data-type="journal" data-year="2026" data-topics="dx">Jack Shih-Chieh Hsu, Gary Yu-Ho Yeh*, Yuzhu Li, Yu-Ping Hsu (2026). How to Build Your Future Workforce – Explaining the Role of Employees’ Digital Dexterity. <em>Information Technology and Management</em>. <span class="status-tag st-review">Second Round Review</span></li>
+          <li data-type="journal" data-year="2026" data-topics="hai">Gary Yu-Ho Yeh, Chao-Min Chiu, Jack Shih-Chieh Hsu* (2026). Recovering trust through Showing Competence &amp; Building Rapport: You Need to Provide Corrective Answer in Formal Tone. <em>Internet Research</em>. <span class="status-tag st-review">Under Review</span></li>
+          <li data-type="journal" data-year="2026" data-topics="sustain method">Hsu-Sheng Hsieh, Cheng-Ru Wei, Gary Yu-Ho Yeh* (2026). Bridging the Sustainability Gap: How Sustainable Action Resources Transform Sustainable Intentions into Action — Evidence from a Randomized Pretest–Posttest Control Group Design. <em>Journal of Applied Social Psychology</em>. <span class="status-tag st-review">Under Review</span></li>
+          <li data-type="journal" data-year="2026" data-topics="urban">Hsu-Sheng Hsieh, Wei-Feng Chen, Gary Yu-Ho Yeh, Ching-Yi Chen, Chin-Oh Chang (2026). Branching Households: A Multi-Scale Evidence on How Family Life Stages Reorder the Drivers of Residential Satisfaction. <em>Urban Studies</em>. <span class="status-tag st-review">Under Review</span></li>
           <li data-type="journal" data-year="2026">Chang-Chien, Y. T., Jack Shih-Chieh Hsu*, Cheng, J. C., &amp; Gary Yu-Ho Yeh (2026). Factors Affecting Consumer Intention to Adopt Boutique Bags Subscription Service. <em>Journal of Electronic Commerce Research</em>, <em>27</em>(1), 19–42. <a class="pub-url" href="https://www.jecr.org/sites/default/files/2026vol27no1_Paper2.pdf" target="_blank" rel="noopener">https://www.jecr.org/sites/default/files/2026vol27no1_Paper2.pdf</a></li>
-          <li data-type="journal" data-year="2025">Gary Yu-Ho Yeh, Cheng, K. T., Chao-Min Chiu, Jack Shih-Chieh Hsu*, &amp; Chien, S. Y. (2025). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). <em>International Journal of Human–Computer Interaction</em>, <em>42</em>(14), 11196–11217. <a class="pub-url" href="https://doi.org/10.1080/10447318.2025.2589862" target="_blank" rel="noopener">https://doi.org/10.1080/10447318.2025.2589862</a></li>
-          <li data-type="journal" data-year="2026">葉欲禾、黃舒韓、雷英瑞*、徐士傑 (2026)。AI雙軸轉型下，資源與雙元能力對組織績效之影響：SEM與fsQCA整合研究。《臺大管理論叢》 <span class="status-tag st-accept">通過審核</span></li>
-          <li data-type="journal" data-year="2026">蔡敏芳、葉欲禾*、黃秋梅、吳基逞 (2026)。護理人員修訂AI護理報告行為的驅動因素：基於動機–機會–能力模型的實證研究。《電子商務學報》，28(S)，287–310。<a class="pub-url" href="https://doi.org/10.6188/JEB.202610/SP_28.0001" target="_blank" rel="noopener">https://doi.org/10.6188/JEB.202610/SP_28.0001</a></li>
+          <li data-type="journal" data-year="2025" data-topics="hai genai">Gary Yu-Ho Yeh, Cheng, K. T., Chao-Min Chiu, Jack Shih-Chieh Hsu*, &amp; Chien, S. Y. (2025). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). <em>International Journal of Human–Computer Interaction</em>, <em>42</em>(14), 11196–11217. <a class="pub-url" href="https://doi.org/10.1080/10447318.2025.2589862" target="_blank" rel="noopener">https://doi.org/10.1080/10447318.2025.2589862</a></li>
+          <li data-type="journal" data-year="2026" data-topics="genai dx method">葉欲禾、黃舒韓、雷英瑞*、徐士傑 (2026)。AI雙軸轉型下，資源與雙元能力對組織績效之影響：SEM與fsQCA整合研究。《臺大管理論叢》 <span class="status-tag st-accept">通過審核</span></li>
+          <li data-type="journal" data-year="2026" data-topics="hai genai">蔡敏芳、葉欲禾*、黃秋梅、吳基逞 (2026)。護理人員修訂AI護理報告行為的驅動因素：基於動機–機會–能力模型的實證研究。《電子商務學報》，28(S)，287–310。<a class="pub-url" href="https://doi.org/10.6188/JEB.202610/SP_28.0001" target="_blank" rel="noopener">https://doi.org/10.6188/JEB.202610/SP_28.0001</a></li>
         </ol>
       </div>
 
       <div class="pub-group">
         <h3>Conference Papers</h3>
         <ol class="pub-list" id="conf-list">
-          <li data-type="conference" data-year="2026">Gary Yu-Ho Yeh, Yuting Cheng, J. S. C. Hsu, Hsiang-Lan Cheng &amp; C.-M. Chiu (2026). <a href="https://aisel.aisnet.org/amcis2026/sigcnow/sigcnow/10/" target="_blank" rel="noopener">AI as Teammate in Human–AI Collaboration: A Literature Review of Interaction Structures and Affordances</a>. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America. <span class="status-tag st-award">🏆 Best Paper Nominee</span></li>
-          <li data-type="conference" data-year="2026">Gary Yu-Ho Yeh, J. S. C. Hsu, Hsiang-Lan Cheng &amp; C.-M. Chiu (2026). Unpacking Paradoxical Leadership in Digital Transformation: How Different Leadership Logics Shape Transformation Effectiveness. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
-          <li data-type="conference" data-year="2026">Chao-Min Chiu, Hsiang-Lan Cheng, J. S. C. Hsu &amp; Gary Yu-Ho Yeh (2026). From Cues to Engagement: How AI Presenter Design Drives Older Adults’ Health Learning via Affective and Cognitive Credibility. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
-          <li data-type="conference" data-year="2026">Gary Yu-Ho Yeh, Harry Su-Han Huang, Brading, R, Jack Shih-Chieh Hsu (2026). Why Drivers Resist Technological Enforcement? An Institutional Legitimacy Perspective to Explain Traffic Violation. <em>Proceedings of the 34th European Conference on Information Systems (ECIS 2026)</em>, Milan, Italy.</li>
-          <li data-type="conference" data-year="2026">Gary Yu-Ho Yeh, Hsu-Sheng Hsieh (2026). Active Mobility, Public Transit and Built Environments: Configurational Pathways to Active Aging in Urban Areas. <em>Proceedings of the 15th Asia-Pacific Conference on Transportation and the Environment (APTE 2026)</em>, Jeju Island, South Korea.</li>
-          <li data-type="conference" data-year="2026">Guan-Hong Liu, Wen-Feng Su, Gary Yu-Ho Yeh, Jack Shih-Chieh Hsu &amp; Chao-Min Chiu (2026). Exploring the Antecedents and Consequences of AI-Induced Silence from the Perspective of Social Influence Theory. <em>Proceedings of the 30th Pacific Asia Conference on Information Systems (PACIS 2026)</em>.</li>
-          <li data-type="conference" data-year="2026">Ching-Wei Lin, Chen-Wei Lin, Min-Fang Tsai, Gary Yu-Ho Yeh &amp; Jack Shih-Chieh Hsu (2026). How AI-Based Resources Improve Nurses’ Work Engagement and Well-Being. <em>Proceedings of the 30th Pacific Asia Conference on Information Systems (PACIS 2026)</em>.</li>
-          <li data-type="conference" data-year="2025">C.-M. Chiu, J. S. C. Hsu &amp; G. Y. H. Yeh (2025). Exploring employees’ quiet quitting from the perspectives of ego depletion and information technology obsolescence. <em>Proceedings of the 30th Americas Conference on Information Systems (AMCIS 2025)</em>, Montreal, Canada.</li>
-          <li data-type="conference" data-year="2025">G. Y. H. Yeh, C.-M. Chiu &amp; J. S. C. Hsu (2025). When AI Apologizes: The Impact of Recovery Strategy and Tone on User Response. <em>Proceedings of the 29th Pacific Asia Conference on Information Systems (PACIS 2025)</em>, Kuala Lumpur, Malaysia.</li>
-          <li data-type="conference" data-year="2025">G. Y. H. Yeh, Huang, C.-M., J. S. C. Hsu, Shen, H.-C., &amp; Yang, J.-J (2025). Reversing the lens: Leveraging institutional pressures to drive IT adoption from a provider perspective. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Hawaii, USA.</li>
-          <li data-type="conference" data-year="2025">G. Y. H. Yeh, J. S. C. Hsu, Shen, H.-C (2025). Strategic drivers of twin transformation: Insights from the people-process-technology framework on dual-axis growth. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Hawaii, USA.</li>
-          <li data-type="conference" data-year="2025">G. Y. H. Yeh &amp; J. S. C. Hsu (2025). Expanding the interpretation of fsQCA analysis based on the perspective of the Kano model. <em>Proceedings of the Hawaii International Conference on System Sciences (HICSS 2025)</em>, Hawaii, America.</li>
-          <li data-type="conference" data-year="2024">G. Y. H. Yeh, J. S. C. Hsu, Brading, R., Y.-T. Chang-Chien &amp; P. J. Chen (2024). Exploring the impact of green intellectual capital on green technology absorptive capacity and corporations' willingness to implement carbon handprints. <em>Workshop on E-Business 2024</em>, Bangkok, Thailand.</li>
-          <li data-type="conference" data-year="2024">C. M. Huang, G. Y. H. Yeh, J. S. C. Hsu &amp; W. C. Cheng (2024). Exploring the promotion strategies for intelligent plating equipment using institutional theory. <em>International Conference on Management, Economics, IT, and Education (MEIE 2024)</em>, Osaka, Japan.</li>
-          <li data-type="conference" data-year="2024">葉欲禾, 謝旭昇 (2024). 為什麼永續意圖無法化為永續行動?──永續消費資源之調節角色. <em>發展研究年會 (ACDS 2024)</em>, 高雄, 台灣.</li>
-          <li data-type="conference" data-year="2023">葉欲禾, 顏子涵, 徐士傑 (2023). 分析使用者升級至光纖到府之原因 — 以推力、拉力與黏著力之理論觀點出發. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
+          <li data-type="conference" data-year="2026" data-topics="hai">Gary Yu-Ho Yeh, Yuting Cheng, J. S. C. Hsu, Hsiang-Lan Cheng &amp; C.-M. Chiu (2026). <a href="https://aisel.aisnet.org/amcis2026/sigcnow/sigcnow/10/" target="_blank" rel="noopener">AI as Teammate in Human–AI Collaboration: A Literature Review of Interaction Structures and Affordances</a>. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America. <span class="status-tag st-award">🏆 Best Paper Nominee</span></li>
+          <li data-type="conference" data-year="2026" data-topics="dx">Gary Yu-Ho Yeh, J. S. C. Hsu, Hsiang-Lan Cheng &amp; C.-M. Chiu (2026). Unpacking Paradoxical Leadership in Digital Transformation: How Different Leadership Logics Shape Transformation Effectiveness. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
+          <li data-type="conference" data-year="2026" data-topics="hai genai">Chao-Min Chiu, Hsiang-Lan Cheng, J. S. C. Hsu &amp; Gary Yu-Ho Yeh (2026). From Cues to Engagement: How AI Presenter Design Drives Older Adults’ Health Learning via Affective and Cognitive Credibility. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
+          <li data-type="conference" data-year="2026" data-topics="dx urban">Gary Yu-Ho Yeh, Harry Su-Han Huang, Brading, R, Jack Shih-Chieh Hsu (2026). Why Drivers Resist Technological Enforcement? An Institutional Legitimacy Perspective to Explain Traffic Violation. <em>Proceedings of the 34th European Conference on Information Systems (ECIS 2026)</em>, Milan, Italy.</li>
+          <li data-type="conference" data-year="2026" data-topics="urban method">Gary Yu-Ho Yeh, Hsu-Sheng Hsieh (2026). Active Mobility, Public Transit and Built Environments: Configurational Pathways to Active Aging in Urban Areas. <em>Proceedings of the 15th Asia-Pacific Conference on Transportation and the Environment (APTE 2026)</em>, Jeju Island, South Korea.</li>
+          <li data-type="conference" data-year="2026" data-topics="hai">Guan-Hong Liu, Wen-Feng Su, Gary Yu-Ho Yeh, Jack Shih-Chieh Hsu &amp; Chao-Min Chiu (2026). Exploring the Antecedents and Consequences of AI-Induced Silence from the Perspective of Social Influence Theory. <em>Proceedings of the 30th Pacific Asia Conference on Information Systems (PACIS 2026)</em>.</li>
+          <li data-type="conference" data-year="2026" data-topics="hai genai">Ching-Wei Lin, Chen-Wei Lin, Min-Fang Tsai, Gary Yu-Ho Yeh &amp; Jack Shih-Chieh Hsu (2026). How AI-Based Resources Improve Nurses’ Work Engagement and Well-Being. <em>Proceedings of the 30th Pacific Asia Conference on Information Systems (PACIS 2026)</em>.</li>
+          <li data-type="conference" data-year="2025" data-topics="dx">C.-M. Chiu, J. S. C. Hsu &amp; G. Y. H. Yeh (2025). Exploring employees’ quiet quitting from the perspectives of ego depletion and information technology obsolescence. <em>Proceedings of the 30th Americas Conference on Information Systems (AMCIS 2025)</em>, Montreal, Canada.</li>
+          <li data-type="conference" data-year="2025" data-topics="hai">G. Y. H. Yeh, C.-M. Chiu &amp; J. S. C. Hsu (2025). When AI Apologizes: The Impact of Recovery Strategy and Tone on User Response. <em>Proceedings of the 29th Pacific Asia Conference on Information Systems (PACIS 2025)</em>, Kuala Lumpur, Malaysia.</li>
+          <li data-type="conference" data-year="2025" data-topics="dx">G. Y. H. Yeh, Huang, C.-M., J. S. C. Hsu, Shen, H.-C., &amp; Yang, J.-J (2025). Reversing the lens: Leveraging institutional pressures to drive IT adoption from a provider perspective. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Hawaii, USA.</li>
+          <li data-type="conference" data-year="2025" data-topics="dx">G. Y. H. Yeh, J. S. C. Hsu, Shen, H.-C (2025). Strategic drivers of twin transformation: Insights from the people-process-technology framework on dual-axis growth. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Hawaii, USA.</li>
+          <li data-type="conference" data-year="2025" data-topics="method">G. Y. H. Yeh &amp; J. S. C. Hsu (2025). Expanding the interpretation of fsQCA analysis based on the perspective of the Kano model. <em>Proceedings of the Hawaii International Conference on System Sciences (HICSS 2025)</em>, Hawaii, America.</li>
+          <li data-type="conference" data-year="2024" data-topics="sustain">G. Y. H. Yeh, J. S. C. Hsu, Brading, R., Y.-T. Chang-Chien &amp; P. J. Chen (2024). Exploring the impact of green intellectual capital on green technology absorptive capacity and corporations' willingness to implement carbon handprints. <em>Workshop on E-Business 2024</em>, Bangkok, Thailand.</li>
+          <li data-type="conference" data-year="2024" data-topics="dx">C. M. Huang, G. Y. H. Yeh, J. S. C. Hsu &amp; W. C. Cheng (2024). Exploring the promotion strategies for intelligent plating equipment using institutional theory. <em>International Conference on Management, Economics, IT, and Education (MEIE 2024)</em>, Osaka, Japan.</li>
+          <li data-type="conference" data-year="2024" data-topics="sustain">葉欲禾, 謝旭昇 (2024). 為什麼永續意圖無法化為永續行動?──永續消費資源之調節角色. <em>發展研究年會 (ACDS 2024)</em>, 高雄, 台灣.</li>
+          <li data-type="conference" data-year="2023" data-topics="dx">葉欲禾, 顏子涵, 徐士傑 (2023). 分析使用者升級至光纖到府之原因 — 以推力、拉力與黏著力之理論觀點出發. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
           <li data-type="conference" data-year="2023">葉欲禾, 許育璿, 許惠娟 (2023). 論恆毅力在網路課程之學習動機及完成度之干擾效果. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
           <li data-type="conference" data-year="2023">葉欲禾, 李致皓, 洪郁雯 (2023). 資訊安全疲勞之成因及其降低方法之探究. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
         </ol>
@@ -1505,7 +1766,7 @@
       <h2>Teaching Materials</h2>
       <p class="lede">Open course materials and slide decks, free to read and reuse.</p>
       <div class="teach-grid">
-<div class="card">
+<div class="card" data-reveal>
         <h3>實驗法 · Experimental Research Methods</h3>
         <p>
           一套關於實驗研究方法與統計的線上課程教材，涵蓋實驗設計、變項操弄、效果量與統計分析等主題。點擊下方連結即可線上閱讀。
@@ -1516,7 +1777,7 @@
         </a>
       </div>
 
-      <div class="card">
+      <div class="card" data-reveal>
         <h3>生成式 AI 操作介紹與應用</h3>
         <p>
           介紹生成式 AI 的基本操作與實務應用，協助學習者快速上手並運用於日常工作與研究情境。點擊下方連結即可開啟簡報。
@@ -1527,7 +1788,7 @@
         </a>
       </div>
 
-      <div class="card">
+      <div class="card" data-reveal>
         <h3>醫療資訊系統資料之檔案分析與大數據應用</h3>
         <p>
           說明醫療資訊系統資料的檔案分析方法與大數據應用，涵蓋資料處理流程與分析實務。點擊下方連結即可開啟簡報。
@@ -1560,7 +1821,7 @@
       <p class="eyebrow">05 — Honors</p>
       <h2>Honors &amp; Awards</h2>
       <div id="honor-list">
-<div class="card">
+<div class="card" data-reveal>
         <div class="honor-head">
           <span class="honor-yr">2026</span>
           <span class="honor-title">Best Paper Nominee · AMCIS 2026</span>
@@ -1572,7 +1833,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" data-reveal>
         <div class="honor-head">
           <span class="honor-yr">2024</span>
           <span class="honor-title">第二名 · 第四屆「永續生活實驗室獎」（Sustainable Living Lab Award）</span>
@@ -1596,19 +1857,19 @@
       <h2>Academic Service</h2>
       <p class="lede">Reviewing and programme-committee work for conferences and workshops.</p>
       <div class="svc-grid">
-<div class="svc"><span class="dot"></span>Pacific Asia Conference on Information Systems 2028</div>
-        <div class="svc"><span class="dot"></span>UHIMA 2026 &amp; TLCMA 2026</div>
-        <div class="svc"><span class="dot"></span>UHIMA 2025 &amp; TLCMA 2025</div>
-        <div class="svc"><span class="dot"></span>2024 Taiwan Summer Workshop on Information Management (TSWIM)</div>
+<div class="svc" data-reveal><span class="dot"></span>Pacific Asia Conference on Information Systems 2028</div>
+        <div class="svc" data-reveal><span class="dot"></span>UHIMA 2026 &amp; TLCMA 2026</div>
+        <div class="svc" data-reveal><span class="dot"></span>UHIMA 2025 &amp; TLCMA 2025</div>
+        <div class="svc" data-reveal><span class="dot"></span>2024 Taiwan Summer Workshop on Information Management (TSWIM)</div>
       </div>
 
       <h3>Invited Lectures</h3>
-<div class="card">
+<div class="card" data-reveal>
         <div class="lec-title">受邀講師 · 生成式 AI 軟體操作介紹與運用</div>
         <div class="lec-org">台灣醫療繼續教育推廣學會 — 115 年度「病歷暨資訊管理系列專業課程」</div>
         <div class="lec-date">授課日期：2026 年 5 月 23 日 · 發文字號：台醫教推字第 11503001343 號</div>
       </div>
-      <div class="card">
+      <div class="card" data-reveal>
         <div class="lec-title">受邀講師 · 醫療資訊系統資料之檔案分析與大數據應用</div>
         <div class="lec-org">台灣醫療繼續教育推廣學會 — 115 年度「病歷暨資訊管理系列專業課程」</div>
         <div class="lec-date">授課日期：2026 年 5 月 23 日 · 發文字號：台醫教推字第 11503001343 號</div>
@@ -1799,6 +2060,18 @@
   var items = Array.prototype.slice.call(document.querySelectorAll('.pub-list li'));
   var empty = document.getElementById('pub-empty');
   var resultCount = document.getElementById('pub-result-count');
+  var summary = document.getElementById('filter-summary');
+  var summaryText = document.getElementById('filter-summary-text');
+  var activeTopic = null;
+
+  var TOPIC_LABELS = {
+    hai: 'Human\u2013AI Interaction', genai: 'Generative AI Services',
+    dx: 'Digital Transformation', sustain: 'Sustainability',
+    urban: 'Urban Environments & Ageing', method: 'Methods'
+  };
+  function hasTopic(li, t) {
+    return (' ' + (li.dataset.topics || '') + ' ').indexOf(' ' + t + ' ') !== -1;
+  }
 
   if (yearSel) {
     var years = {};
@@ -1826,7 +2099,8 @@
       var okType = type === 'all' || li.dataset.type === type;
       var okYear = year === 'all' || li.dataset.year === year;
       var okText = !q || li.textContent.toLowerCase().indexOf(q) !== -1;
-      var show = okType && okYear && okText;
+      var okTopic = !activeTopic || hasTopic(li, activeTopic);
+      var show = okType && okYear && okText && okTopic;
       li.hidden = !show;
       if (show) shown++;
     });
@@ -1838,11 +2112,39 @@
     });
 
     if (empty) empty.classList.toggle('show', shown === 0);
+
+    var filtering = !!(q || type !== 'all' || year !== 'all' || activeTopic);
     if (resultCount) {
-      resultCount.textContent = (q || type !== 'all' || year !== 'all')
+      resultCount.textContent = filtering
         ? shown + ' of ' + items.length
         : items.length + ' publications';
     }
+
+    // reflect state on the charts and theme cards
+    document.querySelectorAll('.ybar').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.year === year));
+    });
+    document.querySelectorAll('.tbar, .theme').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.topic === activeTopic));
+    });
+
+    if (summary) {
+      var bits = [];
+      if (activeTopic) bits.push(TOPIC_LABELS[activeTopic] || activeTopic);
+      if (type !== 'all') bits.push(typeBtns.filter(function (b) { return b.dataset.type === type; })[0].textContent.trim().replace(/\s*\d+$/, ''));
+      if (year !== 'all') bits.push(year);
+      if (q) bits.push('\u201c' + q + '\u201d');
+      summary.classList.toggle('show', bits.length > 0);
+      summaryText.textContent = 'Showing ' + shown + ' of ' + items.length + ' \u00b7 ' + bits.join(' \u00b7 ');
+    }
+  }
+
+  function clearFilters() {
+    activeTopic = null;
+    if (search) search.value = '';
+    if (yearSel) yearSel.value = 'all';
+    typeBtns.forEach(function (x, i) { x.setAttribute('aria-pressed', String(i === 0)); });
+    applyFilters();
   }
 
   typeBtns.forEach(function (b) {
@@ -1859,6 +2161,106 @@
   if (search) search.addEventListener('input', applyFilters);
   if (yearSel) yearSel.addEventListener('change', applyFilters);
   applyFilters();
+
+  var clearBtn = document.getElementById('filter-clear');
+  if (clearBtn) clearBtn.addEventListener('click', clearFilters);
+
+  function focusPublications() {
+    var pubs = document.getElementById('publications');
+    if (!pubs) return;
+    var navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10) || 56;
+    window.scrollTo({ top: pubs.offsetTop - navH - 10, behavior: 'smooth' });
+  }
+
+  function toggleTopic(t) {
+    activeTopic = (activeTopic === t) ? null : t;
+    applyFilters();
+  }
+
+  /* ---------- publications-per-year chart (built from the list itself) ---------- */
+  var yearBars = document.getElementById('year-bars');
+  if (yearBars && items.length) {
+    var TYPES = ['journal', 'conference', 'case'];
+    var byYear = {};
+    items.forEach(function (li) {
+      var y = li.dataset.year; if (!y) return;
+      byYear[y] = byYear[y] || { journal: 0, conference: 0, 'case': 0, total: 0 };
+      byYear[y][li.dataset.type]++;
+      byYear[y].total++;
+    });
+    var yrs = Object.keys(byYear).sort();
+    var max = Math.max.apply(null, yrs.map(function (y) { return byYear[y].total; }));
+
+    yrs.forEach(function (y) {
+      var d = byYear[y];
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'ybar';
+      b.dataset.year = y;
+      b.setAttribute('aria-pressed', 'false');
+      b.setAttribute('aria-label', y + ': ' + d.total + ' publications (' +
+        d.journal + ' journal, ' + d.conference + ' conference, ' + d['case'] + ' case)');
+      b.title = y + ' \u2014 ' + d.journal + ' journal \u00b7 ' + d.conference +
+        ' conference \u00b7 ' + d['case'] + ' case';
+
+      var segs = TYPES.filter(function (t) { return d[t] > 0; }).map(function (t) {
+        return '<span class="seg seg-' + t + '" style="flex:' + d[t] + '"></span>';
+      }).join('');
+
+      b.innerHTML =
+        '<span class="bar-track"><span class="bar-fill" data-h="' +
+        Math.round(d.total / max * 100) + '%">' + segs + '</span></span>' +
+        '<span class="ynum">' + d.total + '</span>' +
+        '<span class="ylab">' + y + '</span>';
+
+      b.addEventListener('click', function () {
+        if (!yearSel) return;
+        yearSel.value = (yearSel.value === y) ? 'all' : y;
+        applyFilters();
+        focusPublications();
+      });
+      yearBars.appendChild(b);
+    });
+  }
+
+  /* ---------- research-theme distribution ---------- */
+  var topicBars = document.getElementById('topic-bars');
+  if (topicBars && items.length) {
+    var counts = Object.keys(TOPIC_LABELS).map(function (t) {
+      return { key: t, n: items.filter(function (li) { return hasTopic(li, t); }).length };
+    }).filter(function (c) { return c.n > 0; }).sort(function (a, b) { return b.n - a.n; });
+    var tmax = counts.length ? counts[0].n : 1;
+
+    counts.forEach(function (c) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tbar';
+      b.dataset.topic = c.key;
+      b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<span class="tb-label">' + TOPIC_LABELS[c.key] + '</span>' +
+        '<span class="tb-track"><span class="tb-fill" data-w="' +
+        Math.round(c.n / tmax * 100) + '%"></span></span>' +
+        '<span class="tb-n">' + c.n + '</span>';
+      b.addEventListener('click', function () { toggleTopic(c.key); focusPublications(); });
+      li.appendChild(b);
+      topicBars.appendChild(li);
+    });
+  }
+
+  /* ---------- theme cards drive the same filter ---------- */
+  document.querySelectorAll('.theme[data-topic]').forEach(function (card) {
+    var t = card.dataset.topic;
+    var n = items.filter(function (li) { return hasTopic(li, t); }).length;
+    var slot = card.querySelector('.theme-n');
+    if (slot) slot.textContent = n;
+    if (!n) { var cta = card.querySelector('.theme-cta'); if (cta) cta.style.display = 'none'; }
+    function go() { if (n) { toggleTopic(t); focusPublications(); } }
+    card.addEventListener('click', go);
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+    });
+  });
 
   /* ---------- copy a citation ---------- */
   document.querySelectorAll('.pub-list li').forEach(function (li) {
@@ -1895,6 +2297,96 @@
     }, { passive: true });
     toTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ---------- reading progress ---------- */
+  var bar = document.querySelector('.progress');
+  if (bar) {
+    var tick = false;
+    var paint = function () {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')';
+    };
+    window.addEventListener('scroll', function () {
+      if (tick) return;
+      tick = true;
+      requestAnimationFrame(function () { tick = false; paint(); });
+    }, { passive: true });
+    window.addEventListener('resize', paint);
+    paint();
+  }
+
+  /* ---------- scroll reveal, count-up and chart growth ---------- */
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function countUp(el) {
+    var target = parseInt(el.textContent, 10);
+    if (isNaN(target) || reduced) return;
+    var t0 = null, dur = 900;
+    function step(ts) {
+      if (t0 === null) t0 = ts;
+      var k = Math.min(1, (ts - t0) / dur);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    el.textContent = '0';
+    requestAnimationFrame(step);
+  }
+
+  function growCharts() {
+    document.querySelectorAll('.bar-fill[data-h]').forEach(function (f) { f.style.height = f.dataset.h; });
+    document.querySelectorAll('.tb-fill[data-w]').forEach(function (f) { f.style.width = f.dataset.w; });
+  }
+
+  var revealTargets = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  revealTargets.forEach(function (el, i) { el.style.setProperty('--d', (i % 4) * 70 + 'ms'); });
+
+  function showEl(el) {
+    if (el.classList.contains('in')) return;
+    el.classList.add('in');
+    if (el.classList.contains('viz')) growCharts();
+    el.querySelectorAll('.num').forEach(countUp);
+    // belt and braces: stamp the end state so a paused transition can never
+    // leave the element invisible
+    setTimeout(function () { el.style.opacity = '1'; el.style.transform = 'none'; }, 900);
+  }
+
+  function revealAll() { revealTargets.forEach(showEl); }
+
+  if (reduced) {
+    revealAll();
+  } else {
+    var lastSync = 0;
+    var syncReveal = function () {
+      lastSync = Date.now();
+      var line = window.innerHeight * 0.94;
+      for (var i = revealTargets.length - 1; i >= 0; i--) {
+        var el = revealTargets[i];
+        if (el.getBoundingClientRect().top < line) {
+          showEl(el);
+          revealTargets.splice(i, 1);
+        }
+      }
+      if (!revealTargets.length) {
+        window.removeEventListener('scroll', onRevealScroll);
+        window.removeEventListener('resize', syncReveal);
+      }
+    };
+    // deliberately not rAF-driven: a throttled or background tab pauses rAF, and
+    // content must never be stranded behind the animation.
+    var onRevealScroll = function () {
+      if (Date.now() - lastSync > 60) syncReveal();
+    };
+    window.addEventListener('scroll', onRevealScroll, { passive: true });
+    window.addEventListener('resize', syncReveal);
+    syncReveal();
+    // last-resort guard: never leave content stranded behind the animation
+    setTimeout(function () { if (revealTargets.length) syncReveal(); }, 1200);
+    window.addEventListener('load', syncReveal);
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) syncReveal();
     });
   }
 

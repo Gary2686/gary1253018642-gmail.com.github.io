@@ -12,6 +12,9 @@ what a human reads:
 Each publication <li> needs two attributes, which this script also repairs:
     data-type="journal" | "conference" | "case"
     data-year="2026"        (parsed from the (YYYY) in the entry)
+An optional data-topics="hai genai ..." drives the charts and theme filters;
+it is preserved as written, so add it by hand on new entries. Valid keys:
+    hai  genai  dx  sustain  urban  method
 """
 import html as H
 import io
@@ -104,6 +107,9 @@ def main():
             attrs = ' data-type="%s"' % kind
             if rec['year']:
                 attrs += ' data-year="%s"' % rec['year']
+            keep = re.search(r'data-topics="([^"]*)"', li.group(0))
+            if keep:
+                attrs += ' data-topics="%s"' % keep.group(1)
             rebuilt.append('          <li%s>%s</li>' % (attrs, li.group(1)))
         src = src[:m.start()] + m.group(1) + '\n' + '\n'.join(rebuilt) + '\n        ' + m.group(3) + src[m.end():]
 
