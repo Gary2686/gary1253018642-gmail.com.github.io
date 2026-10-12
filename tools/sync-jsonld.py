@@ -10,7 +10,7 @@ what a human reads:
     python3 tools/sync-jsonld.py
 
 Each publication <li> needs two attributes, which this script also repairs:
-    data-type="journal" | "conference" | "case"
+    data-type="journal" | "conference" | "chapter" | "case"
     data-year="2026"        (parsed from the (YYYY) in the entry)
 Two optional attributes are preserved as written, so add them by hand on new
 entries:
@@ -31,7 +31,8 @@ PAGE = os.path.join(ROOT, 'index.html')
 BASE = "https://gary2686.github.io/gary1253018642-gmail.com.github.io/"
 PERSON = BASE + "#person"
 
-LISTS = [('journal-list', 'journal'), ('conf-list', 'conference'), ('case-list', 'case')]
+LISTS = [('journal-list', 'journal'), ('conf-list', 'conference'),
+         ('chapter-list', 'chapter'), ('case-list', 'case')]
 TAGS = re.compile(r'<[^>]+>')
 
 
@@ -59,9 +60,10 @@ def parse(inner, kind):
         if m:
             title = m.group(1).strip()
     if not title:
-        m = re.search(r'\(\d{4}\)。(.+?)。《(.+?)》', plain)
+        m = re.search(r'\(\d{4}\)。(.+?)《(.+?)》', plain)
         if m:
-            title, venue = m.group(1).strip(), m.group(2).strip()
+            title = m.group(1).strip().rstrip('。')
+            venue = m.group(2).strip()
     if not title:
         m = re.search(r'<a[^>]*>(.*?)</a>\s*《(.+?)》', inner, re.S)
         if m:
@@ -80,7 +82,7 @@ def parse(inner, kind):
 
 def node(r):
     n = {
-        "@type": "ScholarlyArticle" if r['kind'] != 'case' else "Article",
+        "@type": {'case': 'Article', 'chapter': 'Chapter'}.get(r['kind'], 'ScholarlyArticle'),
         "name": r['title'],
         "author": {"@id": PERSON},
         "description": "%s (%s). %s. %s" % (r['authors'], r['year'], r['title'], r['venue']),
@@ -88,7 +90,7 @@ def node(r):
     if r['year']:
         n["datePublished"] = r['year']
     if r['venue']:
-        n["isPartOf"] = {"@type": "Periodical" if r['kind'] == 'journal' else "CreativeWork",
+        n["isPartOf"] = {"@type": {'journal': 'Periodical', 'chapter': 'Book'}.get(r['kind'], 'CreativeWork'),
                          "name": r['venue']}
     if r['url']:
         n["url"] = r['url']
