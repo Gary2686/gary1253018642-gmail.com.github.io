@@ -1608,10 +1608,11 @@
 
   .net-tip {
     position: absolute; pointer-events: none; opacity: 0;
-    transform: translate(-50%, -140%); transition: opacity .15s ease;
+    transition: opacity .15s ease;
     background: var(--ink); color: var(--bg);
     font-size: 12.5px; font-weight: 600; line-height: 1.45;
-    padding: 7px 11px; border-radius: 9px; white-space: nowrap;
+    padding: 7px 11px; border-radius: 9px;
+    max-width: min(250px, calc(100% - 20px)); text-align: center;
     box-shadow: var(--shadow-md); z-index: 2;
   }
   .net-tip.show { opacity: 1; }
@@ -1857,7 +1858,7 @@
       <p class="eyebrow">03 — Collaboration</p>
       <h2>Co-Authorship Network</h2>
       <p class="lede">
-        Every researcher I have published with, drawn from the 38 co-authors across the
+        Every researcher I have published with, drawn from the 35 co-authors across the
         publication list below. Each circle is a researcher, sized by how many papers we share; a line joins
         two people who appear on the same paper, so the clusters are real research groups rather than a layout
         choice. Hover to trace someone's ties, click to see our joint work.
@@ -1867,7 +1868,7 @@
         <div class="net-canvas">
           <svg id="net-svg" role="img" aria-labelledby="net-title net-desc" preserveAspectRatio="xMidYMid meet">
             <title id="net-title">Co-authorship network of Gary Yu-Ho Yeh</title>
-            <desc id="net-desc">A force-directed graph of 38 co-authors. Most frequent collaborators: Jack Shih-Chieh Hsu (24), Chao-Min Chiu (8), Hsu-Sheng Hsieh (7), Yu-Ting Chang-Chien (3), Hsiang-Lan Cheng (3).</desc>
+            <desc id="net-desc">A force-directed graph of 35 co-authors. Most frequent collaborators: Jack Shih-Chieh Hsu (24), Chao-Min Chiu (8), Hsu-Sheng Hsieh (7), Yu-Ting Chang-Chien (3), Ryan Brading (3).</desc>
           </svg>
           <div class="net-tip" id="net-tip" role="status" aria-live="polite"></div>
         </div>
@@ -1877,11 +1878,11 @@
       </figure>
 
       <p class="net-summary">
-        <strong>Most frequent collaborators:</strong> Jack Shih-Chieh Hsu (24), Chao-Min Chiu (8), Hsu-Sheng Hsieh (7), Yu-Ting Chang-Chien (3), Hsiang-Lan Cheng (3) — the number in brackets is how many
+        <strong>Most frequent collaborators:</strong> Jack Shih-Chieh Hsu (24), Chao-Min Chiu (8), Hsu-Sheng Hsieh (7), Yu-Ting Chang-Chien (3), Ryan Brading (3) — the number in brackets is how many
         publications we share.
       </p>
 
-      <script type="application/json" id="network-data">{"nodes":[{"id":0,"name":"Gary Yu-Ho Yeh","n":34,"theme":"dx","self":true},{"id":1,"name":"Jack Shih-Chieh Hsu","n":24,"theme":"dx","self":false},{"id":2,"name":"Chao-Min Chiu","n":8,"theme":"hai","self":false},{"id":3,"name":"Hsu-Sheng Hsieh","n":7,"theme":"method","self":false},{"id":4,"name":"Yu-Ting Chang-Chien","n":3,"theme":"dx","self":false},{"id":5,"name":"Hsiang-Lan Cheng","n":3,"theme":"hai","self":false},{"id":6,"name":"Cheng-Ru Wei","n":2,"theme":"sustain","self":false},{"id":7,"name":"R. Brading","n":2,"theme":"dx","self":false},{"id":8,"name":"C.-M. Huang","n":2,"theme":"dx","self":false},{"id":9,"name":"H.-C. Shen","n":2,"theme":"dx","self":false},{"id":10,"name":"Young-Jin Kao","n":1,"theme":"dx","self":false},{"id":11,"name":"Yuzhu Li","n":1,"theme":"dx","self":false},{"id":12,"name":"Yu-Ping Hsu","n":1,"theme":"dx","self":false},{"id":13,"name":"Wei-Feng Chen","n":1,"theme":"urban","self":false},{"id":14,"name":"Ching-Yi Chen","n":1,"theme":"urban","self":false},{"id":15,"name":"Chin-Oh Chang","n":1,"theme":"urban","self":false},{"id":16,"name":"J. C. Cheng","n":1,"theme":"","self":false},{"id":17,"name":"K. T. Cheng","n":1,"theme":"hai","self":false},{"id":18,"name":"S. Y. Chien","n":1,"theme":"hai","self":false},{"id":19,"name":"黃舒韓","n":1,"theme":"genai","self":false},{"id":20,"name":"雷英瑞","n":1,"theme":"genai","self":false},{"id":21,"name":"蔡敏芳","n":1,"theme":"hai","self":false},{"id":22,"name":"黃秋梅","n":1,"theme":"hai","self":false},{"id":23,"name":"吳基逞","n":1,"theme":"hai","self":false},{"id":24,"name":"Yuting Cheng","n":1,"theme":"hai","self":false},{"id":25,"name":"Harry Su-Han Huang","n":1,"theme":"dx","self":false},{"id":26,"name":"Guan-Hong Liu","n":1,"theme":"hai","self":false},{"id":27,"name":"Wen-Feng Su","n":1,"theme":"hai","self":false},{"id":28,"name":"Ching-Wei Lin","n":1,"theme":"hai","self":false},{"id":29,"name":"Chen-Wei Lin","n":1,"theme":"hai","self":false},{"id":30,"name":"Min-Fang Tsai","n":1,"theme":"hai","self":false},{"id":31,"name":"J.-J. Yang","n":1,"theme":"dx","self":false},{"id":32,"name":"P. J. Chen","n":1,"theme":"sustain","self":false},{"id":33,"name":"W. C. Cheng","n":1,"theme":"dx","self":false},{"id":34,"name":"顏子涵","n":1,"theme":"dx","self":false},{"id":35,"name":"許育璿","n":1,"theme":"","self":false},{"id":36,"name":"許惠娟","n":1,"theme":"","self":false},{"id":37,"name":"李致皓","n":1,"theme":"","self":false},{"id":38,"name":"洪郁雯","n":1,"theme":"","self":false}],"links":[{"s":0,"t":1,"w":24},{"s":2,"t":0,"w":8},{"s":2,"t":1,"w":8},{"s":0,"t":3,"w":7},{"s":0,"t":4,"w":3},{"s":1,"t":4,"w":3},{"s":0,"t":5,"w":3},{"s":5,"t":1,"w":3},{"s":2,"t":5,"w":3},{"s":6,"t":3,"w":2},{"s":6,"t":0,"w":2},{"s":0,"t":7,"w":2},{"s":1,"t":7,"w":2},{"s":8,"t":0,"w":2},{"s":0,"t":9,"w":2},{"s":8,"t":1,"w":2},{"s":9,"t":1,"w":2},{"s":0,"t":10,"w":1},{"s":10,"t":4,"w":1},{"s":1,"t":10,"w":1},{"s":1,"t":11,"w":1},{"s":1,"t":12,"w":1},{"s":0,"t":11,"w":1},{"s":0,"t":12,"w":1},{"s":12,"t":11,"w":1},{"s":3,"t":13,"w":1},{"s":14,"t":3,"w":1},{"s":15,"t":3,"w":1},{"s":0,"t":13,"w":1},{"s":14,"t":13,"w":1},{"s":15,"t":13,"w":1},{"s":14,"t":0,"w":1},{"s":15,"t":0,"w":1},{"s":15,"t":14,"w":1},{"s":16,"t":4,"w":1},{"s":16,"t":1,"w":1},{"s":0,"t":16,"w":1},{"s":0,"t":17,"w":1},{"s":0,"t":18,"w":1},{"s":2,"t":17,"w":1},{"s":1,"t":17,"w":1},{"s":17,"t":18,"w":1},{"s":2,"t":18,"w":1},{"s":1,"t":18,"w":1},{"s":0,"t":19,"w":1},{"s":0,"t":20,"w":1},{"s":20,"t":19,"w":1},{"s":1,"t":19,"w":1},{"s":1,"t":20,"w":1},{"s":0,"t":21,"w":1},{"s":21,"t":22,"w":1},{"s":23,"t":21,"w":1},{"s":0,"t":22,"w":1},{"s":0,"t":23,"w":1},{"s":23,"t":22,"w":1},{"s":0,"t":24,"w":1},{"s":1,"t":24,"w":1},{"s":5,"t":24,"w":1},{"s":2,"t":24,"w":1},{"s":0,"t":25,"w":1},{"s":25,"t":7,"w":1},{"s":25,"t":1,"w":1},{"s":26,"t":27,"w":1},{"s":0,"t":26,"w":1},{"s":26,"t":1,"w":1},{"s":2,"t":26,"w":1},{"s":0,"t":27,"w":1},{"s":1,"t":27,"w":1},{"s":2,"t":27,"w":1},{"s":29,"t":28,"w":1},{"s":28,"t":30,"w":1},{"s":28,"t":0,"w":1},{"s":28,"t":1,"w":1},{"s":29,"t":30,"w":1},{"s":29,"t":0,"w":1},{"s":29,"t":1,"w":1},{"s":0,"t":30,"w":1},{"s":1,"t":30,"w":1},{"s":0,"t":31,"w":1},{"s":8,"t":9,"w":1},{"s":8,"t":31,"w":1},{"s":31,"t":1,"w":1},{"s":9,"t":31,"w":1},{"s":0,"t":32,"w":1},{"s":1,"t":32,"w":1},{"s":7,"t":4,"w":1},{"s":32,"t":7,"w":1},{"s":32,"t":4,"w":1},{"s":8,"t":33,"w":1},{"s":0,"t":33,"w":1},{"s":1,"t":33,"w":1},{"s":0,"t":34,"w":1},{"s":1,"t":34,"w":1},{"s":0,"t":35,"w":1},{"s":0,"t":36,"w":1},{"s":36,"t":35,"w":1},{"s":0,"t":37,"w":1},{"s":0,"t":38,"w":1},{"s":37,"t":38,"w":1}]}</script>
+      <script type="application/json" id="network-data">{"nodes":[{"id":0,"name":"Gary Yu-Ho Yeh","n":34,"theme":"dx","self":true},{"id":1,"name":"Jack Shih-Chieh Hsu","n":24,"theme":"dx","self":false},{"id":2,"name":"Chao-Min Chiu","n":8,"theme":"hai","self":false},{"id":3,"name":"Hsu-Sheng Hsieh","n":7,"theme":"method","self":false},{"id":4,"name":"Yu-Ting Chang-Chien","n":3,"theme":"dx","self":false},{"id":5,"name":"Ryan Brading","n":3,"theme":"dx","self":false},{"id":6,"name":"Hsiang-Lan Cheng","n":3,"theme":"hai","self":false},{"id":7,"name":"Cheng-Ru Wei","n":2,"theme":"sustain","self":false},{"id":8,"name":"Harry Su-Han Huang","n":2,"theme":"dx","self":false},{"id":9,"name":"Min-Fang Tsai","n":2,"theme":"hai","self":false},{"id":10,"name":"C.-M. Huang","n":2,"theme":"dx","self":false},{"id":11,"name":"H.-C. Shen","n":2,"theme":"dx","self":false},{"id":12,"name":"Young-Jin Kao","n":1,"theme":"dx","self":false},{"id":13,"name":"Yuzhu Li","n":1,"theme":"dx","self":false},{"id":14,"name":"Yu-Ping Hsu","n":1,"theme":"dx","self":false},{"id":15,"name":"Wei-Feng Chen","n":1,"theme":"urban","self":false},{"id":16,"name":"Ching-Yi Chen","n":1,"theme":"urban","self":false},{"id":17,"name":"Chin-Oh Chang","n":1,"theme":"urban","self":false},{"id":18,"name":"J. C. Cheng","n":1,"theme":"","self":false},{"id":19,"name":"K. T. Cheng","n":1,"theme":"hai","self":false},{"id":20,"name":"S. Y. Chien","n":1,"theme":"hai","self":false},{"id":21,"name":"黃秋梅","n":1,"theme":"hai","self":false},{"id":22,"name":"吳基逞","n":1,"theme":"hai","self":false},{"id":23,"name":"Yuting Cheng","n":1,"theme":"hai","self":false},{"id":24,"name":"Guan-Hong Liu","n":1,"theme":"hai","self":false},{"id":25,"name":"Wen-Feng Su","n":1,"theme":"hai","self":false},{"id":26,"name":"Ching-Wei Lin","n":1,"theme":"hai","self":false},{"id":27,"name":"Chen-Wei Lin","n":1,"theme":"hai","self":false},{"id":28,"name":"J.-J. Yang","n":1,"theme":"dx","self":false},{"id":29,"name":"P. J. Chen","n":1,"theme":"sustain","self":false},{"id":30,"name":"W. C. Cheng","n":1,"theme":"dx","self":false},{"id":31,"name":"顏子涵","n":1,"theme":"dx","self":false},{"id":32,"name":"許育璿","n":1,"theme":"","self":false},{"id":33,"name":"許惠娟","n":1,"theme":"","self":false},{"id":34,"name":"李致皓","n":1,"theme":"","self":false},{"id":35,"name":"洪郁雯","n":1,"theme":"","self":false}],"links":[{"s":0,"t":1,"w":24},{"s":2,"t":0,"w":8},{"s":2,"t":1,"w":8},{"s":0,"t":3,"w":7},{"s":0,"t":4,"w":3},{"s":1,"t":4,"w":3},{"s":0,"t":5,"w":3},{"s":1,"t":5,"w":3},{"s":0,"t":6,"w":3},{"s":6,"t":1,"w":3},{"s":2,"t":6,"w":3},{"s":7,"t":3,"w":2},{"s":7,"t":0,"w":2},{"s":0,"t":8,"w":2},{"s":8,"t":5,"w":2},{"s":8,"t":1,"w":2},{"s":0,"t":9,"w":2},{"s":10,"t":0,"w":2},{"s":0,"t":11,"w":2},{"s":10,"t":1,"w":2},{"s":11,"t":1,"w":2},{"s":0,"t":12,"w":1},{"s":12,"t":4,"w":1},{"s":1,"t":12,"w":1},{"s":1,"t":13,"w":1},{"s":1,"t":14,"w":1},{"s":0,"t":13,"w":1},{"s":0,"t":14,"w":1},{"s":14,"t":13,"w":1},{"s":3,"t":15,"w":1},{"s":16,"t":3,"w":1},{"s":17,"t":3,"w":1},{"s":0,"t":15,"w":1},{"s":16,"t":15,"w":1},{"s":17,"t":15,"w":1},{"s":16,"t":0,"w":1},{"s":17,"t":0,"w":1},{"s":17,"t":16,"w":1},{"s":18,"t":4,"w":1},{"s":18,"t":1,"w":1},{"s":0,"t":18,"w":1},{"s":0,"t":19,"w":1},{"s":0,"t":20,"w":1},{"s":2,"t":19,"w":1},{"s":1,"t":19,"w":1},{"s":19,"t":20,"w":1},{"s":2,"t":20,"w":1},{"s":1,"t":20,"w":1},{"s":9,"t":21,"w":1},{"s":9,"t":22,"w":1},{"s":0,"t":21,"w":1},{"s":0,"t":22,"w":1},{"s":22,"t":21,"w":1},{"s":0,"t":23,"w":1},{"s":1,"t":23,"w":1},{"s":6,"t":23,"w":1},{"s":2,"t":23,"w":1},{"s":24,"t":25,"w":1},{"s":0,"t":24,"w":1},{"s":24,"t":1,"w":1},{"s":2,"t":24,"w":1},{"s":0,"t":25,"w":1},{"s":1,"t":25,"w":1},{"s":2,"t":25,"w":1},{"s":27,"t":26,"w":1},{"s":26,"t":9,"w":1},{"s":26,"t":0,"w":1},{"s":26,"t":1,"w":1},{"s":27,"t":9,"w":1},{"s":27,"t":0,"w":1},{"s":27,"t":1,"w":1},{"s":1,"t":9,"w":1},{"s":0,"t":28,"w":1},{"s":10,"t":11,"w":1},{"s":10,"t":28,"w":1},{"s":28,"t":1,"w":1},{"s":11,"t":28,"w":1},{"s":0,"t":29,"w":1},{"s":1,"t":29,"w":1},{"s":5,"t":4,"w":1},{"s":29,"t":5,"w":1},{"s":29,"t":4,"w":1},{"s":10,"t":30,"w":1},{"s":0,"t":30,"w":1},{"s":1,"t":30,"w":1},{"s":0,"t":31,"w":1},{"s":1,"t":31,"w":1},{"s":0,"t":32,"w":1},{"s":0,"t":33,"w":1},{"s":33,"t":32,"w":1},{"s":0,"t":34,"w":1},{"s":0,"t":35,"w":1},{"s":34,"t":35,"w":1}]}</script>
     </div>
   </section>
 
@@ -1944,8 +1945,8 @@
           <li data-type="journal" data-year="2026" data-topics="urban" data-authors="Hsu-Sheng Hsieh|Wei-Feng Chen|Gary Yu-Ho Yeh|Ching-Yi Chen|Chin-Oh Chang">Hsu-Sheng Hsieh, Wei-Feng Chen, Gary Yu-Ho Yeh, Ching-Yi Chen, Chin-Oh Chang (2026). Branching Households: A Multi-Scale Evidence on How Family Life Stages Reorder the Drivers of Residential Satisfaction. <em>Urban Studies</em>. <span class="status-tag st-review">Under Review</span></li>
           <li data-type="journal" data-year="2026" data-authors="Yu-Ting Chang-Chien|Jack Shih-Chieh Hsu|J. C. Cheng|Gary Yu-Ho Yeh">Chang-Chien, Y. T., Jack Shih-Chieh Hsu*, Cheng, J. C., &amp; Gary Yu-Ho Yeh (2026). Factors Affecting Consumer Intention to Adopt Boutique Bags Subscription Service. <em>Journal of Electronic Commerce Research</em>, <em>27</em>(1), 19–42. <a class="pub-url" href="https://www.jecr.org/sites/default/files/2026vol27no1_Paper2.pdf" target="_blank" rel="noopener">https://www.jecr.org/sites/default/files/2026vol27no1_Paper2.pdf</a></li>
           <li data-type="journal" data-year="2025" data-topics="hai genai" data-authors="Gary Yu-Ho Yeh|K. T. Cheng|Chao-Min Chiu|Jack Shih-Chieh Hsu|S. Y. Chien">Gary Yu-Ho Yeh, Cheng, K. T., Chao-Min Chiu, Jack Shih-Chieh Hsu*, &amp; Chien, S. Y. (2025). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). <em>International Journal of Human–Computer Interaction</em>, <em>42</em>(14), 11196–11217. <a class="pub-url" href="https://doi.org/10.1080/10447318.2025.2589862" target="_blank" rel="noopener">https://doi.org/10.1080/10447318.2025.2589862</a></li>
-          <li data-type="journal" data-year="2026" data-topics="genai dx method" data-authors="Gary Yu-Ho Yeh|黃舒韓|雷英瑞|Jack Shih-Chieh Hsu">葉欲禾、黃舒韓、雷英瑞*、徐士傑 (2026)。AI雙軸轉型下，資源與雙元能力對組織績效之影響：SEM與fsQCA整合研究。《臺大管理論叢》 <span class="status-tag st-accept">通過審核</span></li>
-          <li data-type="journal" data-year="2026" data-topics="hai genai" data-authors="蔡敏芳|Gary Yu-Ho Yeh|黃秋梅|吳基逞">蔡敏芳、葉欲禾*、黃秋梅、吳基逞 (2026)。護理人員修訂AI護理報告行為的驅動因素：基於動機–機會–能力模型的實證研究。《電子商務學報》，28(S)，287–310。<a class="pub-url" href="https://doi.org/10.6188/JEB.202610/SP_28.0001" target="_blank" rel="noopener">https://doi.org/10.6188/JEB.202610/SP_28.0001</a></li>
+          <li data-type="journal" data-year="2026" data-topics="genai dx method" data-authors="Gary Yu-Ho Yeh|Harry Su-Han Huang|Ryan Brading|Jack Shih-Chieh Hsu">葉欲禾、黃舒韓、雷英瑞*、徐士傑 (2026)。AI雙軸轉型下，資源與雙元能力對組織績效之影響：SEM與fsQCA整合研究。《臺大管理論叢》 <span class="status-tag st-accept">通過審核</span></li>
+          <li data-type="journal" data-year="2026" data-topics="hai genai" data-authors="Min-Fang Tsai|Gary Yu-Ho Yeh|黃秋梅|吳基逞">蔡敏芳、葉欲禾*、黃秋梅、吳基逞 (2026)。護理人員修訂AI護理報告行為的驅動因素：基於動機–機會–能力模型的實證研究。《電子商務學報》，28(S)，287–310。<a class="pub-url" href="https://doi.org/10.6188/JEB.202610/SP_28.0001" target="_blank" rel="noopener">https://doi.org/10.6188/JEB.202610/SP_28.0001</a></li>
         </ol>
       </div>
 
@@ -1955,7 +1956,7 @@
           <li data-type="conference" data-year="2026" data-topics="hai" data-authors="Gary Yu-Ho Yeh|Yuting Cheng|Jack Shih-Chieh Hsu|Hsiang-Lan Cheng|Chao-Min Chiu">Gary Yu-Ho Yeh, Yuting Cheng, J. S. C. Hsu, Hsiang-Lan Cheng &amp; C.-M. Chiu (2026). <a href="https://aisel.aisnet.org/amcis2026/sigcnow/sigcnow/10/" target="_blank" rel="noopener">AI as Teammate in Human–AI Collaboration: A Literature Review of Interaction Structures and Affordances</a>. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America. <span class="status-tag st-award">🏆 Best Paper Nominee</span></li>
           <li data-type="conference" data-year="2026" data-topics="dx" data-authors="Gary Yu-Ho Yeh|Jack Shih-Chieh Hsu|Hsiang-Lan Cheng|Chao-Min Chiu">Gary Yu-Ho Yeh, J. S. C. Hsu, Hsiang-Lan Cheng &amp; C.-M. Chiu (2026). Unpacking Paradoxical Leadership in Digital Transformation: How Different Leadership Logics Shape Transformation Effectiveness. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
           <li data-type="conference" data-year="2026" data-topics="hai genai" data-authors="Chao-Min Chiu|Hsiang-Lan Cheng|Jack Shih-Chieh Hsu|Gary Yu-Ho Yeh">Chao-Min Chiu, Hsiang-Lan Cheng, J. S. C. Hsu &amp; Gary Yu-Ho Yeh (2026). From Cues to Engagement: How AI Presenter Design Drives Older Adults’ Health Learning via Affective and Cognitive Credibility. <em>Proceedings of the 31th Americas Conference on Information Systems (AMCIS 2026)</em>, Nevada, America.</li>
-          <li data-type="conference" data-year="2026" data-topics="dx urban" data-authors="Gary Yu-Ho Yeh|Harry Su-Han Huang|R. Brading|Jack Shih-Chieh Hsu">Gary Yu-Ho Yeh, Harry Su-Han Huang, Brading, R, Jack Shih-Chieh Hsu (2026). Why Drivers Resist Technological Enforcement? An Institutional Legitimacy Perspective to Explain Traffic Violation. <em>Proceedings of the 34th European Conference on Information Systems (ECIS 2026)</em>, Milan, Italy.</li>
+          <li data-type="conference" data-year="2026" data-topics="dx urban" data-authors="Gary Yu-Ho Yeh|Harry Su-Han Huang|Ryan Brading|Jack Shih-Chieh Hsu">Gary Yu-Ho Yeh, Harry Su-Han Huang, Brading, R, Jack Shih-Chieh Hsu (2026). Why Drivers Resist Technological Enforcement? An Institutional Legitimacy Perspective to Explain Traffic Violation. <em>Proceedings of the 34th European Conference on Information Systems (ECIS 2026)</em>, Milan, Italy.</li>
           <li data-type="conference" data-year="2026" data-topics="urban method" data-authors="Gary Yu-Ho Yeh|Hsu-Sheng Hsieh">Gary Yu-Ho Yeh, Hsu-Sheng Hsieh (2026). Active Mobility, Public Transit and Built Environments: Configurational Pathways to Active Aging in Urban Areas. <em>Proceedings of the 15th Asia-Pacific Conference on Transportation and the Environment (APTE 2026)</em>, Jeju Island, South Korea.</li>
           <li data-type="conference" data-year="2026" data-topics="hai" data-authors="Guan-Hong Liu|Wen-Feng Su|Gary Yu-Ho Yeh|Jack Shih-Chieh Hsu|Chao-Min Chiu">Guan-Hong Liu, Wen-Feng Su, Gary Yu-Ho Yeh, Jack Shih-Chieh Hsu &amp; Chao-Min Chiu (2026). Exploring the Antecedents and Consequences of AI-Induced Silence from the Perspective of Social Influence Theory. <em>Proceedings of the 30th Pacific Asia Conference on Information Systems (PACIS 2026)</em>.</li>
           <li data-type="conference" data-year="2026" data-topics="hai genai" data-authors="Ching-Wei Lin|Chen-Wei Lin|Min-Fang Tsai|Gary Yu-Ho Yeh|Jack Shih-Chieh Hsu">Ching-Wei Lin, Chen-Wei Lin, Min-Fang Tsai, Gary Yu-Ho Yeh &amp; Jack Shih-Chieh Hsu (2026). How AI-Based Resources Improve Nurses’ Work Engagement and Well-Being. <em>Proceedings of the 30th Pacific Asia Conference on Information Systems (PACIS 2026)</em>.</li>
@@ -1964,7 +1965,7 @@
           <li data-type="conference" data-year="2025" data-topics="dx" data-authors="Gary Yu-Ho Yeh|C.-M. Huang|Jack Shih-Chieh Hsu|H.-C. Shen|J.-J. Yang">G. Y. H. Yeh, Huang, C.-M., J. S. C. Hsu, Shen, H.-C., &amp; Yang, J.-J (2025). Reversing the lens: Leveraging institutional pressures to drive IT adoption from a provider perspective. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Hawaii, USA.</li>
           <li data-type="conference" data-year="2025" data-topics="dx" data-authors="Gary Yu-Ho Yeh|Jack Shih-Chieh Hsu|H.-C. Shen">G. Y. H. Yeh, J. S. C. Hsu, Shen, H.-C (2025). Strategic drivers of twin transformation: Insights from the people-process-technology framework on dual-axis growth. <em>Proceedings of the 54th Annual Meeting of the Western Decision Sciences Institute (WDSI 2025)</em>, Hawaii, USA.</li>
           <li data-type="conference" data-year="2025" data-topics="method" data-authors="Gary Yu-Ho Yeh|Jack Shih-Chieh Hsu">G. Y. H. Yeh &amp; J. S. C. Hsu (2025). Expanding the interpretation of fsQCA analysis based on the perspective of the Kano model. <em>Proceedings of the Hawaii International Conference on System Sciences (HICSS 2025)</em>, Hawaii, America.</li>
-          <li data-type="conference" data-year="2024" data-topics="sustain" data-authors="Gary Yu-Ho Yeh|Jack Shih-Chieh Hsu|R. Brading|Yu-Ting Chang-Chien|P. J. Chen">G. Y. H. Yeh, J. S. C. Hsu, Brading, R., Y.-T. Chang-Chien &amp; P. J. Chen (2024). Exploring the impact of green intellectual capital on green technology absorptive capacity and corporations' willingness to implement carbon handprints. <em>Workshop on E-Business 2024</em>, Bangkok, Thailand.</li>
+          <li data-type="conference" data-year="2024" data-topics="sustain" data-authors="Gary Yu-Ho Yeh|Jack Shih-Chieh Hsu|Ryan Brading|Yu-Ting Chang-Chien|P. J. Chen">G. Y. H. Yeh, J. S. C. Hsu, Brading, R., Y.-T. Chang-Chien &amp; P. J. Chen (2024). Exploring the impact of green intellectual capital on green technology absorptive capacity and corporations' willingness to implement carbon handprints. <em>Workshop on E-Business 2024</em>, Bangkok, Thailand.</li>
           <li data-type="conference" data-year="2024" data-topics="dx" data-authors="C.-M. Huang|Gary Yu-Ho Yeh|Jack Shih-Chieh Hsu|W. C. Cheng">C. M. Huang, G. Y. H. Yeh, J. S. C. Hsu &amp; W. C. Cheng (2024). Exploring the promotion strategies for intelligent plating equipment using institutional theory. <em>International Conference on Management, Economics, IT, and Education (MEIE 2024)</em>, Osaka, Japan.</li>
           <li data-type="conference" data-year="2024" data-topics="sustain" data-authors="Gary Yu-Ho Yeh|Hsu-Sheng Hsieh">葉欲禾, 謝旭昇 (2024). 為什麼永續意圖無法化為永續行動?──永續消費資源之調節角色. <em>發展研究年會 (ACDS 2024)</em>, 高雄, 台灣.</li>
           <li data-type="conference" data-year="2023" data-topics="dx" data-authors="Gary Yu-Ho Yeh|顏子涵|Jack Shih-Chieh Hsu">葉欲禾, 顏子涵, 徐士傑 (2023). 分析使用者升級至光纖到府之原因 — 以推力、拉力與黏著力之理論觀點出發. <em>國際資訊管理學術研討會 (ICIM 2023)</em>, 高雄, 台灣.</li>
@@ -2806,12 +2807,42 @@
         });
         if (tip) {
           var box = netSvg.getBoundingClientRect();
+          var pane = tip.parentElement.getBoundingClientRect();
           var vb = netSvg.viewBox.baseVal;
           tip.innerHTML = n.name + '<small>' + n.n + ' shared publication' +
             (n.n === 1 ? '' : 's') + ' · click to filter</small>';
-          tip.style.left = ((n.x - vb.x) / vb.width * box.width) + 'px';
-          tip.style.top = ((n.y - vb.y) / vb.height * box.height) + 'px';
+
+          // measure unshifted, then keep the whole label inside the panel: the
+          // panel clips its overflow, so an edge node would otherwise be cut off
+          tip.style.transform = 'none';
           tip.classList.add('show');
+          var tw = tip.offsetWidth, th = tip.offsetHeight;
+
+          var sx = box.width / vb.width, sy = box.height / vb.height;
+          var px = (box.left - pane.left) + (n.x - vb.x) * sx;
+          var py = (box.top - pane.top) + (n.y - vb.y) * sy;
+          var rr = n.r * Math.min(sx, sy);
+
+          var minL = tw / 2 + 8, maxL = pane.width - tw / 2 - 8;
+          tip.style.left = (maxL < minL ? pane.width / 2
+                                        : Math.min(Math.max(px, minL), maxL)) + 'px';
+
+          // position by the label's own top edge, so both axes can be clamped
+          var above = (py - rr - 10 - th) > 8;
+          var top = above ? py - rr - 10 - th : py + rr + 10;
+          var maxT = Math.max(8, pane.height - th - 8);
+          tip.style.top = Math.min(Math.max(top, 8), maxT) + 'px';
+          tip.style.transform = 'translate(-50%, 0)';
+
+          // correction pass on the real geometry, so a mis-estimated width or
+          // a wrapped line can never push the label outside the panel
+          var tr = tip.getBoundingClientRect();
+          var dx = (pane.left + 8 - tr.left) > 0 ? (pane.left + 8 - tr.left)
+                 : (tr.right - (pane.right - 8) > 0 ? -(tr.right - (pane.right - 8)) : 0);
+          var dy = (pane.top + 8 - tr.top) > 0 ? (pane.top + 8 - tr.top)
+                 : (tr.bottom - (pane.bottom - 8) > 0 ? -(tr.bottom - (pane.bottom - 8)) : 0);
+          if (dx) tip.style.left = (parseFloat(tip.style.left) + dx) + 'px';
+          if (dy) tip.style.top = (parseFloat(tip.style.top) + dy) + 'px';
         }
       }
       function blurNode() {
