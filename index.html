@@ -64,6 +64,18 @@
       "givenName": "Yu-Ho",
       "familyName": "Yeh",
       "url": "https://gary2686.github.io/gary1253018642-gmail.com.github.io/",
+      "sameAs": [
+        "https://orcid.org/0009-0008-4725-2623",
+        "https://scholar.google.com/citations?user=LfVI76sAAAAJ"
+      ],
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "ORCID",
+          "value": "https://orcid.org/0009-0008-4725-2623",
+          "url": "https://orcid.org/0009-0008-4725-2623"
+        }
+      ],
       "image": "https://gary2686.github.io/gary1253018642-gmail.com.github.io/b054011024-2.jpg",
       "email": "mailto:gary1253018642@gmail.com",
       "jobTitle": [
@@ -114,7 +126,10 @@
         "Information Systems",
         "Fuzzy-set Qualitative Comparative Analysis (fsQCA)",
         "Experimental Research",
-        "Structural Equation Modeling"
+        "Structural Equation Modeling",
+        "Built Environment",
+        "Survey Research",
+        "Geographic Information Systems (GIS)"
       ],
       "mainEntityOfPage": {
         "@id": "https://gary2686.github.io/gary1253018642-gmail.com.github.io/#webpage"
@@ -1249,8 +1264,16 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           Get in touch
         </a>
-        <!-- 未來可在這裡加 ORCID / Google Scholar / ResearchGate：
-        <a class="chip" href="https://orcid.org/XXXX-XXXX-XXXX-XXXX" target="_blank" rel="noopener">ORCID</a> -->
+        <a class="chip" href="https://orcid.org/0009-0008-4725-2623" target="_blank" rel="noopener me">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 9.5v6M8.5 7.4v.1M12 15.5v-6h2.2a3 3 0 0 1 0 6z"/></svg>
+          ORCID 0009-0008-4725-2623
+        </a>
+        <a class="chip" href="https://scholar.google.com/citations?user=LfVI76sAAAAJ" target="_blank" rel="noopener me">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 8.5 12 14l10-5.5L12 3Z"/><path d="M2 8.5V15M6 10.7V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.3"/></svg>
+          Google Scholar
+        </a>
+        <!-- 之後要加 ResearchGate 等，照上面這塊複製一份改網址即可。
+             同一個網址也要加進 JSON-LD 的 Person.sameAs，AI 才會把你的名字跟著作綁在一起。 -->
       </div>
     </div>
   </div>
