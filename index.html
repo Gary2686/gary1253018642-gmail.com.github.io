@@ -1683,6 +1683,11 @@
   #net-svg { max-height: min(74vh, 620px); }
   .seg-chapter { background: var(--sage); }
   .net-node.th-chapter circle { fill: var(--sage); }
+
+  /* minor names stay hidden until the graph is reduced to one author's circle */
+  .net-node[data-minor="1"] text { display: none; }
+  #net-svg.is-ego .net-node text { font-size: 11.5px; }
+  #net-svg.is-ego .net-node.is-self text { font-size: 12.5px; }
 </style>
 </head>
 <body>
@@ -2341,6 +2346,7 @@
   var summaryText = document.getElementById('filter-summary-text');
   var activeTopic = null;
   var activeAuthor = null;
+  var leaveNetworkFocus = null;   // set once the graph is built
 
   var TOPIC_LABELS = {
     hai: 'Human\u2013AI Interaction', genai: 'Generative AI Services',
@@ -2423,6 +2429,7 @@
   function clearFilters() {
     activeTopic = null;
     activeAuthor = null;
+    if (leaveNetworkFocus) leaveNetworkFocus();
     document.querySelectorAll('.net-node[aria-pressed="true"]')
       .forEach(function (g) { g.setAttribute('aria-pressed', 'false'); });
     if (search) search.value = '';
@@ -2764,7 +2771,28 @@
     var maxX = Math.max.apply(null, N.map(function (n, i) { return xs[i] + rs[i]; })) + pad;
     var minY = Math.min.apply(null, N.map(function (n, i) { return ys[i] - rs[i]; })) - pad;
     var maxY = Math.max.apply(null, N.map(function (n, i) { return ys[i] + rs[i]; })) + pad;
-    netSvg.setAttribute('viewBox', [minX, minY, maxX - minX, maxY - minY].join(' '));
+    var fullBox = [minX, minY, maxX - minX, maxY - minY];
+    var vbNow = fullBox.slice(), vbTo = fullBox.slice();
+    netSvg.setAttribute('viewBox', fullBox.join(' '));
+
+    var hasLoop = false;
+    function setFrame(box, animate) {
+      vbTo = box.slice();
+      if (!animate || !hasLoop) {
+        vbNow = box.slice();
+        netSvg.setAttribute('viewBox', vbNow.join(' '));
+      }
+    }
+    function tweenFrame() {
+      var moved = false;
+      for (var i = 0; i < 4; i++) {
+        var d = vbTo[i] - vbNow[i];
+        if (Math.abs(d) > 0.4) { vbNow[i] += d * 0.14; moved = true; }
+        else vbNow[i] = vbTo[i];
+      }
+      if (moved) netSvg.setAttribute('viewBox', vbNow.join(' '));
+      return moved;
+    }
 
     var gLinks = document.createElementNS(NS, 'g');
     var gNodes = document.createElementNS(NS, 'g');
@@ -2787,46 +2815,62 @@
       neighbours[l.t].push({ n: l.s, link: i });
     });
 
-    // ---- label placement: try four offsets, keep the least-colliding one ----
-    var placed = [];
+    // ---- label placement: try eight offsets, keep the least-colliding one ----
     function overlaps(a, b) {
       return !(a.x2 < b.x1 || b.x2 < a.x1 || a.y2 < b.y1 || b.y2 < a.y1);
     }
-    N.forEach(function (n) {
-      if (!(n.self || n.n >= 2)) return;
-      var fs = n.self ? 12 : 9.5;
-      var w = n.name.length * fs * 0.56, h = fs * 1.25;
-      var off = n.r + 15, side = n.r + w / 2 + 9, diag = n.r * 0.75;
-      var cands = [
-        { dx: 0, dy: off },                      // below
-        { dx: 0, dy: -(n.r + 7) },               // above
-        { dx: side, dy: 4 },                     // right
-        { dx: -side, dy: 4 },                    // left
-        { dx: diag + w / 2, dy: off - diag },    // below right
-        { dx: -(diag + w / 2), dy: off - diag }, // below left
-        { dx: diag + w / 2, dy: -(n.r * 0.3) },  // above right
-        { dx: -(diag + w / 2), dy: -(n.r * 0.3) }// above left
-      ];
-      var best = null, bestCost = Infinity;
-      cands.forEach(function (c) {
-        var box = { x1: n.x + c.dx - w / 2, x2: n.x + c.dx + w / 2,
-                    y1: n.y + c.dy - h, y2: n.y + c.dy + 3 };
-        var cost = 0;
-        placed.forEach(function (q) { if (overlaps(box, q)) cost += 10; });
-        N.forEach(function (m) {
-          if (m === n || m.r < 13) return;
-          var cx = n.x + c.dx, cy = n.y + c.dy - h / 2;
-          var dd = Math.sqrt((cx - m.x) * (cx - m.x) + (cy - m.y) * (cy - m.y));
-          if (dd < m.r + h / 2) cost += 14;
+    function majorLabel(n) { return n.self || n.n >= 2; }
+    function at(n) { return { x: n.bx !== undefined ? n.bx : n.x,
+                              y: n.by !== undefined ? n.by : n.y }; }
+
+    // Re-run against whichever nodes are on screen: positions computed for the
+    // whole graph still collide once it is reduced to one author's circle, and
+    // zooming in cannot separate them because it scales the gaps too.
+    function placeLabels(list, wants) {
+      var placed = [];
+      list.slice()
+        .sort(function (a, b) { return (wants(b) ? 1 : 0) - (wants(a) ? 1 : 0); })
+        .forEach(function (n) {
+          var fs = n.self ? 12 : 9.5;
+          var w = n.name.length * fs * 0.56, h = fs * 1.25;
+          var pos = at(n);
+          var off = n.r + 15, side = n.r + w / 2 + 9, diag = n.r * 0.75;
+          var cands = [
+            { dx: 0, dy: off },
+            { dx: 0, dy: -(n.r + 7) },
+            { dx: side, dy: 4 },
+            { dx: -side, dy: 4 },
+            { dx: diag + w / 2, dy: off - diag },
+            { dx: -(diag + w / 2), dy: off - diag },
+            { dx: diag + w / 2, dy: -(n.r * 0.3) },
+            { dx: -(diag + w / 2), dy: -(n.r * 0.3) }
+          ];
+          var best = null, bestCost = Infinity;
+          cands.forEach(function (c) {
+            var box = { x1: pos.x + c.dx - w / 2, x2: pos.x + c.dx + w / 2,
+                        y1: pos.y + c.dy - h, y2: pos.y + c.dy + 3 };
+            var cost = 0;
+            placed.forEach(function (q) { if (overlaps(box, q)) cost += 10; });
+            list.forEach(function (m) {
+              if (m === n || m.r < 13) return;
+              var mp = at(m);
+              var lx = pos.x + c.dx, ly = pos.y + c.dy - h / 2;
+              var dd = Math.sqrt((lx - mp.x) * (lx - mp.x) + (ly - mp.y) * (ly - mp.y));
+              if (dd < m.r + h / 2) cost += 14;
+            });
+            if (cost < bestCost) { bestCost = cost; best = { c: c, box: box }; }
+          });
+          n.lx = pos.x + best.c.dx;
+          n.ly = pos.y + best.c.dy;
+          placed.push(best.box);
         });
-        if (cost < bestCost) { bestCost = cost; best = { c: c, box: box }; }
-      });
-      n.lx = n.x + best.c.dx;
-      n.ly = n.y + best.c.dy;
-      placed.push(best.box);
-    });
+    }
+    placeLabels(N, majorLabel);
 
     var tip = document.getElementById('net-tip');
+    var netSummary = document.querySelector('.net-summary');
+    var fullSummary = netSummary ? netSummary.innerHTML : '';
+    var focusId = null;
     var hoverHold = false;   // the graph holds still while a node is read
     var nodeEls = N.map(function (n, i) {
       var g = document.createElementNS(NS, 'g');
@@ -2840,12 +2884,11 @@
       c.setAttribute('cx', n.x); c.setAttribute('cy', n.y); c.setAttribute('r', n.r);
       g.appendChild(c);
 
-      if (n.self || n.n >= 2) {
-        var t = document.createElementNS(NS, 'text');
-        t.setAttribute('x', n.lx); t.setAttribute('y', n.ly);
-        t.textContent = n.name;
-        g.appendChild(t);
-      }
+      if (!majorLabel(n)) g.setAttribute('data-minor', '1');
+      var t = document.createElementNS(NS, 'text');
+      t.setAttribute('x', n.lx); t.setAttribute('y', n.ly);
+      t.textContent = n.name;
+      g.appendChild(t);
 
       function focusNode() {
         hoverHold = true;
@@ -2904,10 +2947,9 @@
       }
       function pick() {
         if (n.self) { clearFilters(); focusPublications(); return; }
-        activeAuthor = (activeAuthor === n.name) ? null : n.name;
-        nodeEls.forEach(function (e, k) {
-          e.setAttribute('aria-pressed', String(!N[k].self && N[k].name === activeAuthor));
-        });
+        var on = activeAuthor !== n.name;
+        activeAuthor = on ? n.name : null;
+        showEgo(on ? i : null);
         applyFilters();
         focusPublications();
       }
@@ -2924,6 +2966,78 @@
       gNodes.appendChild(g);
       return g;
     });
+
+    /* ---------- ego view: clicking an author reduces the graph to their circle ---------- */
+    function showEgo(idx) {
+      focusId = idx;
+      var keep = null;
+
+      if (idx !== null) {
+        keep = {};
+        keep[idx] = true;
+        neighbours[idx].forEach(function (nb) { keep[nb.n] = true; });
+      }
+
+      // name everyone only while the circle is small enough to read; a hub's
+      // circle is nearly the whole graph, and 27 labels is a smear
+      var nKeep = keep ? Object.keys(keep).length : N.length;
+      var nameAll = !!keep && nKeep <= 12;
+      function named(n, k) { return nameAll || majorLabel(n) || k === idx; }
+
+      // re-place against the visible set only, then push the offsets to the DOM
+      var onScreen = keep ? Object.keys(keep).map(function (k) { return N[k]; }) : N;
+      placeLabels(onScreen, function (n) { return named(n, N.indexOf(n)); });
+
+      nodeEls.forEach(function (g, k) {
+        var vis = !keep || keep[k];
+        g.style.display = vis ? '' : 'none';
+        g.setAttribute('aria-pressed', String(idx !== null && k === idx));
+        if (named(N[k], k)) g.removeAttribute('data-minor');
+        else g.setAttribute('data-minor', '1');
+        var t = g.querySelector('text');
+        if (t) { t.setAttribute('x', N[k].lx); t.setAttribute('y', N[k].ly); }
+      });
+
+      linkEls.forEach(function (el, j) {
+        var vis = !keep || (keep[L[j].s] && keep[L[j].t]);
+        el.style.display = vis ? '' : 'none';
+      });
+
+      netSvg.classList.toggle('is-ego', idx !== null);
+
+      // refit the frame around whatever is left
+      if (idx === null) {
+        setFrame(fullBox, true);
+      } else {
+        var xs1 = Infinity, ys1 = Infinity, xs2 = -Infinity, ys2 = -Infinity;
+        Object.keys(keep).forEach(function (k) {
+          var m = N[k], pad2 = m.r + 46;
+          xs1 = Math.min(xs1, m.bx !== undefined ? m.bx - pad2 : m.x - pad2);
+          xs2 = Math.max(xs2, (m.bx !== undefined ? m.bx : m.x) + pad2);
+          ys1 = Math.min(ys1, (m.by !== undefined ? m.by : m.y) - pad2);
+          ys2 = Math.max(ys2, (m.by !== undefined ? m.by : m.y) + pad2);
+        });
+        // never zoom in past the full frame's aspect, or labels get huge
+        var w = Math.max(xs2 - xs1, 360), h = Math.max(ys2 - ys1, 260);
+        var aspect = fullBox[2] / fullBox[3];
+        if (w / h > aspect) h = w / aspect; else w = h * aspect;
+        var cx2 = (xs1 + xs2) / 2, cy2 = (ys1 + ys2) / 2;
+        setFrame([cx2 - w / 2, cy2 - h / 2, w, h], true);
+      }
+
+      if (netSummary) {
+        if (idx === null) {
+          netSummary.innerHTML = fullSummary;
+        } else {
+          var n2 = N[idx];
+          netSummary.innerHTML = '<strong>' + n2.name + '</strong> \u2014 ' +
+            n2.n + ' publication' + (n2.n === 1 ? '' : 's') + ' with me, and ' +
+            (Object.keys(keep).length - 1) + ' people in that circle. ' +
+            'Click the same circle again, or Clear filters, to see everyone.';
+        }
+      }
+    }
+    leaveNetworkFocus = function () { if (focusId !== null) showEgo(null); };
 
     var legend = document.getElementById('net-legend');
     if (legend) {
@@ -2956,6 +3070,7 @@
         n.amp = n.self ? 2.5 : 3.5 + rnd() * 5.5;
       });
 
+      hasLoop = true;
       var INTRO = 1100;
       var clock = 0, last = null, settled = false;
 
@@ -2988,7 +3103,9 @@
         // some embedders report document.hidden even while the page is on screen
         var r = netSvg.getBoundingClientRect();
         if (r.bottom < -40 || r.top > window.innerHeight + 40) return;
-        if (hoverHold && settled) return;
+
+        var reframing = tweenFrame();
+        if (hoverHold && settled && !reframing) return;
 
         clock += hoverHold ? 0 : dt;
         paint();
