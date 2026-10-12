@@ -38,6 +38,11 @@ TAGS = re.compile(r'<[^>]+>')
 def strip(s):
     return re.sub(r'\s+', ' ', H.unescape(TAGS.sub('', s))).strip()
 
+def clean_status(v):
+    """Drop decorative leading glyphs: a trophy belongs on the page, not in JSON-LD."""
+    return re.sub(r'^[^\w\u4e00-\u9fff]+', '', v).strip()
+
+
 
 def parse(inner, kind):
     plain = strip(inner)
@@ -69,7 +74,7 @@ def parse(inner, kind):
     sm = re.search(r'<span class="status-tag[^"]*">(.*?)</span>', inner, re.S)
 
     return {'title': title, 'authors': authors, 'year': year, 'venue': venue,
-            'url': lm.group(1) if lm else '', 'status': strip(sm.group(1)) if sm else '',
+            'url': lm.group(1) if lm else '', 'status': clean_status(strip(sm.group(1))) if sm else '',
             'kind': kind}
 
 
