@@ -28,7 +28,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGE = os.path.join(ROOT, 'index.html')
-BASE = "https://gary2686.github.io/gary1253018642-gmail.com.github.io/"
+BASE = "https://gary2686.github.io/"
 PERSON = BASE + "#person"
 
 LISTS = [('journal-list', 'journal'), ('conf-list', 'conference'),
