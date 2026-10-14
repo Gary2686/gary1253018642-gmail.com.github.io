@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+# This file covers every site on this host, project pages included.
 Sitemap: https://gary2686.github.io/sitemap.xml
+Sitemap: https://gary2686.github.io/jack-lab/sitemap.xml
