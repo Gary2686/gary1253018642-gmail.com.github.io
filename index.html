@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);}catch(e){}var m=new Date().getMonth();d.setAttribute('data-season',m===11||m<2?'winter':m<5?'spring':m<8?'summer':'autumn');})();</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
@@ -351,8 +351,8 @@
             "author": {
               "@id": "https://gary2686.github.io/#person"
             },
-            "description": "Gary Yu-Ho Yeh, Cheng, K. T., Chao-Min Chiu, Jack Shih-Chieh Hsu*, & Chien, S. Y. (2025). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). International Journal of Human–Computer Interaction",
-            "datePublished": "2025",
+            "description": "Gary Yu-Ho Yeh, Cheng, K. T., Chao-Min Chiu, Jack Shih-Chieh Hsu*, & Chien, S. Y. (2026). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). International Journal of Human–Computer Interaction",
+            "datePublished": "2026",
             "isPartOf": {
               "@type": "Periodical",
               "name": "International Journal of Human–Computer Interaction"
@@ -1426,7 +1426,7 @@
     box-shadow: var(--shadow-sm);
   }
   .seg { display: block; min-height: 3px; }
-  .seg-journal    { background: var(--clay); }
+  .seg-journal    { background: var(--data-primary); }
   .seg-conference { background: var(--blue); }
   .seg-case       { background: var(--gold); }
   .ynum { font-size: 13px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
@@ -1449,12 +1449,12 @@
   .tb-track { height: 7px; border-radius: 999px; background: var(--bg-tint); overflow: hidden; }
   .tb-fill {
     display: block; height: 100%; border-radius: 999px; width: var(--w, 0%);
-    background: linear-gradient(90deg, var(--clay), var(--gold));
+    background: linear-gradient(90deg, var(--data-primary), var(--gold));
     transition: width .8s cubic-bezier(.2,.7,.3,1);
   }
   .tb-n { font-size: 12.5px; font-weight: 700; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
   .tbar[aria-pressed="true"] { color: var(--clay); font-weight: 600; }
-  .tbar[aria-pressed="true"] .tb-fill { background: var(--clay); }
+  .tbar[aria-pressed="true"] .tb-fill { background: var(--data-primary); }
 
   /* ---------- active-filter summary ---------- */
   .filter-summary {
@@ -1697,14 +1697,15 @@
   }
 
   /* node colours follow the CSS variables, so they re-theme for free */
-  :root { --net-urban: #5f9ea0; --net-method: #a08a76; --net-link: #d4c6b0; }
+  :root { --net-urban: #5f9ea0; --net-method: #a08a76; --net-link: #d4c6b0;
+          --data-primary: #c1714e; }   /* fixed all year: a category, not a mood */
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --net-urban: #7fc0c2; --net-method: #c0a890; --net-link: #5e5042; }
+    :root:not([data-theme="light"]) { --net-urban: #7fc0c2; --net-method: #c0a890; --net-link: #5e5042; --data-primary: #e09468; }
   }
-  :root[data-theme="dark"] { --net-urban: #7fc0c2; --net-method: #c0a890; --net-link: #5e5042; }
+  :root[data-theme="dark"] { --net-urban: #7fc0c2; --net-method: #c0a890; --net-link: #5e5042; --data-primary: #e09468; }
 
   .net-node circle { fill: var(--muted); }
-  .net-node.th-hai circle     { fill: var(--clay); }
+  .net-node.th-hai circle     { fill: var(--data-primary); }
   .net-node.th-genai circle   { fill: var(--blue); }
   .net-node.th-dx circle      { fill: var(--gold); }
   .net-node.th-sustain circle { fill: var(--sage); }
@@ -1718,6 +1719,30 @@
   .net-node[data-minor="1"] text { display: none; }
   #net-svg.is-ego .net-node text { font-size: 11.5px; }
   #net-svg.is-ego .net-node.is-self text { font-size: 12.5px; }
+  /* ===================================================================
+     SEASONS — the primary accent follows the time of year.
+
+     Only the clay family moves. Gold, sage and blue carry meaning (status
+     tags, chart series, the network legend), so they hold still all year.
+     Every value clears WCAG AA both as link text on the page background
+     and as the label on a filled button.
+     =================================================================== */
+  :root[data-season="autumn"] { --clay: #c1714e; --clay-soft: #f3e3da; --clay-hover: #ac6244; --link-hover: #a4582f; --chip-line: #e8cdbd; --chip-fg: #8e4a2c; }
+  :root[data-season="winter"] { --clay: #4975a2; --clay-soft: #e6ebef; --clay-hover: #3e6389; --link-hover: #3e6389; --chip-line: #c9d1d9; --chip-fg: #3e6389; }
+  :root[data-season="spring"] { --clay: #a65979; --clay-soft: #eee7ea; --clay-hover: #8f4d68; --link-hover: #8f4d68; --chip-line: #d7cbd0; --chip-fg: #8f4d68; }
+  :root[data-season="summer"] { --clay: #2a7e7b; --clay-soft: #e5f0f0; --clay-hover: #216361; --link-hover: #216361; --chip-line: #c7dbdb; --chip-fg: #216361; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"])[data-season="autumn"] { --clay: #e09468; --clay-soft: #3b2a1f; --clay-hover: #eda87f; --link-hover: #efb288; --chip-line: #4d382a; --chip-fg: #eab68f; }
+    :root:not([data-theme="light"])[data-season="winter"] { --clay: #80a3c6; --clay-soft: #1e242a; --clay-hover: #95b2cf; --link-hover: #95b2cf; --chip-line: #38424c; --chip-fg: #8eadcc; }
+    :root:not([data-theme="light"])[data-season="spring"] { --clay: #c492a7; --clay-soft: #291f23; --clay-hover: #cfa6b7; --link-hover: #cfa6b7; --chip-line: #4a3a41; --chip-fg: #cb9fb2; }
+    :root:not([data-theme="light"])[data-season="summer"] { --clay: #40bfbb; --clay-soft: #1c2c2b; --clay-hover: #57c7c3; --link-hover: #57c7c3; --chip-line: #35504f; --chip-fg: #4fc4c0; }
+  }
+
+  :root[data-theme="dark"][data-season="autumn"] { --clay: #e09468; --clay-soft: #3b2a1f; --clay-hover: #eda87f; --link-hover: #efb288; --chip-line: #4d382a; --chip-fg: #eab68f; }
+  :root[data-theme="dark"][data-season="winter"] { --clay: #80a3c6; --clay-soft: #1e242a; --clay-hover: #95b2cf; --link-hover: #95b2cf; --chip-line: #38424c; --chip-fg: #8eadcc; }
+  :root[data-theme="dark"][data-season="spring"] { --clay: #c492a7; --clay-soft: #291f23; --clay-hover: #cfa6b7; --link-hover: #cfa6b7; --chip-line: #4a3a41; --chip-fg: #cb9fb2; }
+  :root[data-theme="dark"][data-season="summer"] { --clay: #40bfbb; --clay-soft: #1c2c2b; --clay-hover: #57c7c3; --link-hover: #57c7c3; --chip-line: #35504f; --chip-fg: #4fc4c0; }
 </style>
 </head>
 <body>
@@ -2020,7 +2045,7 @@
           <li data-type="journal" data-year="2026" data-topics="sustain method" data-authors="Hsu-Sheng Hsieh|Cheng-Ru Wei|Gary Yu-Ho Yeh">Hsu-Sheng Hsieh, Cheng-Ru Wei, Gary Yu-Ho Yeh* (2026). Bridging the Sustainability Gap: How Sustainable Action Resources Transform Sustainable Intentions into Action — Evidence from a Randomized Pretest–Posttest Control Group Design. <em>Journal of Applied Social Psychology</em>. <span class="status-tag st-review">Under Review</span></li>
           <li data-type="journal" data-year="2026" data-topics="urban" data-authors="Hsu-Sheng Hsieh|Wei-Feng Chen|Gary Yu-Ho Yeh|Ching-Yi Chen|Chin-Oh Chang">Hsu-Sheng Hsieh, Wei-Feng Chen, Gary Yu-Ho Yeh, Ching-Yi Chen, Chin-Oh Chang (2026). Branching Households: A Multi-Scale Evidence on How Family Life Stages Reorder the Drivers of Residential Satisfaction. <em>Urban Studies</em>. <span class="status-tag st-review">Under Review</span></li>
           <li data-type="journal" data-year="2026" data-authors="Yu-Ting Chang-Chien|Jack Shih-Chieh Hsu|J. C. Cheng|Gary Yu-Ho Yeh">Chang-Chien, Y. T., Jack Shih-Chieh Hsu*, Cheng, J. C., &amp; Gary Yu-Ho Yeh (2026). Factors Affecting Consumer Intention to Adopt Boutique Bags Subscription Service. <em>Journal of Electronic Commerce Research</em>, <em>27</em>(1), 19–42. <a class="pub-url" href="https://www.jecr.org/sites/default/files/2026vol27no1_Paper2.pdf" target="_blank" rel="noopener">https://www.jecr.org/sites/default/files/2026vol27no1_Paper2.pdf</a></li>
-          <li data-type="journal" data-year="2025" data-topics="hai genai" data-authors="Gary Yu-Ho Yeh|K. T. Cheng|Chao-Min Chiu|Jack Shih-Chieh Hsu|S. Y. Chien">Gary Yu-Ho Yeh, Cheng, K. T., Chao-Min Chiu, Jack Shih-Chieh Hsu*, &amp; Chien, S. Y. (2025). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). <em>International Journal of Human–Computer Interaction</em>, <em>42</em>(14), 11196–11217. <a class="pub-url" href="https://doi.org/10.1080/10447318.2025.2589862" target="_blank" rel="noopener">https://doi.org/10.1080/10447318.2025.2589862</a></li>
+          <li data-type="journal" data-year="2026" data-topics="hai genai" data-authors="Gary Yu-Ho Yeh|K. T. Cheng|Chao-Min Chiu|Jack Shih-Chieh Hsu|S. Y. Chien">Gary Yu-Ho Yeh, Cheng, K. T., Chao-Min Chiu, Jack Shih-Chieh Hsu*, &amp; Chien, S. Y. (2026). Constructing the Quality Attributes of Online Artificial Intelligent Customer Service (AICS). <em>International Journal of Human–Computer Interaction</em>, <em>42</em>(14), 11196–11217. <a class="pub-url" href="https://doi.org/10.1080/10447318.2025.2589862" target="_blank" rel="noopener">https://doi.org/10.1080/10447318.2025.2589862</a></li>
           <li data-type="journal" data-year="2026" data-topics="genai dx method" data-authors="Gary Yu-Ho Yeh|Harry Su-Han Huang|Ryan Brading|Jack Shih-Chieh Hsu">葉欲禾、黃舒韓、雷英瑞*、徐士傑 (2026)。AI雙軸轉型下，資源與雙元能力對組織績效之影響：SEM與fsQCA整合研究。《臺大管理論叢》 <span class="status-tag st-accept">通過審核</span></li>
           <li data-type="journal" data-year="2026" data-topics="hai genai" data-authors="Min-Fang Tsai|Gary Yu-Ho Yeh|黃秋梅|吳基逞">蔡敏芳、葉欲禾*、黃秋梅、吳基逞 (2026)。護理人員修訂AI護理報告行為的驅動因素：基於動機–機會–能力模型的實證研究。《電子商務學報》，28(S)，287–310。<a class="pub-url" href="https://doi.org/10.6188/JEB.202610/SP_28.0001" target="_blank" rel="noopener">https://doi.org/10.6188/JEB.202610/SP_28.0001</a></li>
         </ol>
@@ -3106,7 +3131,7 @@
         .filter(function (k) { return present[k]; })
         .map(function (k) {
           return '<span><i style="background:var(--' +
-            ({ hai: 'clay', genai: 'blue', dx: 'gold', sustain: 'sage',
+            ({ hai: 'data-primary', genai: 'blue', dx: 'gold', sustain: 'sage',
                urban: 'net-urban', method: 'net-method' })[k] +
             ')"></i>' + TOPIC_LABELS[k] + '</span>';
         }).join('') +

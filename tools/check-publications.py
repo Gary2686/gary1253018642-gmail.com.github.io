@@ -35,6 +35,18 @@ ORCID = "0009-0008-4725-2623"
 UA = "GaryYehSiteCheck/1.0 (+%s; mailto:gary1253018642@gmail.com)" % SITE
 TAGS = re.compile(r"<[^>]+>")
 
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+
+def ignores():
+    """Decisions the author has already made, so the report stops nagging."""
+    try:
+        with io.open(os.path.join(HERE, "check-ignore.json"), encoding="utf-8") as f:
+            d = json.load(f)
+    except Exception:
+        return {}, []
+    return d.get("pending_dois", {}), d.get("ignore_preprint_prefixes", [])
+
 
 def fetch(url, accept=None, timeout=30):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -292,23 +304,34 @@ def main():
 
     # ------------------------------------------------ what actually needs doing
     sys.stdout = out
-    todo, fyi = [], []
+    pending, preprint_prefixes = ignores()
+    todo, fyi, known = [], [], []
+
+    def is_pending(s_):
+        return any(k in s_ for k in pending)
+
     for u, d in buckets["dead"]:
-        todo.append("連結壞掉：`%s` — %s" % (u, d))
+        if is_pending(u):
+            doi = next(k for k in pending if k in u)
+            known.append("`%s` 尚未生效 — %s" % (doi, pending[doi]))
+        else:
+            todo.append("連結壞掉：`%s` — %s" % (u, d))
     dead_urls = " ".join(u for u, _ in buckets["dead"])
     for doi, note, title in drift:
+        if is_pending(doi):
+            continue                      # already noted as known-pending
         if "not in CrossRef" in note:
-            if doi not in dead_urls:   # already reported as a broken link
+            if doi not in dead_urls:      # already reported as a broken link
                 fyi.append("`%s` 尚未在 CrossRef 註冊，等出版社登錄即可" % doi)
         else:
             todo.append("書目與 CrossRef 不一致：`%s` — %s" % (doi, note))
-    real_missing = [f for f in missing if not f["doi"].startswith("10.2139/ssrn.")]
+
+    # the author has decided not to list preprints, so they are not findings
+    real_missing = [f for f in missing
+                    if not any(f["doi"].startswith(x) for x in preprint_prefixes)]
     for f in real_missing:
         todo.append("登錄庫有、網站沒有：**%s**（%s）"
                     % (f["title"][:70], f["doi"] or "無 DOI"))
-    if len(missing) - len(real_missing):
-        fyi.append("%d 筆 SSRN 預印本尚未連到網站上（想掛預印本連結才需要處理）"
-                   % (len(missing) - len(real_missing)))
     blocked_n = len(buckets["unreachable"]) + len(buckets["blocked"])
     if blocked_n:
         fyi.append("%d 個連結無法自動驗證（對方擋機器人或逾時），瀏覽器通常開得起來" % blocked_n)
@@ -319,8 +342,12 @@ def main():
             print("- %s" % t)
     else:
         print("沒有需要處理的事。")
+    if known:
+        print("\n已知、不必動作：\n")
+        for k in known:
+            print("- %s" % k)
     if fyi:
-        print("\n參考，不必動作：\n")
+        print("\n參考：\n")
         for f in fyi:
             print("- %s" % f)
     print("\n> 投稿狀態（審查中／修改中／接受）沒有公開訊號可查，"

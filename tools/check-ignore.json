@@ -1,0 +1,7 @@
+{
+  "_comment": "Findings the author has already seen and decided about. The check still reports them, but under 'known, no action' rather than as something to fix.",
+  "pending_dois": {
+    "10.6188/JEB.202610/SP_28.0001": "Assigned by the journal; that issue has not been released yet (confirmed 2026-10)."
+  },
+  "ignore_preprint_prefixes": ["10.2139/ssrn."]
+}
