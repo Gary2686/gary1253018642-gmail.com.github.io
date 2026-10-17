@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);}catch(e){}var m=new Date().getMonth(),x=(location.search.match(/[?&]season=(winter|spring|summer|autumn)/)||[])[1];d.setAttribute('data-season',x||(m===11||m<2?'winter':m<5?'spring':m<8?'summer':'autumn'));})();</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="color-scheme" content="light dark" />
+
+<title>Research Trends in Information Systems — What Editors Are Asking For</title>
+<meta name="description" content="What IS journal editors are asking for next, read from {{N_ITEMS}} editorials and {{N_CALLS}} special issue calls across {{N_JOURNALS}} information systems journals ({{COVERAGE}}). Eight directions, which journal pushes which, what is rising and what is cooling. Maintained by Gary Yu-Ho Yeh (葉欲禾)." />
+<meta name="author" content="Gary Yu-Ho Yeh" />
+<meta name="keywords" content="IS research trends, information systems research agenda, MIS Quarterly editorial, ISR, JMIS, ISJ, JAIS, JIT, JSIS, EJIS, special issue calls for papers, agentic AI, AI governance, GenAI policy" />
+<link rel="canonical" href="https://gary2686.github.io/research-trends/" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Research Trends in Information Systems" />
+<meta property="og:description" content="{{N_ITEMS}} editorials and {{N_CALLS}} calls for papers across {{N_JOURNALS}} IS journals, read for research direction. Updated quarterly." />
+<meta property="og:url" content="https://gary2686.github.io/research-trends/" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Research Trends in Information Systems" />
+<meta name="twitter:description" content="What IS journal editors are asking for, read quarterly across {{N_JOURNALS}} journals." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;450;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{{JSONLD}}
+</script>
+
+<style>
+{{STYLE}}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="home-link" href="/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      Gary Yu-Ho Yeh
+    </a>
+    <span class="here">Research Trends</span>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch colour theme" title="Light / dark">
+      <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+    </button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Information Systems</p>
+    <h1>Research Trends</h1>
+    <p class="lede">
+      What IS editors are asking for next — read from every editorial and call for papers
+      in the last four years, and reduced to eight directions.
+    </p>
+    <p class="lede-zh" lang="zh-Hant">資管期刊社論與徵稿的研究方向觀察，每季更新。點任一方向可篩出對應社論。</p>
+    <div class="stats">
+{{STATS}}
+    </div>
+    <p class="meta-line">
+      <a class="src-btn" href="{{SOURCE}}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>
+        Full notes
+      </a>
+      <span>{{COVERAGE}} · read {{UPDATED}}</span>
+    </p>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section" id="short">
+    <div class="wrap">
+      <h2><span class="num">01</span>Four shifts</h2>
+      <div class="takeaways">
+{{TAKEAWAYS}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="directions">
+    <div class="wrap">
+      <h2><span class="num">02</span>Eight directions</h2>
+      <p class="sub">Click one to filter the list at the bottom. Arrows compare {{Y_CUR}} with {{Y_PREV}}.</p>
+      <div class="dirs">
+{{DIRS}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="momentum">
+    <div class="wrap">
+      <h2><span class="num">03</span>Rising and cooling</h2>
+      <p class="sub">Share of each year's editorials. {{Y_CUR}} runs to {{MONTH_CUR}} only.</p>
+      <div class="chart-card" id="slope-card" data-reveal>
+{{SLOPE}}
+      </div>
+      <div class="rf">
+{{RISEFALL}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="journals">
+    <div class="wrap">
+      <h2><span class="num">04</span>Which journal pushes what</h2>
+      <p class="sub">Click a cell, a journal or a direction to filter.</p>
+      <div class="mx-scroll" data-reveal>
+{{MATRIX}}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="calls">
+    <div class="wrap">
+      <h2><span class="num">05</span>Calls still open</h2>
+      <p class="sub">First-round full-paper deadlines unless the card says otherwise. Check the journal page before relying on one.</p>
+      <div class="calls">
+{{CALLS}}
+      </div>
+      <details class="closed-calls">
+        <summary>{{N_CLOSED}} recently closed</summary>
+        <ul class="closed-list">
+{{CLOSED}}
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="all">
+    <div class="wrap">
+      <h2><span class="num">06</span>{{N_ITEMS}} editorials</h2>
+      <p class="sub">Newest first. Titles go to the publisher; summaries are in the <a href="{{SOURCE}}" target="_blank" rel="noopener">full notes</a>.</p>
+      <div class="filterbar">
+        <span class="lbl">Filter</span>
+        <span id="active-chips"></span>
+        <label class="search">
+          <span class="skip">Search editorials</span>
+          <input type="search" id="search" placeholder="Search title, author or tag…" autocomplete="off" />
+        </label>
+        <button type="button" class="clear-all" id="clear-all" hidden>Clear</button>
+      </div>
+      <p class="count-line" id="count-line">All {{N_ITEMS}}, newest first.</p>
+      <ul class="items" id="item-list">
+{{ITEMS}}
+        <li class="empty">Nothing matches. Try clearing a filter.</li>
+      </ul>
+      <p class="note">
+        Every item is read from the journal's own page. Editor-written agenda pieces that publishers label
+        as research notes are included. Counts are generated from the data file, never typed by hand.
+        Corrections belong in the <a href="{{SOURCE}}" target="_blank" rel="noopener">notes</a> first.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p style="margin:0 0 6px;">
+    Compiled by <a href="/">Gary Yu-Ho Yeh</a> (<span lang="zh-Hant">葉欲禾</span>) ·
+    {{N_JOURNALS}} journals · rolling {{WINDOW}}-year window
+  </p>
+  <p style="margin:0;">A reading of other people's editorials. All judgments are mine, all errors too.</p>
+</footer>
+
+<script>
+{{SCRIPT}}
+</script>
+</body>
+</html>

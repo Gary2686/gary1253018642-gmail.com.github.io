@@ -1,4 +1,4 @@
-# Quarterly calibration of the publication list, plus the editorial watch reminder.
+# Quarterly calibration of the publication list, plus the research trends reminder.
 #
 # Runs on GitHub's own runners rather than a sandbox, so it can reach the DOI
 # system, CrossRef and ORCID, and it opens the issue with the token GitHub
@@ -34,8 +34,8 @@ jobs:
           set -o pipefail
           python3 tools/check-publications.py | tee "$RUNNER_TEMP/report.md"
 
-      - name: Add the editorial watch reminder
-        run: python3 tools/check-editorial-watch.py >> "$RUNNER_TEMP/report.md"
+      - name: Add the research trends reminder
+        run: python3 tools/check-research-trends.py >> "$RUNNER_TEMP/report.md"
 
       - name: Open an issue with the report
         env:

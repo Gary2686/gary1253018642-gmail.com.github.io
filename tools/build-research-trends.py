@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Render editorial-watch/index.html from the two data files.
+"""Render research-trends/index.html from the two data files.
 
-    python3 tools/build-editorial-watch.py
+    python3 tools/build-research-trends.py
 
-Nothing in the generated page is hand-edited: data/editorial-watch.json comes
-from the Notion notes (via tools/notion-to-editorial-json.py) and
-data/editorial-watch-notes.json holds the hand-written reading.  Every count,
+Nothing in the generated page is hand-edited: data/research-trends.json comes
+from the Notion notes (via tools/notion-to-research-trends.py) and
+data/research-trends-notes.json holds the hand-written reading.  Every count,
 bar and chart on the page is computed here, so the prose can never drift away
 from the numbers.
 """
@@ -16,12 +16,12 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-TPL = os.path.join(HERE, "editorial-watch", "template.html")
-CSS = os.path.join(HERE, "editorial-watch", "style.css")
-JS = os.path.join(HERE, "editorial-watch", "app.js")
-DATA = os.path.join(ROOT, "data", "editorial-watch.json")
-NOTES = os.path.join(ROOT, "data", "editorial-watch-notes.json")
-OUT = os.path.join(ROOT, "editorial-watch", "index.html")
+TPL = os.path.join(HERE, "research-trends", "template.html")
+CSS = os.path.join(HERE, "research-trends", "style.css")
+JS = os.path.join(HERE, "research-trends", "app.js")
+DATA = os.path.join(ROOT, "data", "research-trends.json")
+NOTES = os.path.join(ROOT, "data", "research-trends-notes.json")
+OUT = os.path.join(ROOT, "research-trends", "index.html")
 
 e = lambda s: html.escape(str(s), quote=True)
 
@@ -103,17 +103,13 @@ tk = []
 for n, t in enumerate(notes["takeaways"], 1):
     key = t["theme"]
     tk.append(
-        '        <div class="tk" data-reveal style="--c:var(--t-%s)">\n'
+        '        <button type="button" class="tk" data-pick-theme="%s" data-reveal '
+        'style="--c:var(--t-%s)">\n'
         '          <span class="tk-n">%02d</span>\n'
-        '          <div>\n'
-        '            <h3>%s</h3>\n'
-        '            <p>%s</p>\n'
-        '            <p class="zh" lang="zh-Hant">%s</p>\n'
-        '            <p style="margin:8px 0 0"><button type="button" class="clear-all" '
-        'data-pick-theme="%s">See the %d editorials behind this →</button></p>\n'
-        '          </div>\n'
-        '        </div>' % (e(key), n, e(t["title"]), e(t["en"]), e(t["zh"]),
-                            e(key), stat[key]["n"]))
+        '          <span class="tk-b"><strong>%s</strong><span>%s</span></span>\n'
+        '          <span class="tk-go">%d \u2192</span>\n'
+        '        </button>' % (e(key), e(key), n, e(t["title"]), e(t["en"]),
+                               stat[key]["n"]))
 takeaways_html = "\n".join(tk)
 
 dirs = []
@@ -280,27 +276,21 @@ for i in rows:
                      journals.get(i["journal"], ""), i["journal"]]).lower()
     dots = "".join('<i style="--c:var(--t-%s)" title="%s"></i>' % (e(k), e(tzh[k]))
                    for k in i["themes"])
-    note = i["date_note"]
     il.append(
         '        <li class="item" data-journal="%s" data-year="%s" data-themes="%s" '
         'data-text="%s">\n'
-        '          <div class="item-top"><span class="jbadge">%s</span>'
-        '<time datetime="%s">%s</time><span class="vol">%s%s</span>'
-        '<span class="tdots" aria-hidden="true">%s</span></div>\n'
-        '          <h3><a href="%s" target="_blank" rel="noopener">%s</a></h3>\n'
-        '          <p class="au">%s</p>\n'
-        '          <p class="kp">%s</p>\n'
-        '          <div class="tg">%s</div>\n'
+        '          <span class="jbadge">%s</span>\n'
+        '          <time datetime="%s">%s</time>\n'
+        '          <a href="%s" target="_blank" rel="noopener">%s</a>\n'
+        '          <span class="tdots" aria-hidden="true">%s</span>\n'
         '        </li>' % (
             e(i["journal"]), e(i["date"][:4]), e(" ".join(i["themes"])), e(blob),
-            e(i["journal"]), e(i["date"]), e(i["date"]), e(i.get("vol", "")),
-            e(" · " + note) if note else "", dots,
-            e(i["url"]), e(i["title"]), e(i["authors"]), e(i["note"]),
-            "".join("<span>%s</span>" % e(t) for t in i["tags"])))
+            e(i["journal"]), e(i["date"]), e(i["date"]),
+            e(i["url"]), e(i["title"]), dots))
 items_html = "\n".join(il)
 
 # ---- JSON-LD --------------------------------------------------------------
-PAGE = "https://gary2686.github.io/editorial-watch/"
+PAGE = "https://gary2686.github.io/research-trends/"
 ld = {
     "@context": "https://schema.org",
     "@graph": [
@@ -308,7 +298,7 @@ ld = {
             "@type": "CollectionPage",
             "@id": PAGE + "#webpage",
             "url": PAGE,
-            "name": "IS Editorial Watch — What Information Systems Editors Are Asking For",
+            "name": "Research Trends — What Information Systems Editors Are Asking For",
             "description": ("A quarterly reading of %d editorials and %d special issue calls from %d "
                             "information systems journals, reduced to %d research directions."
                             % (len(items), len(calls), len(jorder), len(themes))),
@@ -340,7 +330,7 @@ ld = {
                                            stat[t["key"]]["cur"], y_cur,
                                            stat[t["key"]]["prev"], y_prev)),
                         "inDefinedTermSet": {"@type": "DefinedTermSet",
-                                             "name": "IS Editorial Watch directions"},
+                                             "name": "Research Trends directions"},
                     },
                 } for n, t in enumerate(order, 1)
             ],
@@ -348,7 +338,7 @@ ld = {
         {
             "@type": "Dataset",
             "@id": PAGE + "#dataset",
-            "name": "IS Editorial Watch",
+            "name": "Research Trends",
             "description": ("Editorials and special issue calls for papers from %d information systems "
                             "journals, each coded with research direction tags." % len(jorder)),
             "url": PAGE,
@@ -361,7 +351,7 @@ ld = {
             "distribution": {
                 "@type": "DataDownload",
                 "encodingFormat": "application/json",
-                "contentUrl": "https://gary2686.github.io/data/editorial-watch.json",
+                "contentUrl": "https://gary2686.github.io/data/research-trends.json",
             },
         },
     ],
@@ -389,6 +379,10 @@ repl = {
     "N_JOURNALS": str(len(jorder)),
     "COVERAGE": " to ".join(d["coverage"]),
     "UPDATED": d["updated"],
+    "Y_PREV": y_prev,
+    "Y_CUR": y_cur,
+    "MONTH_CUR": max(i["date"] for i in by_year[y_cur])[5:7].lstrip("0"),
+    "WINDOW": str(d.get("window_years", 4)),
     "SOURCE": d["source"],
     "JOURNAL_LIST": ", ".join("%s (%s)" % (journals[j], j) for j in jorder),
 }

@@ -103,8 +103,8 @@
     });
     list.classList.toggle("is-empty", n === 0);
     countLine.textContent = n === items.length
-      ? "Showing all " + items.length + " editorials, newest first."
-      : "Showing " + n + " of " + items.length + " editorials.";
+      ? "All " + items.length + ", newest first."
+      : n + " of " + items.length + ".";
 
     chipBox.textContent = "";
     if (state.theme) chipBox.appendChild(chip(THEME_LABEL[state.theme] || state.theme, "theme"));

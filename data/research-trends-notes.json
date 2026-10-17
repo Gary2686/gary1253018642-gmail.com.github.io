@@ -1,0 +1,40 @@
+{
+  "_comment": "The only hand-written text on the page. Keep every line short; the page is meant to be scanned, not read. Rewrite each quarter together with research-trends.json.",
+  "takeaways": [
+    {
+      "theme": "agency",
+      "title": "Agency, not adoption",
+      "en": "The question moved from whether people accept AI to how human and machine agency is configured and held to account."
+    },
+    {
+      "theme": "governance",
+      "title": "Regulation became the research question",
+      "en": "Policy left the limitations paragraph. Editors now want work on which sanctions actually change behaviour."
+    },
+    {
+      "theme": "research",
+      "title": "GenAI rules are written down, and they conflict",
+      "en": "ISJ bars it from any intellectual work. MS, JIT and ISR allow it under transparency and verification."
+    },
+    {
+      "theme": "platforms",
+      "title": "Platform and green-IT framings are cooling",
+      "en": "The metaverse is now defended rather than argued. Narrow Green IT has been folded into responsible technology."
+    }
+  ],
+  "rising": [
+    {"what": "Agentic AI and delegated autonomy", "why": "an organizational problem, not an interface one", "where": "JMIS, I&M, JAIS, JSIS"},
+    {"what": "Written GenAI policy", "why": "prohibition versus managed adoption", "where": "ISJ vs MS, JIT, ISR"},
+    {"what": "Policy as a research object", "why": "enforcement, post-deployment risk", "where": "JAIS, JIT, MISQ"},
+    {"what": "Futures and speculative inquiry", "why": "now a site of research, not commentary", "where": "JIT, ISJ, EJIS"},
+    {"what": "Cognitive consequences", "why": "offloading effort erodes judgment", "where": "ISR, JAIS, MS"}
+  ],
+  "fading": [
+    {"what": "The metaverse", "why": "defended as not dead", "where": "JMIS, DSS"},
+    {"what": "Blockchain and decentralisation", "why": "now a governance design choice", "where": "JIT"},
+    {"what": "Individual-level AI acceptance", "why": "declared insufficient on its own", "where": "JMIS, JSIS"},
+    {"what": "Vaguely labelled “AI”", "why": "the artefact has to be described", "where": "ISJ, EJIS"},
+    {"what": "Transformation as a destination", "why": "reframed as continuous", "where": "JSIS, ISJ"},
+    {"what": "Narrow Green IT", "why": "absorbed into responsible technology", "where": "MISQ, JAIS"}
+  ]
+}

@@ -5,6 +5,8 @@
   "2026-10-17"
  ],
  "source": "https://app.notion.com/p/3fc65a04846a81ecb6cbf6d723de47f8",
+ "window_years": 4,
+ "window_from": "2023",
  "journals": {
   "ISR": "Information Systems Research",
   "MISQ": "MIS Quarterly",

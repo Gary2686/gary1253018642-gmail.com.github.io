@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Quarterly reminder for the IS Editorial Watch page.
+"""Quarterly reminder for the Research Trends page.
 
 Runs on GitHub's runner next to check-publications.py.  It cannot refresh the
 page by itself — the source is a Notion page, and the runner has no Notion
@@ -14,7 +14,7 @@ import json
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, "data", "editorial-watch.json")
+DATA = os.path.join(ROOT, "data", "research-trends.json")
 NOTES = "https://app.notion.com/p/3fc65a04846a81ecb6cbf6d723de47f8"
 
 QUARTER = 91  # days until the next scheduled run
@@ -34,10 +34,10 @@ def main():
     print("")
     print("---")
     print("")
-    print("# IS Editorial Watch")
+    print("# Research Trends")
     print("")
     if age is None:
-        print("- 快照日期無法解析（`data/editorial-watch.json` 的 `updated`）。")
+        print("- 快照日期無法解析（`data/research-trends.json` 的 `updated`）。")
     elif age <= QUARTER + 7:
         print("- 快照讀取日 %s，距今 %d 天，仍在一季之內。" % (read_on, age))
     else:
@@ -69,13 +69,15 @@ def main():
     print("")
     print("## 要更新時怎麼做")
     print("")
-    print("1. 開 [IS Editorial Watch 的 Notion 筆記](%s)，確認本季的 editorial 與徵稿已經補齊。" % NOTES)
-    print("2. 把整頁內容存成文字檔，跑 `python3 tools/notion-to-editorial-json.py <檔案> "
-          "data/editorial-watch.json`。")
-    print("3. 重寫 `data/editorial-watch-notes.json`（四則重點、rising / fading），這是唯一手寫的部分。")
-    print("4. 跑 `python3 tools/build-editorial-watch.py`，它會重建 "
-          "`editorial-watch/index.html` 並同步首頁卡片上的數字。")
+    print("1. 開 [Research Trends 的 Notion 筆記](%s)，確認本季的 editorial 與徵稿已經補齊。" % NOTES)
+    print("2. 把整頁內容存成文字檔，跑 `python3 tools/notion-to-research-trends.py <檔案> "
+          "data/research-trends.json`。")
+    print("3. 重寫 `data/research-trends-notes.json`（四則重點、rising / fading），這是唯一手寫的部分。")
+    print("4. 跑 `python3 tools/build-research-trends.py`，它會重建 "
+          "`research-trends/index.html` 並同步首頁卡片上的數字。")
     print("5. 確認頁面沒問題後再 commit；產生出來的頁面不要手改。")
+    print("")
+    print("第 2 步會自動丟掉四年以前的 editorial，不用自己整理。")
 
 
 main()

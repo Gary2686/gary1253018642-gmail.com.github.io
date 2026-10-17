@@ -1,10 +1,14 @@
 #!/usr/bin/env python3
-"""Turn the IS Editorial Watch Notion export into the JSON the web page reads.
+"""Turn the Research Trends Notion export into the JSON the web page reads.
 
 Input is the raw text of the Notion page (the `text` field of a notion-fetch
-result, unescaped).  Output is data/editorial-watch.json.
+result, unescaped).  Output is data/research-trends.json.
 """
-import json, re, sys, unicodedata
+import datetime, json, re, sys
+
+# The page keeps a rolling window. Anything older is dropped on every refresh,
+# so the list never turns into an archive nobody reads.
+KEEP_YEARS = 4
 
 JOURNALS = {
     "ISR": "Information Systems Research",
@@ -169,12 +173,18 @@ def main():
     text = open(sys.argv[1]).read()
     items = parse(text)
     calls = parse_calls(text)
+
+    cutoff = datetime.date.today().year - (KEEP_YEARS - 1)
+    dropped = [i for i in items if int(i["date"][:4]) < cutoff]
+    items = [i for i in items if int(i["date"][:4]) >= cutoff]
     cov = re.search(r"Coverage: (\S+) to (\S+)", text)
     upd = re.search(r"Last updated: (\S+)", text)
     data = {
         "updated": upd.group(1) if upd else "",
         "coverage": [cov.group(1), cov.group(2)] if cov else [],
         "source": "https://app.notion.com/p/3fc65a04846a81ecb6cbf6d723de47f8",
+        "window_years": KEEP_YEARS,
+        "window_from": str(cutoff),
         "journals": JOURNALS,
         "themes": [{"key": k, "en": e, "zh": z} for k, e, z, _ in THEMES],
         "items": items,
@@ -183,6 +193,9 @@ def main():
     json.dump(data, open(sys.argv[2], "w"), ensure_ascii=False, indent=1)
     # a quick console report so mis-parses are obvious
     print("items", len(items), "calls", len(calls), "open", sum(c["open"] for c in calls))
+    print("window: %d- (last %d years); dropped %d older item(s)%s"
+          % (cutoff, KEEP_YEARS, len(dropped),
+             ": " + ", ".join(sorted({i["date"][:4] for i in dropped})) if dropped else ""))
     bad = [i for i in items if not i.get("themes")]
     print("untagged:", len(bad))
     for i in bad:
