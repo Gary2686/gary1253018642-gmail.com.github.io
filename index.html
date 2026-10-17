@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);}catch(e){}var m=new Date().getMonth();d.setAttribute('data-season',m===11||m<2?'winter':m<5?'spring':m<8?'summer':'autumn');})();</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t)d.setAttribute('data-theme',t);}catch(e){}var m=new Date().getMonth(),x=(location.search.match(/[?&]season=(winter|spring|summer|autumn)/)||[])[1];d.setAttribute('data-season',x||(m===11||m<2?'winter':m<5?'spring':m<8?'summer':'autumn'));})();</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="color-scheme" content="light dark" />
