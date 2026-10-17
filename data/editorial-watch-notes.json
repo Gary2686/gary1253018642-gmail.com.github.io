@@ -1,0 +1,44 @@
+{
+  "_comment": "Hand-written reading of the Notion synthesis. Rewrite this each quarter together with editorial-watch.json; the build script only lays it out.",
+  "takeaways": [
+    {
+      "theme": "agency",
+      "title": "Agency, not adoption",
+      "en": "Editors have stopped asking whether people accept AI and started asking how human and machine agency should be configured, delegated and held to account. It is the single broadest call, pushed by eleven of the thirteen journals, and it appears in half of everything published in 2026.",
+      "zh": "編輯已不再問「人們是否接受 AI」，而是問人與機器的能動性該如何配置、委任與課責。這是最廣的共識，十三本期刊中有十一本在推。"
+    },
+    {
+      "theme": "governance",
+      "title": "Regulation became the research question",
+      "en": "AI governance and responsible AI run through all thirteen journals. Policy has moved out of the limitations paragraph and into the research question: which sanctions actually change behaviour, what post-deployment risk assessment looks like, and which digital tools implement and monitor regulation.",
+      "zh": "AI 治理與負責任 AI 貫穿全部十三本期刊。政策從「研究限制」段落變成研究問題本身。"
+    },
+    {
+      "theme": "research",
+      "title": "Journals wrote down their GenAI rules, and they disagree",
+      "en": "ISJ bars generative AI from any intellectual activity and demands a transparency statement. MS, JIT and ISR instead license it under transparency, provenance and verification, with the super-collaborator role discouraged for now. Where MISQ and JAIS land is still open.",
+      "zh": "ISJ 全面禁止生成式 AI 參與任何智識活動；MS、JIT、ISR 則以透明、來源可追溯與驗證三原則管理採用。MISQ 與 JAIS 尚未表態。"
+    },
+    {
+      "theme": "platforms",
+      "title": "Platform and green-IT framings are cooling",
+      "en": "The metaverse is now defended by its own editors as \"not dead\" while the agenda shifts to decomposed, market-level studies. Narrow Green IT has been folded into responsible technology, and individual-level AI acceptance studies are called insufficient outright.",
+      "zh": "元宇宙已是由編輯自己在辯護「尚未死亡」；狹義綠色 IT 被負責任科技吸收；個人層級的 AI 接受研究被明確視為不足。"
+    }
+  ],
+  "rising": [
+    {"what": "Agentic AI and delegated autonomy", "why": "treated as an organizational-level problem, not an interface one", "where": "JMIS, I&M, JAIS, JSIS, POM call"},
+    {"what": "Written GenAI policy for research and review", "why": "split between prohibition and managed adoption", "where": "ISJ vs MS, JIT, ISR"},
+    {"what": "Policy and regulation as research objects", "why": "comparative regulation, enforcement, post-deployment risk", "where": "JAIS, JIT, MISQ"},
+    {"what": "Futures and speculative inquiry", "why": "now a legitimate site of research rather than commentary", "where": "JIT, ISJ, EJIS"},
+    {"what": "Cognitive consequences and deskilling", "why": "offloading effort erodes learning and judgment", "where": "ISR, JAIS, MS"}
+  ],
+  "fading": [
+    {"what": "The metaverse", "why": "editors defend it as not dead while moving to market-level studies", "where": "JMIS, DSS"},
+    {"what": "Blockchain and decentralisation", "why": "recast from ideology to governance design choice", "where": "JIT"},
+    {"what": "Individual-level AI acceptance", "why": "declared insufficient on its own", "where": "JMIS 42:2, JSIS call"},
+    {"what": "Black-boxed or vaguely labelled “AI”", "why": "the artefact now has to be described precisely", "where": "ISJ, EJIS"},
+    {"what": "Digital transformation as a destination", "why": "reframed as continuous and contested", "where": "JSIS, ISJ"},
+    {"what": "Narrow Green IT", "why": "absorbed into responsible technology", "where": "MISQ, JAIS"}
+  ]
+}

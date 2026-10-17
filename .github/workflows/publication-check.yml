@@ -1,4 +1,4 @@
-# Quarterly calibration of the publication list.
+# Quarterly calibration of the publication list, plus the editorial watch reminder.
 #
 # Runs on GitHub's own runners rather than a sandbox, so it can reach the DOI
 # system, CrossRef and ORCID, and it opens the issue with the token GitHub
@@ -34,10 +34,13 @@ jobs:
           set -o pipefail
           python3 tools/check-publications.py | tee "$RUNNER_TEMP/report.md"
 
+      - name: Add the editorial watch reminder
+        run: python3 tools/check-editorial-watch.py >> "$RUNNER_TEMP/report.md"
+
       - name: Open an issue with the report
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh issue create \
-            --title "Publication calibration — $(date -u +%Y-%m-%d)" \
+            --title "Quarterly calibration — $(date -u +%Y-%m-%d)" \
             --body-file "$RUNNER_TEMP/report.md"

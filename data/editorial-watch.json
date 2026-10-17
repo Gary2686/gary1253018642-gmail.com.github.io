@@ -1,0 +1,2143 @@
+{
+ "updated": "2026-10-17",
+ "coverage": [
+  "2025-01-01",
+  "2026-10-17"
+ ],
+ "source": "https://app.notion.com/p/3fc65a04846a81ecb6cbf6d723de47f8",
+ "journals": {
+  "ISR": "Information Systems Research",
+  "MISQ": "MIS Quarterly",
+  "JMIS": "Journal of Management Information Systems",
+  "MS": "Management Science",
+  "POM": "Production and Operations Management",
+  "EJIS": "European Journal of Information Systems",
+  "ISJ": "Information Systems Journal",
+  "JAIS": "Journal of the Association for Information Systems",
+  "JIT": "Journal of Information Technology",
+  "JSIS": "Journal of Strategic Information Systems",
+  "DSS": "Decision Support Systems",
+  "I&M": "Information & Management",
+  "I&O": "Information and Organization"
+ },
+ "themes": [
+  {
+   "key": "agency",
+   "en": "Human-AI agency",
+   "zh": "人機能動性配置"
+  },
+  {
+   "key": "governance",
+   "en": "AI governance & responsible AI",
+   "zh": "AI 治理與負責任 AI"
+  },
+  {
+   "key": "research",
+   "en": "Research practice & peer review",
+   "zh": "研究實踐與審稿規範"
+  },
+  {
+   "key": "methods",
+   "en": "Methods & theory building",
+   "zh": "方法與理論建構"
+  },
+  {
+   "key": "platforms",
+   "en": "Platforms & ecosystems",
+   "zh": "數位平台與生態系"
+  },
+  {
+   "key": "society",
+   "en": "Sustainability & societal impact",
+   "zh": "永續與社會影響"
+  },
+  {
+   "key": "futures",
+   "en": "Digital futures",
+   "zh": "數位未來與未來學"
+  },
+  {
+   "key": "impact",
+   "en": "Rigor, relevance & impact",
+   "zh": "嚴謹・相關・影響力"
+  }
+ ],
+ "items": [
+  {
+   "title": "Computational Creativity in the AI Era: A Research Agenda for Information Systems",
+   "journal": "ISR",
+   "tags": [
+    "GenAI and agentic AI",
+    "human-AI collaboration",
+    "creativity",
+    "cognitive offloading",
+    "responsible AI",
+    "research agenda"
+   ],
+   "note": "The guest editors define creativity as an instrumentable process of search, recombination, evaluation and realization, and position computational creativity as a durable IS research program.",
+   "url": "https://doi.org/10.1287/isre.2026.editorial.v37.n4",
+   "authors": "Min Ding, Ram Gopal, Ulrike Schultze, D. J. Wu",
+   "vol": "37(4), Articles in Advance",
+   "date": "2026-09",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "impact"
+   ]
+  },
+  {
+   "title": "Inventing with Machines: Generative AI and the Evolving Landscape of IS Research",
+   "journal": "ISR",
+   "tags": [
+    "GenAI and agentic AI",
+    "methods and review practices",
+    "research integrity",
+    "editorial policy",
+    "human-AI collaboration"
+   ],
+   "note": "The editors argue GenAI changes not only how research is done but what research can be, and that IS is positioned to pioneer inventing with machines.",
+   "url": "https://doi.org/10.1287/isre.2025.editorial.v36.n4",
+   "authors": "Ram D. Gopal, Jingjing Li, Kai Riemer, Suprateek Sarker, Param Vir Singh, Anjana Susarla, Martin Bichler, Jason Bennett Thatcher",
+   "vol": "36(4), pp. 1949-1967",
+   "date": "2025-12",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Digital Development: Reimagining Research Beyond ICT4D",
+   "journal": "ISR",
+   "tags": [
+    "societal impact",
+    "digital development",
+    "Global South",
+    "theory building",
+    "ethics"
+   ],
+   "note": "The editorial replaces the ICT4D framing with digital development, treating digital and development trajectories as a duality across three dimensions.",
+   "url": "https://doi.org/10.1287/isre.2025.editorial.v36.n3",
+   "authors": "Sundeep Sahay, Shirish C. Srivastava, Michael Barrett, Robert M. Davison, Shirin Madon, Daniel Schlagwein, Irwin Brown, Suprateek Sarker",
+   "vol": "36(3), pp. 1269-1292",
+   "date": "2025-09",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "methods",
+    "society"
+   ]
+  },
+  {
+   "title": "Advancing Next-Generation Multimethod Research in Information Systems: A Framework and Some Recommendations for Authors and Evaluators",
+   "journal": "ISR",
+   "tags": [
+    "methods and review practices",
+    "multimethod research",
+    "research design",
+    "evaluation criteria"
+   ],
+   "note": "The editors endorse multimethod research and propose a framework crossing methodological distance (proximate or distant) with nature of integration (interlayered or intertwined), yielding assembly, blend, bridge and fusion designs.",
+   "url": "https://doi.org/10.1287/isre.2025.editorial.v36.n2",
+   "authors": "Suprateek Sarker, Hillol Bala, Yili Hong, Atreyi Kankanhalli, Matti Rossi, Bin Gu, Gal Oestreicher-Singer",
+   "vol": "36(2), pp. 647-668",
+   "date": "2025-06",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Human-Centric Information Systems Research on the Digital Future of Healthcare",
+   "journal": "ISR",
+   "tags": [
+    "digital health",
+    "AI in healthcare",
+    "societal impact",
+    "health equity",
+    "research agenda"
+   ],
+   "note": "Using topic modeling on 192 papers, the editors map six past themes and four emerging clusters in healthcare IS research.",
+   "url": "https://doi.org/10.1287/isre.2025.editorial.v36.n1",
+   "authors": "Indranil Bardhan, Rajiv Kohli, Eivor Oborn, Abhay Mishra, Chuan Hoo Tan, Monica Chiarini Tremblay, Suprateek Sarker",
+   "vol": "36(1), pp. 1-20",
+   "date": "2025-03",
+   "date_note": "",
+   "themes": [
+    "society",
+    "impact"
+   ]
+  },
+  {
+   "title": "Engaging with Practice for Impactful Research",
+   "journal": "MISQ",
+   "tags": [
+    "practice engagement",
+    "research impact",
+    "rigor and relevance",
+    "editorial policy"
+   ],
+   "note": "Third editorial of the 50th anniversary volume, co-authored by the EIC and eight senior editors.",
+   "url": "https://doi.org/10.25300/misq/2026/503e1",
+   "authors": "Susan A. Brown, Stefan Seidel, John D'Arcy, Jungpil Hahn, Carol Hsu, Sabine Matook, Maytal Saar-Tsechansky, Maha Shaikh, Jason Bennett Thatcher",
+   "vol": "50(3), pp. iii-xiv",
+   "date": "2026-09",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "research",
+    "impact"
+   ]
+  },
+  {
+   "title": "The Evolution of Research in MIS Quarterly Over Five Decades",
+   "journal": "MISQ",
+   "tags": [
+    "discipline history",
+    "research trends",
+    "AI-assisted analysis",
+    "methods and review practices"
+   ],
+   "note": "Brown reviews the 1,963 papers published in MISQ's first 50 years to trace how topics, methods and contributions evolved.",
+   "url": "https://doi.org/10.25300/misq/2026/502e1",
+   "authors": "Susan A. Brown",
+   "vol": "50(2), pp. iii-xi",
+   "date": "2026-06",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods",
+    "impact"
+   ]
+  },
+  {
+   "title": "A Journey Through 50 Years of MIS Quarterly",
+   "journal": "MISQ",
+   "tags": [
+    "discipline history",
+    "developmental reviewing",
+    "rigor and relevance",
+    "interdisciplinarity"
+   ],
+   "note": "Brown opens the anniversary volume by tracing the journal's 160 editorials and the parallel growth of the MIS discipline.",
+   "url": "https://doi.org/10.25300/misq/2026/501e1",
+   "authors": "Susan A. Brown",
+   "vol": "50(1), pp. iii-ix",
+   "date": "2026-03",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods",
+    "impact"
+   ]
+  },
+  {
+   "title": "The Evolution of Social Media Networks: Revisiting and Extending Kane et al. (2014) 10 Years Later",
+   "journal": "MISQ",
+   "tags": [
+    "digital platforms",
+    "social media",
+    "surveillance capitalism",
+    "decentralization",
+    "research agenda"
+   ],
+   "note": "The award winners revisit their 2014 framework classifying social media networks and ask which parts have held up.",
+   "url": "https://doi.org/10.25300/misq/2025/494e2",
+   "authors": "Gerald C. Kane, Maryam Alavi, Giuseppe (Joe) Labianca, Stephen P. Borgatti",
+   "vol": "49(4), pp. ix-xvi",
+   "date": "2025-12",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "platforms",
+    "impact"
+   ]
+  },
+  {
+   "title": "Beyond Green IT: From Digital Sustainability to Responsible Technology",
+   "journal": "MISQ",
+   "tags": [
+    "digital sustainability",
+    "responsible technology",
+    "societal impact",
+    "editorial agenda"
+   ],
+   "note": "The EIC's December 2025 editorial, by its title, broadens the sustainability agenda from Green IT through digital sustainability to responsible technology.",
+   "url": "https://doi.org/10.25300/misq/2025/494e1",
+   "authors": "Susan A. Brown",
+   "vol": "49(4), pp. iii-viii",
+   "date": "2025-12",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "society"
+   ]
+  },
+  {
+   "title": "Rebalancing Novelty with Rigor and Relevance in Information Systems Research",
+   "journal": "MISQ",
+   "tags": [
+    "methods and review practices",
+    "novelty",
+    "rigor and relevance",
+    "cumulative knowledge",
+    "editorial guidance"
+   ],
+   "note": "The editors argue novelty has become the dominant yardstick yet is inconsistently defined.",
+   "url": "https://doi.org/10.25300/misq/2025/493e1",
+   "authors": "Heshan Sun, Wen Wen, Jason Bennett Thatcher, Michael Chau, Susan A. Brown",
+   "vol": "49(3), pp. iii-xii",
+   "date": "2025-09",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods",
+    "impact"
+   ]
+  },
+  {
+   "title": "Global by Design: Reaffirming Our Commitment to Inclusive IS Scholarship",
+   "journal": "MISQ",
+   "tags": [
+    "inclusion",
+    "global scholarship",
+    "editorial policy",
+    "IS community"
+   ],
+   "note": "The EIC and a senior editor reaffirm MISQ's commitment to globally inclusive scholarship.",
+   "url": "https://doi.org/10.25300/MISQ/2025/492E0",
+   "authors": "Michelle Carter, Susan A. Brown",
+   "vol": "49(2), pp. iii-vii",
+   "date": "2025-06",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "research",
+    "society"
+   ]
+  },
+  {
+   "title": "Quantitative Behavioral IS Research: A Look Back and a Look Forward",
+   "journal": "MISQ",
+   "tags": [
+    "methods and review practices",
+    "quantitative behavioral research",
+    "theory development",
+    "editorial guidance"
+   ],
+   "note": "A 16-page programmatic editorial by five senior editors and the EIC taking stock of quantitative behavioral IS research and charting its future.",
+   "url": "https://doi.org/10.25300/misq/2025/49.1.00",
+   "authors": "Likoebe M. Maruping, Dezhi Yin, Adela Chen, Atreyi Kankanhalli, Andrew Burton-Jones, Susan A. Brown",
+   "vol": "49(1), pp. iii-xviii",
+   "date": "2025-03",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "\"Complexity Is the Worst Enemy of Security\": Studying Cybersecurity Through the Lens of Organizational Complexity",
+   "journal": "MISQ",
+   "tags": [
+    "cybersecurity",
+    "organizational complexity",
+    "data breaches",
+    "theory building"
+   ],
+   "note": "The authors extend the principle that complexity is the worst enemy of security from software to organizations, where more components and interactions enlarge the attack surface and weaken accountability.",
+   "url": "https://doi.org/10.25300/MISQ/2025/49.1.075",
+   "authors": "Bruce Schneier, Anthony Vance",
+   "vol": "49(1), pp. 205-210",
+   "date": "2025-03",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "methods"
+   ]
+  },
+  {
+   "title": "Editorial Introduction (43:3)",
+   "journal": "JMIS",
+   "tags": [
+    "GenAI and agentic AI",
+    "human-AI interaction",
+    "cognitive offloading",
+    "platform security",
+    "privacy theory"
+   ],
+   "note": "Zwass opens with open knowledge platforms as drivers of innovation, then foregrounds the human-GenAI interaction stream: how interaction modes and user reflection affect LLM factuality, how GenAI changes developers' code quality and cognitive effort, and how chatbot humanness suppresses error attribution.",
+   "url": "https://doi.org/10.1080/07421222.2026.2692277",
+   "authors": "Vladimir Zwass",
+   "vol": "43(3), pp. 681-684",
+   "date": "2026-07",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "methods",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Editorial Introduction (43:2)",
+   "journal": "JMIS",
+   "tags": [
+    "human-AI collaboration",
+    "AI aversion",
+    "digital twins",
+    "digital platforms",
+    "field evolution"
+   ],
+   "note": "Zwass identifies a decisive shift in the field's objects of study toward human-AI collaboration, GenAI embedded in organizational processes, and platforms.",
+   "url": "https://doi.org/10.1080/07421222.2026.2647460",
+   "authors": "Vladimir Zwass",
+   "vol": "43(2), pp. 331-334",
+   "date": "2026-04",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "platforms",
+    "impact"
+   ]
+  },
+  {
+   "title": "Editorial Introduction (43:1)",
+   "journal": "JMIS",
+   "tags": [
+    "GenAI and jobs",
+    "AI trust and alignment",
+    "journal mission",
+    "critical infrastructure"
+   ],
+   "note": "Opening volume 43, Zwass argues leading journals must actively foster future-oriented research shaped by what is emerging in industry labs and startups.",
+   "url": "https://doi.org/10.1080/07421222.2025.2602396",
+   "authors": "Vladimir Zwass",
+   "vol": "43(1), pp. 1-4",
+   "date": "2026-01",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "impact"
+   ]
+  },
+  {
+   "title": "Editorial Introduction (42:4)",
+   "journal": "JMIS",
+   "tags": [
+    "recommender systems",
+    "algorithmic bias",
+    "AI overreliance",
+    "social media harms",
+    "design science"
+   ],
+   "note": "Zwass frames the issue around recommender systems and the dark side of engagement-driven media recommendation.",
+   "url": "https://doi.org/10.1080/07421222.2025.2561380",
+   "authors": "Vladimir Zwass",
+   "vol": "42(4), pp. 983-986",
+   "date": "2025-10",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "methods",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Editorial Introduction (42:3)",
+   "journal": "JMIS",
+   "tags": [
+    "free speech",
+    "misinformation",
+    "GenAI governance",
+    "platform governance",
+    "content moderation"
+   ],
+   "note": "Zwass devotes the editorial to free speech and asks where its boundaries lie in the age of social media and GenAI.",
+   "url": "https://doi.org/10.1080/07421222.2025.2520172",
+   "authors": "Vladimir Zwass",
+   "vol": "42(3), pp. 669-672",
+   "date": "2025-07",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Generative AI and its Transformative Value for Digital Platforms",
+   "journal": "JMIS",
+   "tags": [
+    "GenAI and agentic AI",
+    "digital platforms",
+    "platform ecosystems",
+    "complementors",
+    "research agenda"
+   ],
+   "note": "The guest editors argue GenAI is a turning point for digital platforms because it reshapes value creation, participation and governance.",
+   "url": "https://doi.org/10.1080/07421222.2025.2487315",
+   "authors": "Michael Wessel, Martin Adam, Alexander Benlian, Ann Majchrzak, Ferdinand Thies",
+   "vol": "42(2), pp. 346-369",
+   "date": "2025-04",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "platforms",
+    "impact"
+   ]
+  },
+  {
+   "title": "Editorial Introduction (42:2)",
+   "journal": "JMIS",
+   "tags": [
+    "digital platforms",
+    "GenAI and agentic AI",
+    "organizational-level impact",
+    "human-computer symbiosis"
+   ],
+   "note": "Zwass characterizes digital platforms as the prevailing architecture of the online economy and connects GenAI job crafting to the vision of human-computer symbiosis.",
+   "url": "https://doi.org/10.1080/07421222.2025.2487307",
+   "authors": "Vladimir Zwass",
+   "vol": "42(2), pp. 343-345",
+   "date": "2025-04",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Long Live the Metaverse: Identifying the Potential for Market Disruption and Future Research",
+   "journal": "JMIS",
+   "tags": [
+    "metaverse",
+    "hype cycle",
+    "business models",
+    "research agenda",
+    "design"
+   ],
+   "note": "The guest editors contend the Metaverse is nascent rather than dead and is passing through the usual hype cycle, with GenAI likely to enable many Metaverse applications.",
+   "url": "https://doi.org/10.1080/07421222.2025.2455770",
+   "authors": "Paul Benjamin Lowry, Wai Fong Boh, Stacie Petter, Jan Marco Leimeister",
+   "vol": "42(1), pp. 3-38",
+   "date": "2025-01",
+   "date_note": "",
+   "themes": [
+    "platforms",
+    "futures",
+    "impact"
+   ]
+  },
+  {
+   "title": "Editorial Introduction (42:1)",
+   "journal": "JMIS",
+   "tags": [
+    "metaverse",
+    "journal leadership",
+    "sociotechnical IS",
+    "IT duality and risks"
+   ],
+   "note": "Zwass argues leading journals define the field's intellectual content and must shape it rather than merely filter.",
+   "url": "https://doi.org/10.1080/07421222.2025.2452011",
+   "authors": "Vladimir Zwass",
+   "vol": "42(1), pp. 1-2",
+   "date": "2025-01",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Fighting Fire with Fire: Infusing Artificial Intelligence into Peer Review to Sustain Quality Scholarship",
+   "journal": "MS",
+   "tags": [
+    "AI in peer review",
+    "methods and review practices",
+    "human-AI collaboration",
+    "editorial governance",
+    "AI overreliance"
+   ],
+   "note": "The authors argue GenAI-driven submission growth pushes journals toward a capacity cliff, while shadow AI use by reviewers already creates correlated errors and confidentiality risks.",
+   "url": "https://doi.org/10.1287/mnsc.2026.00184",
+   "authors": "Hemant K. Bhargava, Sarah H. Bana, Zhe Zhang, Laura Brandimarte, Vidyanand Choudhary, J. Frank Li, Pantelis Loupos, Daniel Zantedeschi",
+   "vol": "72(9), pp. 7381-7393",
+   "date": "2026-09",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Introduction to the Special Issue on the Human-Algorithm Connection",
+   "journal": "MS",
+   "tags": [
+    "human-AI collaboration",
+    "algorithm aversion",
+    "algorithmic fairness",
+    "future of work",
+    "cognitive offloading"
+   ],
+   "note": "The editors frame the issue around how humans and algorithms coexist and improve decision making together.",
+   "url": "https://doi.org/10.1287/mnsc.2023.intro.v72.n1",
+   "authors": "Felipe Caro, Jean-Edouard Colliard, Elena Katok, Axel Ockenfels, Nicolas Stier-Moses, Catherine Tucker, D. J. Wu",
+   "vol": "72(1), pp. 1-13",
+   "date": "2026-01",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "futures"
+   ]
+  },
+  {
+   "title": "Artificial Intelligence and Operations: A Foundational Framework of Emerging Research and Practice",
+   "journal": "POM",
+   "tags": [
+    "AI and operations",
+    "AI governance and regulation",
+    "human-AI interaction",
+    "research agenda"
+   ],
+   "note": "The authors argue AI's operational impact is a jagged implementation frontier with context-dependent, slow-to-appear benefits.",
+   "url": "https://doi.org/10.1177/10591478251412943",
+   "authors": "Tinglong Dai, Jayashankar M Swaminathan",
+   "vol": "35(9), pp. 3255-3271",
+   "date": "2026-09",
+   "date_note": "online 2025-12",
+   "themes": [
+    "agency",
+    "governance",
+    "impact"
+   ]
+  },
+  {
+   "title": "Internet of Things in Intralogistics: Applications and Emerging Research",
+   "journal": "POM",
+   "tags": [
+    "Internet of Things",
+    "digital operations",
+    "real-time data",
+    "automation"
+   ],
+   "note": "The guest editors argue intralogistics decisions have rested on infrequent historical data, while IoT now delivers granular real-time data enabling dynamic decisions.",
+   "url": "https://doi.org/10.1177/10591478251362677",
+   "authors": "René de Koster, Debjit Roy, Yun Fong Lim, Subodha Kumar",
+   "vol": "34(11), pp. 3343-3363",
+   "date": "2025-11",
+   "date_note": "online 2025-08",
+   "themes": [
+    "agency",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Embracing contrarian thinking: value-reflexive research for a better world",
+   "journal": "EJIS",
+   "tags": [
+    "critical IS research",
+    "value-reflexivity",
+    "digital ethics",
+    "theory building",
+    "responsible digitalisation"
+   ],
+   "note": "The guest editors argue scientific progress depends on contrarian thinking because unexamined assumptions lock in research trajectories.",
+   "url": "https://doi.org/10.1080/0960085X.2026.2648981",
+   "authors": "Markus Philipp Zimmer, Polyxeni Vassilakopoulou, Miria Grisot, Marko Niemimaa",
+   "vol": "35(2), pp. 165-177",
+   "date": "2026-04",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "research",
+    "methods",
+    "futures"
+   ]
+  },
+  {
+   "title": "Responsible AI starts with the artifact: Challenging the concept of responsible AI in IS research",
+   "journal": "EJIS",
+   "tags": [
+    "responsible AI",
+    "IT artifact",
+    "AI governance and regulation",
+    "conceptual clarity",
+    "GenAI and agentic AI"
+   ],
+   "note": "The editors note a flood of AI submissions framed around responsibility.",
+   "url": "https://doi.org/10.1080/0960085X.2025.2506875",
+   "authors": "Patrick Mikalef, Alexander Benlian, Kieran Conboy, Monideepa Tarafdar",
+   "vol": "34(3), pp. 407-414",
+   "date": "2025-05",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "methods"
+   ]
+  },
+  {
+   "title": "Positionality and Transparency: Rethinking Neutrality in Authorship and Reviewing",
+   "journal": "ISJ",
+   "tags": [
+    "methods and review practices",
+    "positionality",
+    "reflexivity",
+    "peer review"
+   ],
+   "note": "The EIC and co-authors question the assumption that authors and reviewers are neutral and argue for making researcher positionality transparent in authorship and peer review.",
+   "url": "https://doi.org/10.1111/isj.70058",
+   "authors": "Robert M. Davison, Miriam Klöpper, Dag Svanæs, Hameed Chughtai",
+   "vol": "early view",
+   "date": "2026-08",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Being Inclusive: Facets of ISJ's Reality",
+   "journal": "ISJ",
+   "tags": [
+    "inclusion",
+    "journal governance",
+    "IS community"
+   ],
+   "note": "The EIC and two senior editors describe how inclusiveness plays out across ISJ's authors, reviewers, board and topics, continuing earlier editorials on diversity.",
+   "url": "https://doi.org/10.1111/isj.70056",
+   "authors": "Robert M. Davison, Angsana A. Techatassanasoontorn, Silvia Masiero",
+   "vol": "early view",
+   "date": "2026-07",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "research",
+    "society"
+   ]
+  },
+  {
+   "title": "Research Integrity Matters, But It Is Undermined by Generative AI",
+   "journal": "ISJ",
+   "tags": [
+    "GenAI and agentic AI",
+    "research integrity",
+    "methods and review practices",
+    "journal policy"
+   ],
+   "note": "The editors argue misuse of GAI is a growing cause of integrity violations and oppose its use for any intellectual activity of research, from brainstorming to drafting responses to reviewers.",
+   "url": "https://doi.org/10.1111/isj.70055",
+   "authors": "Robert M. Davison, Antonio Díaz Andrade, Andreas Eckhardt, Marjolein van Offenbeek, Angsana A. Techatassanasoontorn, Marco Marabelli, Petter Nielsen, Niki Panteli, Gerhard Schwabe, Andrew Hardin, Vanessa Cooper",
+   "vol": "36(6)",
+   "date": "2026-06",
+   "date_note": "issue 2026-11",
+   "themes": [
+    "agency",
+    "governance",
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Scholarly Integrity and Generative AI: Five Boundary Violations for IS Scholarship",
+   "journal": "ISJ",
+   "tags": [
+    "GenAI and agentic AI",
+    "research integrity",
+    "research ethics"
+   ],
+   "note": "The authors identify five ways GAI use crosses boundaries of scholarly integrity in IS research.",
+   "url": "https://doi.org/10.1111/isj.70044",
+   "authors": "Jonny Holmström, Robert M. Davison",
+   "vol": "36(5), pp. 625-628",
+   "date": "2026-04",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "research"
+   ]
+  },
+  {
+   "title": "The Art of Crafting an Enticing Opening Gambit",
+   "journal": "ISJ",
+   "tags": [
+    "academic writing",
+    "authorship advice"
+   ],
+   "note": "A two-page EIC editorial in the craft-of-writing series on how a paper's opening should hook editors, reviewers and readers.",
+   "url": "https://doi.org/10.1111/isj.70033",
+   "authors": "Robert M. Davison",
+   "vol": "36(3), pp. 313-314",
+   "date": "2026-02",
+   "date_note": "",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "Generative AI Is Neither Just Another IT Artefact nor a Colleague: Methodological Guidance for IS Scholarship",
+   "journal": "ISJ",
+   "tags": [
+    "GenAI and agentic AI",
+    "methods and review practices",
+    "IT artefact",
+    "theory building"
+   ],
+   "note": "The editors note GAI submissions have surged while treatment of the GAI artefact is often superficial.",
+   "url": "https://doi.org/10.1111/isj.70027",
+   "authors": "Kai Riemer, Sandra Peter, Gerhard Schwabe, Sutirtha Chatterjee, Martin Adam, Robert M. Davison",
+   "vol": "36(2), pp. 161-165",
+   "date": "2025-12",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Information Systems in and for Practice",
+   "journal": "ISJ",
+   "tags": [
+    "practice engagement",
+    "research impact",
+    "practitioner papers"
+   ],
+   "note": "An editorial introducing ISJ's practice-oriented paper stream, following the 2023 practitioner-perspective editorial and call.",
+   "url": "https://doi.org/10.1111/isj.70016",
+   "authors": "Robert M. Davison, Marco Marabelli, Yenni Tim",
+   "vol": "36(1), pp. 1-4",
+   "date": "2025-10",
+   "date_note": "",
+   "themes": [
+    "impact"
+   ]
+  },
+  {
+   "title": "The Future (As a Focus) of IS Research",
+   "journal": "ISJ",
+   "tags": [
+    "digital futures",
+    "futures studies",
+    "research agenda"
+   ],
+   "note": "The EIC and a senior editor argue the future itself should become a focus of IS research, related to the futures studies call.",
+   "url": "https://doi.org/10.1111/isj.12591",
+   "authors": "Robert M. Davison, Gerhard Schwabe",
+   "vol": "35(6), pp. 1513-1515",
+   "date": "2025-02",
+   "date_note": "",
+   "themes": [
+    "futures",
+    "impact"
+   ]
+  },
+  {
+   "title": "Why You Should Write a Cover Letter",
+   "journal": "ISJ",
+   "tags": [
+    "submission process",
+    "authorship advice",
+    "editorial practice"
+   ],
+   "note": "A two-page EIC note urging a substantive cover letter with each submission.",
+   "url": "https://doi.org/10.1111/isj.12590",
+   "authors": "Robert M. Davison",
+   "vol": "35(5), pp. 1309-1310",
+   "date": "2025-02",
+   "date_note": "",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "Digital Transformation: Quo Vadit?",
+   "journal": "ISJ",
+   "tags": [
+    "digital transformation",
+    "conceptual clarity",
+    "research agenda"
+   ],
+   "note": "The guest editors examine how the digital transformation concept has evolved and argue for a more nuanced understanding.",
+   "url": "https://doi.org/10.1111/isj.12578",
+   "authors": "Lauri Wessel, Elaine Mosconi, Marta Indulska, Abayomi Baiyere",
+   "vol": "35(4), pp. 1294-1308",
+   "date": "2025-01",
+   "date_note": "issue 2025-07",
+   "themes": [
+    "methods",
+    "platforms",
+    "impact"
+   ]
+  },
+  {
+   "title": "Decoloniality and Information Systems: Making Local Contexts Relevant to IS Research",
+   "journal": "ISJ",
+   "tags": [
+    "decoloniality",
+    "epistemic plurality",
+    "Global South",
+    "theory building"
+   ],
+   "note": "Guest editorial for the decoloniality special issue, arguing for making local, non-Western contexts and knowledges relevant to IS research.",
+   "url": "https://doi.org/10.1111/isj.12579",
+   "authors": "Hameed Chughtai, Amber G. Young",
+   "vol": "35(4), pp. 1285-1293",
+   "date": "2025-07",
+   "date_note": "online 2024-12",
+   "themes": [
+    "methods",
+    "society"
+   ]
+  },
+  {
+   "title": "Exploring Alternative (Non-Economic) Forms of Value Engendered by Digital Platforms",
+   "journal": "ISJ",
+   "tags": [
+    "digital platforms",
+    "social value",
+    "societal impact"
+   ],
+   "note": "Special issue introduction on non-economic forms of value created through digital platforms, beyond platform economics.",
+   "url": "https://doi.org/10.1111/isj.12576",
+   "authors": "Petros Chamakiotis, Dimitra Petrakaki",
+   "vol": "35(4)",
+   "date": "2025-07",
+   "date_note": "online 2024-12",
+   "themes": [
+    "platforms",
+    "society"
+   ]
+  },
+  {
+   "title": "Reviews, recommendations and decisions: Contrasting perspectives",
+   "journal": "ISJ",
+   "tags": [
+    "peer review",
+    "editorial decisions",
+    "authorship advice"
+   ],
+   "note": "The EIC contrasts how reviewer reports, editor recommendations and EIC decisions can diverge and how authors should read them.",
+   "url": "https://doi.org/10.1111/isj.12571",
+   "authors": "Robert M. Davison",
+   "vol": "35(3), pp. 821-823",
+   "date": "2025-05",
+   "date_note": "online 2024-11",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "The new wave of 'hybrid' work: An opportunity to revise assumptions and build theory",
+   "journal": "ISJ",
+   "tags": [
+    "hybrid work",
+    "future of work",
+    "sociomateriality",
+    "theory building"
+   ],
+   "note": "The guest editors argue hybrid work demands fresh thinking about how space, time and technology interact, and challenge treating technology as a black box or neutral enabler.",
+   "url": "https://doi.org/10.1111/isj.12558",
+   "authors": "Efpraxia D. Zamani, Mary Beth Watson-Manheim, Pamela Abbott, Angela Lin",
+   "vol": "35(2), pp. 710-719",
+   "date": "2025-03",
+   "date_note": "online 2024-08",
+   "themes": [
+    "agency",
+    "methods",
+    "futures"
+   ]
+  },
+  {
+   "title": "Digitally enabled sharing economy models at the base of the pyramid",
+   "journal": "ISJ",
+   "tags": [
+    "sharing economy",
+    "base of the pyramid",
+    "societal impact"
+   ],
+   "note": "Guest editors' editorial for the special issue on digitally enabled sharing economy models at the base of the pyramid.",
+   "url": "https://doi.org/10.1111/isj.12555",
+   "authors": "Israr Qureshi, Babita Bhatt, Dhirendra Mani Shukla",
+   "vol": "35(2), pp. 807-813",
+   "date": "2025-03",
+   "date_note": "online 2024-08",
+   "themes": [
+    "platforms",
+    "society"
+   ]
+  },
+  {
+   "title": "The Dynamics, Organisation and Evolution of Digital Platforms and Ecosystems",
+   "journal": "ISJ",
+   "tags": [
+    "digital platforms",
+    "ecosystems",
+    "complementors",
+    "platform evolution"
+   ],
+   "note": "The guest editors organise the special issue around how ecosystem entities compete and collaborate, how different types organise for success, and how ecosystems emerge and evolve.",
+   "url": "https://doi.org/10.1111/isj.12548",
+   "authors": "Barney Tan, Xiao Xiao, Michael Chau, Felix Ter Chian Tan, Carmen Leong",
+   "vol": "35(2), pp. 417-421",
+   "date": "2025-03",
+   "date_note": "online 2024-08",
+   "themes": [
+    "platforms"
+   ]
+  },
+  {
+   "title": "Information systems and sustainable development: From conceptual underpinnings to empirical insights",
+   "journal": "ISJ",
+   "tags": [
+    "sustainable development",
+    "green IS",
+    "societal impact"
+   ],
+   "note": "Three-page special issue introduction on how IS help achieve the UN SDGs, including critical perspectives.",
+   "url": "https://doi.org/10.1111/isj.12543",
+   "authors": "Barney Tan, Petter Nielsen",
+   "vol": "35(1), pp. 414-416",
+   "date": "2025-01",
+   "date_note": "online 2024-07",
+   "themes": [
+    "society"
+   ]
+  },
+  {
+   "title": "Fit, scope and the shifting baseline: Is your submission likely to be desk rejected?",
+   "journal": "ISJ",
+   "tags": [
+    "desk rejection",
+    "journal fit",
+    "submission advice"
+   ],
+   "note": "The EIC and two senior editors explain desk rejection in terms of fit with scope and a shifting baseline of expected contribution.",
+   "url": "https://doi.org/10.1111/isj.12538",
+   "authors": "Robert M. Davison, Stan Karanasios, Sutirtha Chatterjee",
+   "vol": "35(1), pp. 1-5",
+   "date": "2025-01",
+   "date_note": "online 2024-05",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "Digital Sustainability and Information Systems Research: Emerging Perspectives and Future Directions",
+   "journal": "JAIS",
+   "tags": [
+    "digital sustainability",
+    "societal impact",
+    "futures",
+    "research agenda"
+   ],
+   "note": "The guest editors find growing but thematically narrow sustainability research, still mostly environmental.",
+   "url": "https://doi.org/10.17705/1jais.01014",
+   "authors": "Julia Kotlarsky, Jacqueline Corbett, Juliana Sutanto, Thomas Kude, Yenni Tim",
+   "vol": "27(5), pp. 1072-1087",
+   "date": "2026-09",
+   "date_note": "",
+   "themes": [
+    "society",
+    "futures",
+    "impact"
+   ]
+  },
+  {
+   "title": "Writing an \"A\" Paper in the Age of GenAI: A Guide to Responsible Augmentation",
+   "journal": "JAIS",
+   "tags": [
+    "GenAI and agentic AI",
+    "scholarly writing",
+    "methods and review practices",
+    "responsible augmentation"
+   ],
+   "note": "An editorial guide on how authors can use GenAI to augment rather than replace scholarly writing responsibly, including worked example prompts.",
+   "url": "https://doi.org/10.17705/1jais.01009",
+   "authors": "Gerald C. Kane, Monideepa Tarafdar",
+   "vol": "27(4), pp. 831-845",
+   "date": "2026-07",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "The Changing Landscape of Behavioral IS Research: Navigating Agentic, Epistemic, and Cognitive Shifts",
+   "journal": "JAIS",
+   "tags": [
+    "GenAI and agentic AI",
+    "AI agency and autonomy",
+    "cognitive offloading",
+    "theory building",
+    "behavioral IS"
+   ],
+   "note": "The authors argue AI reshapes behavioral IS research through agentic, epistemic and cognitive shifts.",
+   "url": "https://doi.org/10.17705/1jais.00994",
+   "authors": "Varun Grover, Monideepa Tarafdar",
+   "vol": "27(3), pp. 568-580",
+   "date": "2026-05",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "methods"
+   ]
+  },
+  {
+   "title": "Expanding the Scope of IS Research Impact: A Framework and Guidelines",
+   "journal": "JAIS",
+   "tags": [
+    "research impact",
+    "societal impact",
+    "engaged scholarship",
+    "guidelines"
+   ],
+   "note": "The authors treat impact as a multifaceted construct spanning academia, business and society, and propose a framework plus guidelines for planning, delivering, measuring and communicating it.",
+   "url": "https://doi.org/10.17705/1jais.00987",
+   "authors": "Hind Benbya, Mareike Möhlmann, Jan vom Brocke",
+   "vol": "27(2), pp. 344-358",
+   "date": "2026-03",
+   "date_note": "",
+   "themes": [
+    "research",
+    "society",
+    "impact"
+   ]
+  },
+  {
+   "title": "Theorizing From Contexts in Research With Digital Trace Data",
+   "journal": "JAIS",
+   "tags": [
+    "digital trace data",
+    "theory building",
+    "methods and review practices",
+    "context"
+   ],
+   "note": "Vaast argues digital trace data are themselves part of the contexts studied, creating a tension between staying close to context and rushing to theory.",
+   "url": "https://doi.org/10.17705/1jais.00955",
+   "authors": "Emmanuelle Vaast",
+   "vol": "27(1), pp. 1-18",
+   "date": "2026-01",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Going Beyond \"Our Research Also Has Policy Implications...\"",
+   "journal": "JAIS",
+   "tags": [
+    "AI governance and regulation",
+    "IS policy",
+    "research impact",
+    "framework"
+   ],
+   "note": "The editors argue IS policy research should make policy the central object of study rather than an appended implications paragraph.",
+   "url": "https://doi.org/10.17705/1jais.00976",
+   "authors": "Roman Beck, Monideepa Tarafdar, Aaron Cheng, John L. King, Fred Niederman",
+   "vol": "26(6), pp. 1547-1558",
+   "date": "2025-11",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "methods",
+    "impact"
+   ]
+  },
+  {
+   "title": "Information Systems Research for Policy Impact: A Systemic View From the Trenches",
+   "journal": "JAIS",
+   "tags": [
+    "IS policy",
+    "policy impact",
+    "practitioner perspective"
+   ],
+   "note": "A short companion to the Beck et al.",
+   "url": "https://doi.org/10.17705/1jais.00977",
+   "authors": "Monideepa Tarafdar, Ritu Agarwal, Ramayya Krishnan",
+   "vol": "26(6), pp. 1559-1565",
+   "date": "2025-11",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "impact"
+   ]
+  },
+  {
+   "title": "Digital Responsibility: Current Perspectives and Future Directions",
+   "journal": "JAIS",
+   "tags": [
+    "responsible AI",
+    "digital responsibility",
+    "ethics",
+    "accountability",
+    "sustainability"
+   ],
+   "note": "The editors define digital responsibility through accountability, an obligation to pursue good outcomes while guarding against harm, and dependability as a sustained commitment.",
+   "url": "https://doi.org/10.17705/1jais.00966",
+   "authors": "Jan Recker, Sutirtha Chatterjee, Janina Sundermeier, Monideepa Tarafdar",
+   "vol": "26(5), pp. 1222-1238",
+   "date": "2025-09",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "society"
+   ]
+  },
+  {
+   "title": "Journal of the Association for Information Systems, 25 Years In: Letting a Thousand Flowers Bloom and Keeping the Fences",
+   "journal": "JAIS",
+   "tags": [
+    "discipline identity",
+    "editorial policy",
+    "journal retrospective"
+   ],
+   "note": "The anniversary editorial describes JAIS as deliberately open across topics, levels, theories and methods, and assesses 2019 to 2024 papers to chart future narratives.",
+   "url": "https://doi.org/10.17705/1jais.00953",
+   "authors": "Monideepa Tarafdar, Hui Hao, Guohou Shan",
+   "vol": "26(4), pp. 909-923",
+   "date": "2025-07",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "research",
+    "impact"
+   ]
+  },
+  {
+   "title": "Health Analytics and IS Theorizing",
+   "journal": "JAIS",
+   "tags": [
+    "health analytics",
+    "theory building",
+    "human-AI collaboration",
+    "causal ML",
+    "equity"
+   ],
+   "note": "The guest editors show how IS researchers can make theoretical contributions in health analytics and propose directions including causal ML for hypothesis generation, fairness in resource allocation, human-AI collaboration in care processes and policy learning.",
+   "url": "https://doi.org/10.17705/1jais.00945",
+   "authors": "Aaron Baird, Yusen Xia, Rajiv Kohli",
+   "vol": "26(3), pp. 575-588",
+   "date": "2025-05",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "methods",
+    "society"
+   ]
+  },
+  {
+   "title": "Policy for Sociotechnical Gen AI Assessment: Leveraging End Users",
+   "journal": "JAIS",
+   "tags": [
+    "GenAI and agentic AI",
+    "AI governance and regulation",
+    "end users",
+    "sociotechnical assessment"
+   ],
+   "note": "The authors argue GenAI assessment must be sociotechnical and recommend treating end users as a key knowledge source, offering an illustrative framework.",
+   "url": "https://doi.org/10.17705/1jais.00934",
+   "authors": "Ju Yeon Jung, Susan J. Winter",
+   "vol": "26(2), pp. 287-293",
+   "date": "2025-03",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "methods"
+   ]
+  },
+  {
+   "title": "Legal Compliance and the Open Texture of Law",
+   "journal": "JAIS",
+   "tags": [
+    "AI governance and regulation",
+    "legal compliance",
+    "EU AI Act",
+    "technology enforcement"
+   ],
+   "note": "The authors argue laws are often vague, so compliance requires interpretation before compliance mechanisms can be designed and must proceed under uncertainty.",
+   "url": "https://doi.org/10.17705/1jais.00922",
+   "authors": "Arto Lanamäki, Mika Viljanen, Karin Väyrynen, Lyria Bennett Moses",
+   "vol": "26(1), pp. 1-8",
+   "date": "2025-01",
+   "date_note": "",
+   "themes": [
+    "governance"
+   ]
+  },
+  {
+   "title": "The future of information systems in the enterprise",
+   "journal": "JIT",
+   "tags": [
+    "enterprise systems",
+    "AI agency and autonomy",
+    "governance",
+    "research agenda"
+   ],
+   "note": "The guest editors argue enterprise IS should be studied at the level of the enterprise as evolving systems of systems, using lenses of coherency, tensions and integration mechanisms.",
+   "url": "https://doi.org/10.1177/02683962261488060",
+   "authors": "Robert Winter, Leona Chandra Kruse, Rajiv Sabherwal, Karlheinz Kautz",
+   "vol": "41(3), pp. 184-193",
+   "date": "2026-09",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "platforms",
+    "impact"
+   ]
+  },
+  {
+   "title": "From 'ChatGPT et al.' to generative artificial intelligence (GenAI) in peer review: Safeguarding trust while modernising scholarly publishing",
+   "journal": "JIT",
+   "tags": [
+    "GenAI and agentic AI",
+    "AI in peer review",
+    "methods and review practices",
+    "research integrity",
+    "accountability"
+   ],
+   "note": "The editors argue GenAI in peer review must be governed rather than ignored.",
+   "url": "https://doi.org/10.1177/02683962261458829",
+   "authors": "Jan Marco Leimeister, Aleksi Aaltonen, Wendy Currie, Daniel Schlagwein",
+   "vol": "41(2), pp. 76-80",
+   "date": "2026-07",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Prediction, hype, and fear: Advancing Information Systems research in \"the AI age\"",
+   "journal": "JIT",
+   "tags": [
+    "AI hype",
+    "digital futures",
+    "methods and review practices",
+    "AI consequences",
+    "research agenda"
+   ],
+   "note": "The EICs argue IS should engage systematically with digital futures using methods for reasoning under uncertainty, treat hype as a legitimate research object, and use AI as a critical test case through capability, adoption, value and consequence lenses.",
+   "url": "https://doi.org/10.1177/02683962261460071",
+   "authors": "Leslie Willcocks, Wendy Currie, Daniel Schlagwein, Jan Marco Leimeister",
+   "vol": "41(2), pp. 171-181",
+   "date": "2026-06",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "research",
+    "methods",
+    "futures",
+    "impact"
+   ]
+  },
+  {
+   "title": "From ideology to design: Toward purposeful decentralization of information systems governance",
+   "journal": "JIT",
+   "tags": [
+    "decentralization",
+    "IS governance",
+    "blockchain",
+    "AI governance and regulation",
+    "digital platforms"
+   ],
+   "note": "The guest editors propose a (De)centralization Dynamics Pendulum and argue decentralisation should be a design and governance choice, not an ideology.",
+   "url": "https://doi.org/10.1177/02683962261430919",
+   "authors": "Ali Sunyaev, Michel Avital, Mary C. Lacity",
+   "vol": "41(1), pp. 2-14",
+   "date": "2026-03",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Rethinking technology regulation in the age of AI risks",
+   "journal": "JIT",
+   "tags": [
+    "AI governance and regulation",
+    "technology enforcement",
+    "AI risk",
+    "comparative regulation",
+    "policy"
+   ],
+   "note": "The editors argue AI exposes the limits of general legal principles and demands risk-informed, technology-specific governance.",
+   "url": "https://doi.org/10.1177/02683962251378815",
+   "authors": "Wendy L Currie, Jan Marco Leimeister, Daniel Schlagwein, Leslie Willcocks",
+   "vol": "40(3), pp. 236-245",
+   "date": "2025-09",
+   "date_note": "",
+   "themes": [
+    "governance"
+   ]
+  },
+  {
+   "title": "Next-generation IS research methods: towards a better understanding of complex and dynamic phenomena ... and generative AI as the elephant in the room",
+   "journal": "JIT",
+   "tags": [
+    "methods and review practices",
+    "GenAI and agentic AI",
+    "research integrity",
+    "computational methods",
+    "design science"
+   ],
+   "note": "The guest editors argue IS needs methods that capture complex, dynamic and temporal phenomena, and that GenAI is an unavoidable productivity aid across paradigms.",
+   "url": "https://doi.org/10.1177/02683962251340699",
+   "authors": "Ivo Blohm, Shaila Miranda, Shuk Ying Ho, Jan Marco Leimeister",
+   "vol": "40(2)",
+   "date": "2025-05",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "Organizing vision revisited and reimagined for a changing world",
+   "journal": "JIT",
+   "tags": [
+    "theory building",
+    "IT innovation diffusion",
+    "institutional theory"
+   ],
+   "note": "The authors revisit organizing vision theory, find it applied to about 46 technologies but confined mostly to IS, and ask whether AI challenges it.",
+   "url": "https://doi.org/10.1177/02683962251315765",
+   "authors": "E Burton Swanson, Neil Ramiller, Ping Wang",
+   "vol": "40(4)",
+   "date": "2025-01",
+   "date_note": "issue 2025-12",
+   "themes": [
+    "methods",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Digital futures: Definition (what), importance (why) and methods (how)",
+   "journal": "JIT",
+   "tags": [
+    "digital futures",
+    "futures studies",
+    "methods and review practices",
+    "editorial policy"
+   ],
+   "note": "The editors propose digital futures as a research field studying diverse long-term futures shaped by digital technologies, defined pluralistically.",
+   "url": "https://doi.org/10.1177/02683962241301544",
+   "authors": "Daniel Schlagwein, Wendy Currie, Jan Marco Leimeister, Leslie Willcocks",
+   "vol": "40(1), pp. 2-8",
+   "date": "2025-03",
+   "date_note": "online 2024-12",
+   "themes": [
+    "governance",
+    "research",
+    "methods",
+    "futures"
+   ]
+  },
+  {
+   "title": "Literature reviews on emerging technologies: The role of grey literature",
+   "journal": "JSIS",
+   "tags": [
+    "methods and review practices",
+    "literature reviews",
+    "grey literature",
+    "emerging technologies"
+   ],
+   "note": "Editorial for the 2026 review issue by the four Review Issue editors.",
+   "url": "https://doi.org/10.1016/j.jsis.2026.101984",
+   "authors": "Marco Marabelli, Tuure Tuunanen, Wenyu Derek Du, Rohit Nishant",
+   "vol": "35(3), article 101984",
+   "date": "2026-09",
+   "date_note": "",
+   "themes": [
+    "research",
+    "methods",
+    "futures"
+   ]
+  },
+  {
+   "title": "Welcome to the third issue of Volume 35 of the Journal of Strategic Information Systems",
+   "journal": "JSIS",
+   "tags": [
+    "issue editorial",
+    "review issue"
+   ],
+   "note": "Co-EIC introduction to the 2026 review issue.",
+   "url": "https://doi.org/10.1016/j.jsis.2026.101983",
+   "authors": "Benoit A. Aubert, Rajiv Sabherwal",
+   "vol": "35(3), article 101983",
+   "date": "2026-09",
+   "date_note": "",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "Welcome to the second issue of Volume 35 of the Journal of Strategic Information Systems",
+   "journal": "JSIS",
+   "tags": [
+    "issue editorial",
+    "digital transformation"
+   ],
+   "note": "Co-EIC introduction to the issue carrying the digital transformation and work special issue.",
+   "url": "https://doi.org/10.1016/j.jsis.2026.101973",
+   "authors": "Rajiv Sabherwal, Benoit A. Aubert",
+   "vol": "35(2), article 101973",
+   "date": "2026-06",
+   "date_note": "",
+   "themes": [
+    "research",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Digital transformation as future-ready strategizing: beyond the destination view",
+   "journal": "JSIS",
+   "tags": [
+    "digital transformation",
+    "strategizing",
+    "future of work"
+   ],
+   "note": "Guest editors' piece arguing for digital transformation as ongoing future-ready strategizing rather than a destination.",
+   "url": "https://doi.org/10.1016/j.jsis.2026.101975",
+   "authors": "Abayomi Baiyere, Ioanna Constantiou, Marta Indulska, Virpi Kristiina Tuunainen",
+   "vol": "35(2), article 101975",
+   "date": "2026-06",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "platforms",
+    "futures"
+   ]
+  },
+  {
+   "title": "Welcome to the first issue of Volume 35 of the Journal of Strategic Information Systems",
+   "journal": "JSIS",
+   "tags": [
+    "issue editorial"
+   ],
+   "note": "Co-EIC introduction to a regular issue.",
+   "url": "https://doi.org/10.1016/j.jsis.2026.101956",
+   "authors": "Benoit A. Aubert, Rajiv Sabherwal",
+   "vol": "35(1), article 101956",
+   "date": "2026-03",
+   "date_note": "",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "Are immersive platforms the future of work? The role of generative AI and DEI considerations",
+   "journal": "JSIS",
+   "tags": [
+    "immersive platforms",
+    "future of work",
+    "ethics",
+    "GenAI and agentic AI",
+    "inclusion"
+   ],
+   "note": "Special issue editorial asking how immersive platforms could enable new work practices while raising ethical and DEI pitfalls, with GenAI added as a reshaping force.",
+   "url": "https://doi.org/10.1016/j.jsis.2025.101943",
+   "authors": "Marco Marabelli, Sue Newell, Manju Ahuja, Bob Galliers",
+   "vol": "34(4), article 101943",
+   "date": "2025-12",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "platforms",
+    "society",
+    "futures"
+   ]
+  },
+  {
+   "title": "Welcome to the fourth issue of Volume 34 of the Journal of Strategic Information Systems",
+   "journal": "JSIS",
+   "tags": [
+    "issue editorial",
+    "immersive platforms"
+   ],
+   "note": "Co-EIC introduction to the immersive platforms special issue.",
+   "url": "https://doi.org/10.1016/j.jsis.2025.101939",
+   "authors": "Rajiv Sabherwal, Benoit A. Aubert",
+   "vol": "34(4), article 101939",
+   "date": "2025-12",
+   "date_note": "",
+   "themes": [
+    "research",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Special issues at JSIS: Past, present and future (guidelines for prospective guest editors)",
+   "journal": "JSIS",
+   "tags": [
+    "editorial policy",
+    "special issues",
+    "guest editor guidelines"
+   ],
+   "note": "The special issues coordinator reviews JSIS's history with special issues and sets out guidelines for prospective guest editors.",
+   "url": "https://doi.org/10.1016/j.jsis.2025.101927",
+   "authors": "Marco Marabelli, Joel José Rivera Jimenez",
+   "vol": "34(3), article 101927",
+   "date": "2025-09",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "research"
+   ]
+  },
+  {
+   "title": "Welcome to the third issue of volume 34 of the Journal of Strategic Information Systems",
+   "journal": "JSIS",
+   "tags": [
+    "issue editorial",
+    "editorial transition"
+   ],
+   "note": "First issue editorial by the new co-EICs after succeeding Yolande Chan.",
+   "url": "https://doi.org/10.1016/j.jsis.2025.101926",
+   "authors": "Benoit A. Aubert, Rajiv Sabherwal",
+   "vol": "34(3), article 101926",
+   "date": "2025-09",
+   "date_note": "",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "Artificial intelligence and the environment: ethical challenges and strategic opportunities for organizations",
+   "journal": "JSIS",
+   "tags": [
+    "GenAI and agentic AI",
+    "sustainability",
+    "ethics",
+    "Global South",
+    "AI governance and regulation"
+   ],
+   "note": "The viewpoint raises awareness of GenAI's environmental footprint and argues its benefits accrue to the Global North while the Global South bears disproportionate harm.",
+   "url": "https://doi.org/10.1016/j.jsis.2025.101921",
+   "authors": "Marco Marabelli, Robert M. Davison",
+   "vol": "34(3), article 101921",
+   "date": "2025-09",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "governance",
+    "society"
+   ]
+  },
+  {
+   "title": "AI Agents: Potential implications for IS Research?",
+   "journal": "JSIS",
+   "tags": [
+    "GenAI and agentic AI",
+    "AI agency and autonomy",
+    "research agenda",
+    "review issue"
+   ],
+   "note": "Editorial for the 2025 review issue asking what agentic AI means for IS research.",
+   "url": "https://doi.org/10.1016/j.jsis.2025.101906",
+   "authors": "Shan Ling Pan, Rohit Nishant, Tuure Tuunanen, Jyoti Choudrie",
+   "vol": "34(2), article 101906",
+   "date": "2025-06",
+   "date_note": "",
+   "themes": [
+    "agency",
+    "research",
+    "impact"
+   ]
+  },
+  {
+   "title": "Welcome to the second issue of Volume 34 of the Journal of Strategic Information Systems",
+   "journal": "JSIS",
+   "tags": [
+    "issue editorial",
+    "review issue"
+   ],
+   "note": "The outgoing EIC's last issue editorial, introducing the 2025 review issue.",
+   "url": "https://doi.org/10.1016/j.jsis.2025.101909",
+   "authors": "Yolande E. Chan",
+   "vol": "34(2), article 101909",
+   "date": "2025-06",
+   "date_note": "",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "Welcome to the first issue of Volume 34 of the Journal of Strategic Information Systems",
+   "journal": "JSIS",
+   "tags": [
+    "issue editorial"
+   ],
+   "note": "EIC introduction to a regular issue.",
+   "url": "https://doi.org/10.1016/j.jsis.2025.101887",
+   "authors": "Yolande E. Chan",
+   "vol": "34(1), article 101887",
+   "date": "2025-03",
+   "date_note": "",
+   "themes": [
+    "research"
+   ]
+  },
+  {
+   "title": "Editorial for the special issue: Empowering bright internet and bright AI",
+   "journal": "DSS",
+   "tags": [
+    "responsible AI",
+    "AI governance and regulation",
+    "cybersecurity",
+    "Bright Internet"
+   ],
+   "note": "Introduces the special issue applying Bright Internet principles of preventive threat mitigation to AI, covering AI governance, privacy and cybersecurity, fairness, transparency, trust and accountability.",
+   "url": "https://doi.org/10.1016/j.dss.2026.114663",
+   "authors": "Daegon Cho, Shan Liu, Dan J. Kim",
+   "vol": "vol 205, article 114663",
+   "date": "2026-06",
+   "date_note": "online 2026-03",
+   "themes": [
+    "governance"
+   ]
+  },
+  {
+   "title": "Metaverse opportunities and challenges: A research agenda and editorial on the special issue on the evolution of Metaverse platforms (part 2)",
+   "journal": "DSS",
+   "tags": [
+    "metaverse",
+    "digital platforms",
+    "research agenda",
+    "adoption"
+   ],
+   "note": "The editors treat the metaverse as a distinct IT artifact with its own research directions and propose a layered framework from technology artifacts through techno-functional features and adoption to impacts on individuals, organizations and societies.",
+   "url": "https://doi.org/10.1016/j.dss.2025.114456",
+   "authors": "Arpan Kumar Kar, Patrick Mikalef, Rohit Nishant, Xin (Robert) Luo, Manish Gupta",
+   "vol": "vol 194, article 114456",
+   "date": "2025-07",
+   "date_note": "online 2025-04",
+   "themes": [
+    "agency",
+    "platforms",
+    "impact"
+   ]
+  },
+  {
+   "title": "Returning the \"socio\" to decision support research: Expanding beyond a purely technical mindset",
+   "journal": "DSS",
+   "tags": [
+    "socio-technical design",
+    "design science",
+    "methods and review practices",
+    "editorial policy"
+   ],
+   "note": "The authors argue design-science decision support research is too technical, illustrate with the 1854 cholera investigations, and contend socio-technical design artifacts are effectively discouraged at DSS.",
+   "url": "https://doi.org/10.1016/j.dss.2024.114352",
+   "authors": "Cecil Eng Huang Chua, Fred Niederman",
+   "vol": "vol 188, article 114352",
+   "date": "2025-01",
+   "date_note": "",
+   "themes": [
+    "governance",
+    "research",
+    "methods"
+   ]
+  },
+  {
+   "title": "The evolution of organizations and stakeholders for metaverse ecosystems: Editorial for the special issue on metaverse part 1",
+   "journal": "DSS",
+   "tags": [
+    "metaverse",
+    "platform ecosystems",
+    "stakeholders",
+    "socio-technical"
+   ],
+   "note": "The editors argue platforms are evolving into metaverse ecosystems while empirical research on their socio-technical aspects remains limited.",
+   "url": "https://doi.org/10.1016/j.dss.2024.114353",
+   "authors": "Arpan Kumar Kar, Patrick Mikalef, Rohit Nishant, Xin (Robert) Luo, Manish Gupta",
+   "vol": "vol 188, article 114353",
+   "date": "2025-01",
+   "date_note": "online 2024-11",
+   "themes": [
+    "methods",
+    "platforms",
+    "society"
+   ]
+  },
+  {
+   "title": "Agentic artificial intelligence as a new frontier in information systems: Promise, peril, and research opportunities",
+   "journal": "I&M",
+   "tags": [
+    "GenAI and agentic AI",
+    "AI agency and autonomy",
+    "AI governance and regulation",
+    "socio-technical systems",
+    "research agenda"
+   ],
+   "note": "The authors argue agentic AI is a new frontier for IS research and take a socio-technical stance in which tensions around displacement, transparency, governance and equity are structural consequences of how agentic systems interact with roles and institutions.",
+   "url": "https://doi.org/10.1016/j.im.2026.104317",
+   "authors": "Naveen Kumar, Xiahua Wei, Han Zhang",
+   "vol": "63(3)",
+   "date": "2026-02",
+   "date_note": "issue 2026-04",
+   "themes": [
+    "agency",
+    "governance",
+    "methods",
+    "impact"
+   ]
+  },
+  {
+   "title": "Navigating digital turbulence and seizing new possibilities: Special issue from the Pacific Asia Conference on Information Systems",
+   "journal": "I&M",
+   "tags": [
+    "PACIS",
+    "Asia-Pacific IS",
+    "digital turbulence",
+    "special issue"
+   ],
+   "note": "Guest editors' editorial for the PACIS 2023 special issue.",
+   "url": "https://doi.org/10.1016/j.im.2025.104158",
+   "authors": "Andrew Burton-Jones, Chuan-Hoo Tan, Bo (Justin) Xiao",
+   "vol": "62(5)",
+   "date": "2025-04",
+   "date_note": "issue 2025-07",
+   "themes": [
+    "society",
+    "futures"
+   ]
+  },
+  {
+   "title": "Addressing bias in generative AI: Challenges and research opportunities in information management",
+   "journal": "I&M",
+   "tags": [
+    "GenAI and agentic AI",
+    "responsible AI",
+    "fairness",
+    "research agenda"
+   ],
+   "note": "The authors trace GenAI bias to training data, algorithmic assumptions and human subjectivity, review detection and debiasing methods, and propose a framework spanning research design, technical development and policy impact.",
+   "url": "https://doi.org/10.1016/j.im.2025.104103",
+   "authors": "Xiahua Wei, Naveen Kumar, Han Zhang",
+   "vol": "62(2)",
+   "date": "2025-01",
+   "date_note": "issue 2025-03",
+   "themes": [
+    "agency",
+    "governance",
+    "impact"
+   ]
+  },
+  {
+   "title": "Platform governance as institutional custodianship: multi-actor collaboration in combating AI-enabled mis/disinformation",
+   "journal": "I&O",
+   "tags": [
+    "platform governance",
+    "misinformation",
+    "AI governance and regulation",
+    "institutional trust",
+    "content moderation"
+   ],
+   "note": "The editors argue platforms bear significant responsibility for curbing AI-enabled false content and that governance must maintain institutional trust.",
+   "url": "https://doi.org/10.1016/j.infoandorg.2025.100590",
+   "authors": "Michael Barrett, Isam Faik, Tawfik Jelassi",
+   "vol": "35(3)",
+   "date": "2025-08",
+   "date_note": "issue 2025-09",
+   "themes": [
+    "governance",
+    "platforms"
+   ]
+  },
+  {
+   "title": "Digital innovation, platforms, and global strategy",
+   "journal": "I&O",
+   "tags": [
+    "digital platforms",
+    "global strategy",
+    "digital innovation",
+    "special issue"
+   ],
+   "note": "Guest editors' introduction to the special issue on digital innovation, platforms and global strategy.",
+   "url": "https://doi.org/10.1016/j.infoandorg.2025.100562",
+   "authors": "Danielle M. Logue, Peter J. Williamson, Anna Elise Roberts, Yadong Luo, Michael Barrett",
+   "vol": "35(1)",
+   "date": "2025-02",
+   "date_note": "issue 2025-03",
+   "themes": [
+    "platforms"
+   ]
+  }
+ ],
+ "calls": [
+  {
+   "journal": "EJIS",
+   "theme": "Theorising Time in a Digital Era: New Horizons for IS Research (Conboy, Jarvenpaa, Pentland, Zamani)",
+   "deadline": "2026-11-01",
+   "deadline_iso": "2026-11-01",
+   "open": true,
+   "status": "Open",
+   "url": "https://think.taylorandfrancis.com/special_issues/ejis-theorising-time/"
+  },
+  {
+   "journal": "MISQ",
+   "theme": "Special Issue on Ethics, Regulation, and Policy (Seidel, Berente, Guo, Oh)",
+   "deadline": "2026-11-13",
+   "deadline_iso": "2026-11-13",
+   "open": true,
+   "status": "Open",
+   "url": "https://misq.umn.edu/pages/call_for_papers_ethics_and_regulations"
+  },
+  {
+   "journal": "EJIS",
+   "theme": "The future of creating and distributing value in digital health ecosystems (Wessel, Reuter-Oppermann, Ologeanu-Taddei, Rothe, Jarvenpaa)",
+   "deadline": "2026-11-30",
+   "deadline_iso": "2026-11-30",
+   "open": true,
+   "status": "Open",
+   "url": "https://think.taylorandfrancis.com/special_issues/digital-health-ecosystems/"
+  },
+  {
+   "journal": "JMIS",
+   "theme": "Agentic Organizations: Designing, Governing, and Managing AI Agents (Adam, Baird, Stein, Benlian)",
+   "deadline": "Abstracts 2026-12-15; full papers 2027-02-01",
+   "deadline_iso": "2027-02-01",
+   "open": true,
+   "status": "Open",
+   "url": "https://www.jmis-web.org/cfps/JMIS_CfP_Agentic_Organizations.pdf"
+  },
+  {
+   "journal": "EJIS",
+   "theme": "Theorizing the Data-AI Nexus (Alaimo, Waardenburg, Holmström, Zalmanson, Baygi)",
+   "deadline": "2027-01-15",
+   "deadline_iso": "2027-01-15",
+   "open": true,
+   "status": "Open",
+   "url": "https://think.taylorandfrancis.com/special_issues/theorizing-the-data-ai-nexus/"
+  },
+  {
+   "journal": "JIT",
+   "theme": "Policymaking for Emerging Technologies: Governance, Risks and Ethics (Currie, Essen, Gozman, Hansen)",
+   "deadline": "2027-02-05",
+   "deadline_iso": "2027-02-05",
+   "open": true,
+   "status": "Open",
+   "url": "https://journals.sagepub.com/page/jin/call-for-papers"
+  },
+  {
+   "journal": "ISJ",
+   "theme": "Special Issue on AI Companions",
+   "deadline": "2027-03-31 (unverified; Wiley page blocked)",
+   "deadline_iso": "2027-03-31",
+   "open": true,
+   "status": "Open",
+   "url": "https://onlinelibrary.wiley.com/page/journal/13652575/homepage/call-for-papers/si-2026-000664"
+  },
+  {
+   "journal": "EJIS",
+   "theme": "Digital Visibility: Design, Management, & Impacts (Zorina, Hafermalz, Grisold, Lindberg, Ostovar)",
+   "deadline": "2027-03-31",
+   "deadline_iso": "2027-03-31",
+   "open": true,
+   "status": "Open",
+   "url": "https://think.taylorandfrancis.com/special_issues/ejis-digital-visibility/"
+  },
+  {
+   "journal": "JAIS",
+   "theme": "Growing up Online: How Digital Platforms Shape Adolescent Development",
+   "deadline": "2027-11-01",
+   "deadline_iso": "2027-11-01",
+   "open": true,
+   "status": "Open",
+   "url": "https://aisel.aisnet.org/jais/specialissues.html"
+  },
+  {
+   "journal": "EJIS",
+   "theme": "Native IS Theories (Grover, Hassan, Blegind Jensen, Lowry, Lyytinen, Techatassanasoontorn)",
+   "deadline": "2027-12-01",
+   "deadline_iso": "2027-12-01",
+   "open": true,
+   "status": "Open",
+   "url": "https://think.taylorandfrancis.com/special_issues/ejis-native-is-theories/"
+  },
+  {
+   "journal": "ISJ",
+   "theme": "AI and the Future of Work",
+   "deadline": "Not stated (Wiley page blocked)",
+   "deadline_iso": "",
+   "open": true,
+   "status": "Open",
+   "url": "https://onlinelibrary.wiley.com/page/journal/13652575/homepage/call-for-papers/si-2026-000678"
+  },
+  {
+   "journal": "JIT",
+   "theme": "Futuring: \"Digital\" Futures as a Novel Site of Inquiry and Imagination (Hovorka, Mueller, Davidson, Chiasson)",
+   "deadline": "First round 2026-03-02; second round 2026-10-15",
+   "deadline_iso": "2026-10-15",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://journals.sagepub.com/pb-assets/cmscontent/JIN/JIT_CFP_SI_Digital_Futures-1771402799850.pdf"
+  },
+  {
+   "journal": "JSIS",
+   "theme": "India at the Intersection: Reconfiguring Commerce, Capabilities and Culture in Age of Technological Acceleration (Setia, Seetharaman, Kathuria, Marabelli)",
+   "deadline": "2026-09-30",
+   "deadline_iso": "2026-09-30",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://callsforpapers.org/call/jsis-india-at-the-intersection-reconfiguring-commerce-capabilities-and-culture-in-age-of-technological-acceleration"
+  },
+  {
+   "journal": "ISR",
+   "theme": "Special Issue on Generative AI and New Methods of Inquiry in Information Systems Research (Abbasi, Bichler, Gopal, Karahanna, Sarker)",
+   "deadline": "2026-09-07",
+   "deadline_iso": "2026-09-07",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://pubsonline.informs.org/page/isre/calls-for-papers"
+  },
+  {
+   "journal": "EJIS",
+   "theme": "Neurophysiological Foundations and Effects of Contemporary Digital Technologies (Riedl, vom Brocke, Pfeiffer, Gleasure)",
+   "deadline": "2026-08-31",
+   "deadline_iso": "2026-08-31",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://think.taylorandfrancis.com/special_issues/ejis-neurois/"
+  },
+  {
+   "journal": "JSIS",
+   "theme": "Unpacking the Multifaceted Impact of Generative Artificial Intelligence on Organisations (Cheah, McKenna, Richter, Senyo, Marabelli)",
+   "deadline": "2026-07-31",
+   "deadline_iso": "2026-07-31",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://callsforpapers.org/call/jsis-unpacking-the-multifaceted-impact-of-generative-artificial-intelligence-on-organisations"
+  },
+  {
+   "journal": "POM",
+   "theme": "Generative AI (GenAI) and Agentic AI at the Operations-Marketing Interface (Rust, Huang, Wang, Kopalle)",
+   "deadline": "2026-06-30",
+   "deadline_iso": "2026-06-30",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://doi.org/10.1177/10591478251403267"
+  },
+  {
+   "journal": "I&M",
+   "theme": "Transformative AI in Online Markets: Development, Impact, and the Road Ahead (Bala, Feng, Li)",
+   "deadline": "2026-06-01",
+   "deadline_iso": "2026-06-01",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://www.sciencedirect.com/special-issue/327959/transformative-ai-in-online-markets-development-impact-and-the-road-ahead"
+  },
+  {
+   "journal": "JMIS",
+   "theme": "Generative AI as Driver of Change in Media (Hess, Constantiou, Panteli)",
+   "deadline": "2026-04-30",
+   "deadline_iso": "2026-04-30",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://www.jmis-web.org/cfps/JMIS_CfP_AI_and_Media.pdf"
+  },
+  {
+   "journal": "JMIS",
+   "theme": "Special Section on Critical National Infrastructure (Chan, Dennis, Gozman, Lyytinen)",
+   "deadline": "2026-01-31",
+   "deadline_iso": "2026-01-31",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://www.jmis-web.org/cfps/JMIS_CFP_CNI_Special_Section.pdf"
+  },
+  {
+   "journal": "EJIS",
+   "theme": "Designing our Digital Futures: Challenging Current Assumptions and Envisioning the Future of IS Design and Development (Chandra Kruse, Fahmideh, Fitzgerald, James, Conboy)",
+   "deadline": "2026-01-30",
+   "deadline_iso": "2026-01-30",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://think.taylorandfrancis.com/special_issues/ejis-digital-futures/"
+  },
+  {
+   "journal": "MS",
+   "theme": "Virtual Special Issue on AI for Finance and Business Decisions (Ata, Cong, Giesecke, Sun, Teo)",
+   "deadline": "2025-12-31",
+   "deadline_iso": "2025-12-31",
+   "open": false,
+   "status": "Closed",
+   "url": "https://doi.org/10.1287/mnsc.2024.call.v70.n10"
+  },
+  {
+   "journal": "MISQ",
+   "theme": "Special Issue on the AI-IA Nexus: The Future of Information Systems Security, Privacy, and Quality (Chen, Feng, Godinho de Matos, Hsu, Rao)",
+   "deadline": "2025-10-31",
+   "deadline_iso": "2025-10-31",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://misq.umn.edu/pages/call_for_papers_ai_ia"
+  },
+  {
+   "journal": "JSIS",
+   "theme": "Platform Partnerships (Huber, Schreieck, Hein, Oshri, Kotlarsky)",
+   "deadline": "2025-09-15",
+   "deadline_iso": "2025-09-15",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://callsforpapers.org/call/jsis-platform-partnerships"
+  },
+  {
+   "journal": "JSIS",
+   "theme": "2027 Review Issue: Call for Special Issue Review Articles (Marabelli, Nishant, Tuunanen, Du)",
+   "deadline": "2025-09-01",
+   "deadline_iso": "2025-09-01",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://callsforpapers.org/call/jsis-call-for-special-issue-review-articles"
+  },
+  {
+   "journal": "JIT",
+   "theme": "Human-AI Collaboration, Emerging Digital Work Configurations and the Changing Nature of Work (Richter, Baptista, Hafermalz, Möhlmann, Schlagwein, Stein)",
+   "deadline": "2025-08-15",
+   "deadline_iso": "2025-08-15",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://journals.sagepub.com/page/jin/call-for-papers"
+  },
+  {
+   "journal": "JAIS",
+   "theme": "Contemporary Innovation in Information Infrastructures",
+   "deadline": "2025-07-31",
+   "deadline_iso": "2025-07-31",
+   "open": false,
+   "status": "Closed, in review",
+   "url": "https://aisel.aisnet.org/jais/specialissues.html"
+  },
+  {
+   "journal": "JIT",
+   "theme": "The Future of Information Systems in the Enterprise (Winter, Chandra Kruse, Sabherwal, Kautz)",
+   "deadline": "2025-04-01",
+   "deadline_iso": "2025-04-01",
+   "open": false,
+   "status": "Published as JIT 41(3)",
+   "url": "https://journals.sagepub.com/pb-assets/JIT%20SI%20Future%20of%20IS%20in%20the%20Enterprise-1729852404520.pdf"
+  }
+ ]
+}
