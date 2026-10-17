@@ -1,0 +1,43 @@
+# Quarterly calibration of the publication list.
+#
+# Runs on GitHub's own runners rather than a sandbox, so it can reach the DOI
+# system, CrossRef and ORCID, and it opens the issue with the token GitHub
+# gives the job — no secrets to configure.
+#
+# The check only ever reports. It never edits the site.
+
+name: Publication calibration
+
+on:
+  schedule:
+    # 1st of January, April, July and October, 13:00 UTC (09:00 US Eastern in
+    # summer, 08:00 in winter).
+    - cron: '0 13 1 */3 *'
+  workflow_dispatch:          # the "Run workflow" button, for checking on demand
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run the calibration check
+        run: |
+          set -o pipefail
+          python3 tools/check-publications.py | tee "$RUNNER_TEMP/report.md"
+
+      - name: Open an issue with the report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Publication calibration — $(date -u +%Y-%m-%d)" \
+            --body-file "$RUNNER_TEMP/report.md"

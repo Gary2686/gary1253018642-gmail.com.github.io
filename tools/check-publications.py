@@ -183,6 +183,9 @@ def main():
     page = read_page(src)
     pubs = publications(page)
     links = all_links(page)
+    buf = io.StringIO()
+    out = sys.stdout
+    sys.stdout = buf
     print("# Publication calibration — %s\n" % time.strftime("%Y-%m-%d"))
     print("Checked %d publications and %d distinct links on %s.\n"
           % (len(pubs), len(links), src or SITE))
@@ -286,6 +289,44 @@ def main():
     print("No public source reports these; check them against your inboxes:\n")
     for p in inreview:
         print("- **%s** — %s" % (p["status"], p["venue"] or p["text"][:60]))
+
+    # ------------------------------------------------ what actually needs doing
+    sys.stdout = out
+    todo, fyi = [], []
+    for u, d in buckets["dead"]:
+        todo.append("連結壞掉：`%s` — %s" % (u, d))
+    dead_urls = " ".join(u for u, _ in buckets["dead"])
+    for doi, note, title in drift:
+        if "not in CrossRef" in note:
+            if doi not in dead_urls:   # already reported as a broken link
+                fyi.append("`%s` 尚未在 CrossRef 註冊，等出版社登錄即可" % doi)
+        else:
+            todo.append("書目與 CrossRef 不一致：`%s` — %s" % (doi, note))
+    real_missing = [f for f in missing if not f["doi"].startswith("10.2139/ssrn.")]
+    for f in real_missing:
+        todo.append("登錄庫有、網站沒有：**%s**（%s）"
+                    % (f["title"][:70], f["doi"] or "無 DOI"))
+    if len(missing) - len(real_missing):
+        fyi.append("%d 筆 SSRN 預印本尚未連到網站上（想掛預印本連結才需要處理）"
+                   % (len(missing) - len(real_missing)))
+    blocked_n = len(buckets["unreachable"]) + len(buckets["blocked"])
+    if blocked_n:
+        fyi.append("%d 個連結無法自動驗證（對方擋機器人或逾時），瀏覽器通常開得起來" % blocked_n)
+
+    print("## 需要處理的事\n")
+    if todo:
+        for t in todo:
+            print("- %s" % t)
+    else:
+        print("沒有需要處理的事。")
+    if fyi:
+        print("\n參考，不必動作：\n")
+        for f in fyi:
+            print("- %s" % f)
+    print("\n> 投稿狀態（審查中／修改中／接受）沒有公開訊號可查，"
+          "只能由你手動更新。\n")
+    print("---\n")
+    print(buf.getvalue())
 
 
 if __name__ == "__main__":
